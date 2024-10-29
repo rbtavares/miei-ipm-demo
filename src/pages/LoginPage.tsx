@@ -3,8 +3,11 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import ShineBorder from '@/components/ui/shine-border'
+import { getPath } from '@/lib/utils'
+import { useNavigate } from "react-router-dom"
 
 export default function LoginPage() {
+  const navigate = useNavigate();
 
   return (
     <div className="bg-zinc-100 h-screen flex items-center justify-center">
@@ -24,7 +27,7 @@ export default function LoginPage() {
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='w-1/2'>Log In</Button>
+            <Button className='w-1/2' onClick={() => navigate(getPath('/home'))}>Log In</Button>
             <Button className='w-1/2' variant='ghost' >Forgot password?</Button>
           </div>
 
