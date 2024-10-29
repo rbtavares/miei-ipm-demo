@@ -39,6 +39,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Create 404.html for SPA routing
+        # Copy index.html to 404.html to handle React Router redirects on GitHub Pages
+        run: cp dist/index.html dist/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
