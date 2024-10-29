@@ -1,8 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --radius: 0.5rem
+  }
+}
+
+@layer components {
+  .card {
+    @apply shadow-lg border rounded-lg bg-white;
   }
 }
