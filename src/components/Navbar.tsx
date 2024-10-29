@@ -47,7 +47,7 @@ const Navbar = ({ routes }: INavbar) => {
                     </Breadcrumb>
                 </div>
 
-                <Avatar>
+                <Avatar onClick={() => navigate(getPath('/'))}>
                     <AvatarFallback>FS</AvatarFallback>
                 </Avatar>
             </div>
