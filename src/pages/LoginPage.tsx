@@ -13,7 +13,7 @@ export default function LoginPage() {
     <div className="bg-zinc-100 h-screen flex items-center justify-center">
 
       <ShineBorder
-        className="relative card w-[28rem] p-10"
+        className="relative card shadow-lg w-[28rem] p-10"
         color={["#55da34", "#009aad", "#3840ff"]}
       >
         <div className="flex flex-col items-start gap-10 w-full">
