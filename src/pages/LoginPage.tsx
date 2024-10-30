@@ -21,9 +21,9 @@ export default function LoginPage() {
 
           <div className='w-full'>
             <Label>Identifier</Label>
-            <Input placeholder='fmg.silva' className='mb-2' />
+            <Input placeholder='fmg.silva' type='email' className='mb-2' />
             <Label>Password</Label>
-            <Input placeholder='*********' />
+            <Input placeholder='*********' type='password' />
           </div>
 
           <div className='flex gap-5 w-full'>
