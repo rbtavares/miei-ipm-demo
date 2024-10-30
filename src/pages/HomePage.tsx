@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { getPath } from "@/lib/utils";
+import ProfileCard from "@/cards/ProfileCard";
 
 const breadcrumbRoutes = [
   { name: 'Home', dest: getPath('/home') },
@@ -12,7 +13,7 @@ const HomePage = () => {
       <div className="h-full w-full max-w-screen-2xl grid grid-cols-4 gap-5 p-5">
 
         <div className="flex flex-col gap-5">
-          <div className="card w-full h-1/3 min-h-48 max-h-60"></div>
+          <div className="card w-full h-1/3 min-h-48 max-h-60"><ProfileCard /></div>
           <div className="card w-full flex-1"></div>
         </div>
 
