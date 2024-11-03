@@ -1,4 +1,4 @@
-import LogoBlack from '@/assets/logo_black_big.svg'
+import Logo from '@/assets/logo_white_big.svg'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -10,36 +10,36 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-zinc-100 h-screen flex items-center justify-center">
+    <div className="bg-zinc-100 h-screen flex items-center justify-center bg-shapes4 bg-center bg-cover">
 
       <ShineBorder
-        className="relative card shadow-lg w-[28rem] p-10"
-        color={["#55da34", "#009aad", "#3840ff"]}
+        className="relative card shadow-lg w-[28rem] p-10 text-white"
+        color={["#ffffff", "#e0e0e0"]}
       >
         <div className="flex flex-col items-start gap-10 w-full">
-          <img src={LogoBlack} className='h-20' />
+          <img src={Logo} className='h-20' />
 
           <div className='w-full'>
             <Label>Identifier</Label>
-            <Input placeholder='fmg.silva' type='email' className='mb-2' />
+            <Input placeholder='fmg.silva' type='email' className='text-black mb-2' />
             <Label>Password</Label>
-            <Input placeholder='*********' type='password' />
+            <Input placeholder='*********' type='password' className='text-black' />
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='w-1/2' onClick={() => navigate(getPath('/home'))}>Log In</Button>
+            <Button className='w-1/2' variant='secondary' onClick={() => navigate(getPath('/home'))}>Log In</Button>
             <Button className='w-1/2' variant='ghost' >Forgot password?</Button>
           </div>
 
-          <div className='flex w-full items-center gap-2 text-zinc-400 font-light'>
-            <div className='h-[1px] bg-zinc-200 w-full' />
+          <div className='flex w-full items-center gap-2 text-white/50 font-light'>
+            <div className='h-[1px] bg-white/30 w-full' />
             or
-            <div className='h-[1px] bg-zinc-200 w-full' />
+            <div className='h-[1px] bg-white/30 w-full' />
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='w-1/2' variant='secondary'>Google SSO</Button>
-            <Button className='w-1/2' variant='secondary' >SAML Login</Button>
+            <Button className='w-1/2 bg-white/20' variant='outline'>Google SSO</Button>
+            <Button className='w-1/2 bg-white/20' variant='outline' >SAML Login</Button>
           </div>
         </div>
 

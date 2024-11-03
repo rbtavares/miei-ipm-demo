@@ -1,5 +1,5 @@
-import Logo from '@/assets/logo_white_small.svg';
 import AvatarImg from '@/assets/avatar.jpg';
+import Logo from '@/assets/logo_white_small.svg';
 import {
     Avatar,
     AvatarFallback,
@@ -28,8 +28,10 @@ const Navbar = ({ routes }: INavbar) => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full px-5 py-2 card rounded-none flex justify-center ">
+        <div className="w-full px-5 py-2 card max-w-screen-2xl rounded-b-xl rounded-none flex justify-center ">
             <div className='max-w-screen-2xl w-full flex justify-between items-center'>
+                
+
                 <div className='flex items-center gap-5'>
                     <img src={Logo} className='h-10' onClick={() => navigate(getPath('/home'))} />
 

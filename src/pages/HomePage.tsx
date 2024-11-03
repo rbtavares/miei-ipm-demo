@@ -10,14 +10,11 @@ const HomePage = () => {
   return (
     <div className="bg-zinc-100 h-screen w-full flex flex-col items-center bg-shapes4 bg-center bg-cover">
 
-      {/* Background Overlay */}
-      <div className="absolute w-full h-full bg-white bg-opacity-15" />
-
       {/* Navbar */}
       <Navbar routes={breadcrumbRoutes} />
 
       {/* Content */}
-      <div className="h-full w-full max-w-screen-2xl grid grid-cols-4 gap-5 py-3">
+      <div className="h-full w-full max-w-screen-2xl grid grid-cols-4 gap-5 py-5">
 
         {/* Left Pane */}
         <div className="flex flex-col gap-5">
