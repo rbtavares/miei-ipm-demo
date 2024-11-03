@@ -17,6 +17,26 @@
     0px 0px 26px rgba(0, 0, 0, 0.18);
 }
 
+/* width */
+.fscroll ::-webkit-scrollbar {
+  width: 9px;
+}
+
+/* Handle */
+.fscroll ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5); 
+  border-radius: 10px;
+  width: 50%;
+}
+
+/* Handle on hover */
+.fscroll ::-webkit-scrollbar-thumb:hover {
+  background: rgba(225, 225, 225, 0.5);
+}
+
+.fscroll:has(::-webkit-scrollbar-thumb) {
+  padding-right: 60px; /* Add space only when the scrollbar is present */
+}
 
 @layer components {
   .card {
