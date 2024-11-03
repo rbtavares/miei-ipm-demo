@@ -17,18 +17,18 @@ export default function LoginPage() {
         color={["#ffffff", "#e0e0e0"]}
       >
         <div className="flex flex-col items-start gap-10 w-full">
-          <img src={Logo} className='h-20' />
+          <img src={Logo} className='h-20 drop-shadow-md' />
 
           <div className='w-full'>
-            <Label>Identifier</Label>
-            <Input placeholder='fmg.silva' type='email' className='text-black mb-2' />
-            <Label>Password</Label>
-            <Input placeholder='*********' type='password' className='text-black' />
+            <Label className='drop-shadow-md'>Identifier</Label>
+            <Input placeholder='fmg.silva' type='email' className='text-black mb-2 drop-shadow-md' />
+            <Label className='drop-shadow-md'>Password</Label>
+            <Input placeholder='*********' type='password' className='text-black drop-shadow-md' />
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='w-1/2' variant='default' onClick={() => navigate(getPath('/home'))}>Log In</Button>
-            <Button className='w-1/2 text-white' variant='link' >Forgot password?</Button>
+            <Button className='drop-shadow-md w-1/2' variant='default' onClick={() => navigate(getPath('/home'))}>Log In</Button>
+            <Button className='drop-shadow-md w-1/2 text-white' variant='link' >Forgot password?</Button>
           </div>
 
           <div className='flex w-full items-center gap-2 text-white/50 font-light'>
@@ -38,8 +38,8 @@ export default function LoginPage() {
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='w-1/2 bg-white/20' variant='outline' onClick={() => navigate(getPath('/home'))}>Google SSO</Button>
-            <Button className='w-1/2 bg-white/20' variant='outline' onClick={() => navigate(getPath('/home'))}>SAML Login</Button>
+            <Button className='drop-shadow-md w-1/2 bg-white/20' variant='outline' onClick={() => navigate(getPath('/home'))}>Google SSO</Button>
+            <Button className='drop-shadow-md w-1/2 bg-white/20' variant='outline' onClick={() => navigate(getPath('/home'))}>SAML Login</Button>
           </div>
         </div>
 

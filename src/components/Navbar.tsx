@@ -33,17 +33,17 @@ const Navbar = ({ routes }: INavbar) => {
                 
 
                 <div className='flex items-center gap-5'>
-                    <img src={Logo} className='h-10' onClick={() => navigate(getPath('/home'))} />
+                    <img src={Logo} className='h-10 drop-shadow-md' onClick={() => navigate(getPath('/home'))} />
 
                     <Breadcrumb>
                         <BreadcrumbList>
                             {routes.map((route, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <BreadcrumbItem>
+                                        <BreadcrumbItem className='drop-shadow-md'>
                                             <BreadcrumbLink href={route.dest}>{route.name}</BreadcrumbLink>
                                         </BreadcrumbItem>
-                                        {index < routes.length - 1 && <BreadcrumbSeparator />}
+                                        {index < routes.length - 1 && <BreadcrumbSeparator className='drop-shadow-md' />}
                                     </React.Fragment>
                                 )
                             })}
@@ -51,7 +51,7 @@ const Navbar = ({ routes }: INavbar) => {
                     </Breadcrumb>
                 </div>
 
-                <Avatar onClick={() => navigate(getPath('/'))}>
+                <Avatar className='drop-shadow-md' onClick={() => navigate(getPath('/'))}>
                     <AvatarImage src={AvatarImg} alt="@shadcn" />
                     <AvatarFallback>FS</AvatarFallback>
                 </Avatar>
