@@ -11,9 +11,9 @@ const ProgressCard = () => {
 
                 {/* Progress */}
                 <div className="w-full text-white flex-1 flex items-center mt-6">
-                    <DonutProgress className='drop-shadow-md' thickness={15} progress={66} />
+                    <DonutProgress className='drop-shadow-md' thickness={15} progress={100} />
                     <div className="text-white flex flex-col flex-1 items-center justify-center gap-2">
-                        <h2 className="text-4xl font-medium drop-shadow-md">133/150</h2>
+                        <h2 className="text-4xl font-medium drop-shadow-md">150/150</h2>
                         <h4 className="font-light drop-shadow-md">Total ECTS</h4>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ const ProgressCard = () => {
                     </div>
                     <div className="flex-1 text-end">
                         <h5 className="drop-shadow-md">Avg. Grade</h5>
-                        <h2 className="text-5xl drop-shadow-md">16<span className="opacity-40">.97</span></h2>
+                        <h2 className="text-5xl drop-shadow-md">13<span className="opacity-40">.37</span></h2>
                     </div>
                 </div>
 

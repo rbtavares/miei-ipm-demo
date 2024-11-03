@@ -1,4 +1,5 @@
 import Avatar from '@/assets/avatar2.png';
+import { BorderBeam } from '@/components/ui/border-beam';
 
 const ProfileCard = () => {
 
@@ -23,6 +24,9 @@ const ProfileCard = () => {
           <h1 className='drop-shadow-md text-5xl font-medium tracking-tight'>Frederico Silva</h1>
           <h3 className='drop-shadow-md text-center opacity-50 italic text-sm'>{formattedDate}</h3>
       </div>
+
+      
+      <BorderBeam colorFrom="#ffffff" colorTo='#ffffff00' size={250} duration={12} delay={9} />
 
     </div>
   )

@@ -14,8 +14,8 @@ export default {
 		extend: {
 			fontSize: {
 				'4.5xl': ['2.5rem', {
-				  lineHeight: '2.7rem'
-				}],
+					lineHeight: '2.7rem'
+				}]
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -24,12 +24,13 @@ export default {
 			},
 			colors: {},
 			animation: {
-				shine: 'shine var(--duration) infinite linear'
+				shine: 'shine var(--duration) infinite linear',
+				'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
 			},
 			backgroundImage: {
-				"shapes": "url('/images/shapes.jpg')",
-				"shapes-low": "url('/images/shapes-low.jpg')",
-			},
+				'shapes': 'url("/images/shapes.jpg")',
+				'shapes-low': 'url("/images/shapes-low.jpg")'
+    		},
 			keyframes: {
 				'border-beam': {
 					'100%': {
