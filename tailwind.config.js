@@ -12,6 +12,11 @@ export default {
 			mono: ['Roboto Mono', 'monos']
 		},
 		extend: {
+			fontSize: {
+				'4.5xl': ['2.5rem', {
+				  lineHeight: '2.7rem'
+				}],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
