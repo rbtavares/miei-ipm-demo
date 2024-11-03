@@ -8,30 +8,35 @@ const breadcrumbRoutes = [
 
 const HomePage = () => {
   return (
-    <div className="bg-zinc-100 h-screen w-full flex flex-col items-center bg-shapes bg-center bg-cover">
+    <div className="h-screen w-full flex flex-col items-center bg-shapes bg-center bg-cover">
 
-      {/* Navbar */}
-      <Navbar routes={breadcrumbRoutes} />
+      <div className="max-w-screen-2xl flex flex-col gap-5 w-full h-full p-5 pt-0">
 
-      {/* Content */}
-      <div className="h-full w-full max-w-screen-2xl grid grid-cols-4 gap-5 py-5">
+        {/* Navbar */}
+        <Navbar routes={breadcrumbRoutes} />
 
-        {/* Left Pane */}
-        <div className="flex flex-col gap-5">
-          <ProfileCard />
-          <div className="card w-full flex-1"></div>
+        {/* Content */}
+        <div className="h-full w-full max-w-screen-2xl grid grid-cols-4 gap-5">
+
+          {/* Left Pane */}
+          <div className="flex flex-col gap-5">
+            <ProfileCard />
+            <div className="card w-full flex-1"></div>
+          </div>
+
+          {/* Center Pane */}
+          <div className="flex flex-col gap-5 col-span-2">
+            <div className="card w-full h-1/2"></div>
+            <div className="card w-full h-1/2"></div>
+          </div>
+
+          {/* Right Pane */}
+          <div className="card"></div>
+
         </div>
-
-        {/* Center Pane */}
-        <div className="flex flex-col gap-5 col-span-2">
-          <div className="card w-full h-1/2"></div>
-          <div className="card w-full h-1/2"></div>
-        </div>
-
-        {/* Right Pane */}
-        <div className="card"></div>
 
       </div>
+
     </div>
   )
 }

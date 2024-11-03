@@ -27,8 +27,8 @@ export default function LoginPage() {
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='w-1/2' variant='secondary' onClick={() => navigate(getPath('/home'))}>Log In</Button>
-            <Button className='w-1/2' variant='ghost' >Forgot password?</Button>
+            <Button className='w-1/2' variant='default' onClick={() => navigate(getPath('/home'))}>Log In</Button>
+            <Button className='w-1/2 text-white' variant='link' >Forgot password?</Button>
           </div>
 
           <div className='flex w-full items-center gap-2 text-white/50 font-light'>
@@ -38,8 +38,8 @@ export default function LoginPage() {
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='w-1/2 bg-white/20' variant='outline'>Google SSO</Button>
-            <Button className='w-1/2 bg-white/20' variant='outline' >SAML Login</Button>
+            <Button className='w-1/2 bg-white/20' variant='outline' onClick={() => navigate(getPath('/home'))}>Google SSO</Button>
+            <Button className='w-1/2 bg-white/20' variant='outline' onClick={() => navigate(getPath('/home'))}>SAML Login</Button>
           </div>
         </div>
 
