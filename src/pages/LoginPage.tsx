@@ -21,7 +21,7 @@ export default function LoginPage() {
 
           <div className='w-full'>
             <Label className='drop-shadow-md'>Identifier</Label>
-            <Input placeholder='fmg.silva' type='email' className='text-black mb-2 drop-shadow-md' />
+            <Input placeholder='t.scott' type='email' className='text-black mb-2 drop-shadow-md' />
             <Label className='drop-shadow-md'>Password</Label>
             <Input placeholder='*********' type='password' className='text-black drop-shadow-md' />
           </div>

@@ -3,6 +3,7 @@ import { getPath } from "@/lib/utils";
 import ProfileCard from "@/cards/ProfileCard";
 import ProgressCard from "@/cards/ProgressCard";
 import CoursesCard from "@/cards/CoursesCard";
+import NotificationsCard from "@/cards/NotificationsCard";
 
 const breadcrumbRoutes = [
   { name: 'Home', dest: getPath('/home') },
@@ -33,7 +34,7 @@ const HomePage = () => {
           </div>
 
           {/* Right Pane */}
-          <div className="card"></div>
+          <NotificationsCard />
 
         </div>
 
