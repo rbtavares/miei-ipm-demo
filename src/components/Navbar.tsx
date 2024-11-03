@@ -1,7 +1,9 @@
-import LogoBlack from '@/assets/logo_black_small.svg';
+import Logo from '@/assets/logo_white_small.svg';
+import AvatarImg from '@/assets/avatar.jpg';
 import {
     Avatar,
-    AvatarFallback
+    AvatarFallback,
+    AvatarImage
 } from "@/components/ui/avatar";
 import {
     Breadcrumb,
@@ -26,10 +28,10 @@ const Navbar = ({ routes }: INavbar) => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full px-5 py-2 border card border-none rounded-none flex justify-center">
+        <div className="w-full px-5 py-2 card rounded-none flex justify-center ">
             <div className='max-w-screen-2xl w-full flex justify-between items-center'>
                 <div className='flex items-center gap-5'>
-                    <img src={LogoBlack} className='h-10' onClick={() => navigate(getPath('/home'))} />
+                    <img src={Logo} className='h-10' onClick={() => navigate(getPath('/home'))} />
 
                     <Breadcrumb>
                         <BreadcrumbList>
@@ -48,6 +50,7 @@ const Navbar = ({ routes }: INavbar) => {
                 </div>
 
                 <Avatar onClick={() => navigate(getPath('/'))}>
+                    <AvatarImage src={AvatarImg} alt="@shadcn" />
                     <AvatarFallback>FS</AvatarFallback>
                 </Avatar>
             </div>

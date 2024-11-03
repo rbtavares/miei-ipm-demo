@@ -4,22 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
-.shadow-smp {
-  box-shadow:
-  0px 0px 1.7px rgba(0, 0, 0, 0.046),
-  0px 0px 5.8px rgba(0, 0, 0, 0.024),
-  0px 0px 26px rgba(0, 0, 0, 0.18)
-;
-}
-
 @layer base {
   :root {
     --radius: 0.5rem
   }
 }
 
+.shadow-smp {
+  box-shadow:
+    0px 0px 1.7px rgba(0, 0, 0, 0.046),
+    0px 0px 5.8px rgba(0, 0, 0, 0.024),
+    0px 0px 26px rgba(0, 0, 0, 0.18);
+}
+
+
 @layer components {
   .card {
-    @apply shadow-smp border rounded-lg bg-white;
+    @apply rounded-xl bg-white/30 shadow-lg ring-1 ring-black/5 backdrop-blur-2xl;
   }
+}
+
+.mesh {
+  background-color: #99ffa8;
+  background-image:
+    radial-gradient(at 9% 61%, hsla(194, 63%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 5% 68%, hsla(298, 79%, 76%, 1) 0px, transparent 50%),
+    radial-gradient(at 99% 76%, hsla(220, 92%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 34% 91%, hsla(226, 78%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 1% 29%, hsla(261, 85%, 69%, 1) 0px, transparent 50%),
+    radial-gradient(at 41% 2%, hsla(171, 64%, 64%, 1) 0px, transparent 50%),
+    radial-gradient(at 56% 68%, hsla(26, 63%, 72%, 1) 0px, transparent 50%);
 }

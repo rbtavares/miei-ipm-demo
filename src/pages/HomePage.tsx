@@ -8,20 +8,30 @@ const breadcrumbRoutes = [
 
 const HomePage = () => {
   return (
-    <div className="bg-zinc-100 h-screen w-full flex flex-col items-center bg-macos3 bg-center bg-cover">
-      <Navbar routes={breadcrumbRoutes} />
-      <div className="h-full w-full max-w-screen-2xl grid grid-cols-4 gap-5 p-5">
+    <div className="bg-zinc-100 h-screen w-full flex flex-col items-center bg-shapes4 bg-center bg-cover">
 
+      {/* Background Overlay */}
+      <div className="absolute w-full h-full bg-white bg-opacity-15" />
+
+      {/* Navbar */}
+      <Navbar routes={breadcrumbRoutes} />
+
+      {/* Content */}
+      <div className="h-full w-full max-w-screen-2xl grid grid-cols-4 gap-5 py-3">
+
+        {/* Left Pane */}
         <div className="flex flex-col gap-5">
-          <div className="card w-full h-52"><ProfileCard /></div>
+          <ProfileCard />
           <div className="card w-full flex-1"></div>
         </div>
 
+        {/* Center Pane */}
         <div className="flex flex-col gap-5 col-span-2">
           <div className="card w-full h-1/2"></div>
           <div className="card w-full h-1/2"></div>
         </div>
 
+        {/* Right Pane */}
         <div className="card"></div>
 
       </div>

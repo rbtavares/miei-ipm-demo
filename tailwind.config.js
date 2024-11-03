@@ -26,6 +26,10 @@ export default {
 				'macos': "url('/images/macos.jpg')",
 				'macos2': "url('/images/macos2.jpg')",
 				'macos3': "url('/images/macos3.jpg')",
+				'shapes': "url('/images/shapes.jpg')",
+				'shapes2': "url('/images/shapes2.jpg')",
+				'shapes3': "url('/images/shapes3.jpg')",
+				'shapes4': "url('/images/shapes4.jpg')",
 			},
 			keyframes: {
 				'border-beam': {
