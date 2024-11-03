@@ -7,7 +7,7 @@ const ProgressCard = () => {
             <h1 className="text-3xl font-medium text-white drop-shadow-md">Summary</h1>
 
             {/* Content */}
-            <div className="flex-1 flex flex-col gap-3 p-4">
+            <div className="flex-1 flex flex-col gap-3 p-3">
 
                 {/* Progress */}
                 <div className="w-full text-white flex-1 flex items-center mt-6">
@@ -28,11 +28,11 @@ const ProgressCard = () => {
                 <div className="w-full text-white flex-1 flex items-center">
                     <div>
                         <h5 className="drop-shadow-md">Status</h5>
-                        <h2 className="text-5xl drop-shadow-md">Regular</h2>
+                        <h2 className="text-4.5xl drop-shadow-md">Regular</h2>
                     </div>
                     <div className="flex-1 text-end">
                         <h5 className="drop-shadow-md">Avg. Grade</h5>
-                        <h2 className="text-5xl drop-shadow-md">13<span className="opacity-40">.37</span></h2>
+                        <h2 className="text-4.5xl drop-shadow-md">13<span className="opacity-40">.37</span></h2>
                     </div>
                 </div>
 
