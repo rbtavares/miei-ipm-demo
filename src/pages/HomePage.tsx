@@ -8,7 +8,7 @@ const breadcrumbRoutes = [
 
 const HomePage = () => {
   return (
-    <div className="bg-zinc-100 h-screen w-full flex flex-col items-center bg-shapes4 bg-center bg-cover">
+    <div className="bg-zinc-100 h-screen w-full flex flex-col items-center bg-shapes bg-center bg-cover">
 
       {/* Navbar */}
       <Navbar routes={breadcrumbRoutes} />
