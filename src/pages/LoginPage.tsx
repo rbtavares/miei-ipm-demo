@@ -10,7 +10,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-zinc-100 h-screen flex items-center justify-center bg-shapes bg-center bg-cover">
+    <div className="h-screen flex items-center justify-center bg-[#010D10] bg-shapes-low bg-center bg-cover">
 
       <ShineBorder
         className="relative card shadow-lg w-[28rem] p-10 text-white"

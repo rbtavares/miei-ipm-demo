@@ -6,7 +6,7 @@ const ProfileCard = () => {
   const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
-    <div className='flex w-full h-52 p-4 gap-4 card text-white'>
+    <div className='flex w-full h-48 p-4 gap-4 card text-white'>
 
       {/* Image & Identifiers */}
       <div className='h-full flex flex-col items-center justify-between'>
@@ -19,7 +19,7 @@ const ProfileCard = () => {
 
       {/* Name & Greeting */}
       <div className='flex flex-col flex-1 h-full gap-2 justify-between'>
-          <h3>Good morning,</h3>
+          <h3>Good {date.getHours() > 5 ? date.getHours() > 12 ? <>afternoon</> : <>morning</>: <>evening</>},</h3>
           <h1 className='text-5xl font-medium'>Frederico Silva</h1>
           <h3 className='text-center opacity-50 italic text-sm'>{formattedDate}</h3>
       </div>

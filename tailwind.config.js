@@ -22,7 +22,8 @@ export default {
 				shine: 'shine var(--duration) infinite linear'
 			},
 			backgroundImage: {
-				shapes: "url('/images/shapes.jpg')"
+				"shapes": "url('/images/shapes.jpg')",
+				"shapes-low": "url('/images/shapes-low.jpg')",
 			},
 			keyframes: {
 				'border-beam': {
