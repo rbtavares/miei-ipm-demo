@@ -40,7 +40,7 @@
 
 @layer components {
   .card {
-    @apply rounded-xl bg-white/30 shadow-lg ring-1 ring-black/5 backdrop-blur-2xl;
+    @apply rounded-xl bg-zinc-500/30 shadow-lg ring-1 ring-black/5 backdrop-blur-3xl;
   }
 }
 

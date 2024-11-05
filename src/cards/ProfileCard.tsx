@@ -28,8 +28,7 @@ const ProfileCard = () => {
       </div>
 
 
-      <BorderBeam colorFrom="#ffffff" colorTo='#ffffff00' size={250} duration={12} delay={9} />
-
+      <BorderBeam colorFrom="#ffffff" colorTo='#ffffff00' size={225} duration={12} />
     </div>
   )
 }
