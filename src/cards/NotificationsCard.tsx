@@ -30,15 +30,6 @@ const NotificationsCard = () => {
       <NotificationCard title="Test" description="abcdef" time={new Date()} />
       <NotificationCard title="Test" description="abcdef" time={new Date()} />
       <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
       </div>
 
     </div>
