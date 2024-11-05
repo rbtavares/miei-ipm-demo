@@ -5,9 +5,20 @@ import { Label } from '@/components/ui/label'
 import ShineBorder from '@/components/ui/shine-border'
 import { getPath } from '@/lib/utils'
 import { useNavigate } from "react-router-dom"
+import { useState } from 'react'
+import { Loader } from 'lucide-react'
 
 export default function LoginPage() {
   const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navitageToHome = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      navigate(getPath('/home'));
+    }, 1000);
+  }
 
   return (
     <div className="h-screen flex items-center justify-center bg-[#010D10] bg-shapes2 bg-center bg-cover">
@@ -27,7 +38,7 @@ export default function LoginPage() {
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='drop-shadow-md w-1/2' variant='default' onClick={() => navigate(getPath('/home'))}>Log In</Button>
+            <Button className='drop-shadow-md w-1/2' variant="default" disabled={isLoading} onClick={() => navitageToHome()}>{isLoading && <Loader  className='animate-spin'/>} {isLoading ? <>Logging in...</> : <>Log In</>}</Button>
             <Button className='drop-shadow-md w-1/2 text-white' variant='link' >Forgot password?</Button>
           </div>
 
@@ -38,8 +49,8 @@ export default function LoginPage() {
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='drop-shadow-md w-1/2 bg-white/20' variant='outline' onClick={() => navigate(getPath('/home'))}>Google SSO</Button>
-            <Button className='drop-shadow-md w-1/2 bg-white/20' variant='outline' onClick={() => navigate(getPath('/home'))}>SAML Login</Button>
+            <Button className='drop-shadow-md w-1/2 bg-white/20' variant='outline'>Google SSO</Button>
+            <Button className='drop-shadow-md w-1/2 bg-white/20' variant='outline'>SAML Login</Button>
           </div>
         </div>
 
