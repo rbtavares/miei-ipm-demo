@@ -9,6 +9,7 @@ import { getPath } from './lib/utils.ts';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ProfilePage from './pages/ProfilePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: getPath('/home'),
     element: <HomePage />,
+  },
+  {
+    path: getPath('/home/profile'),
+    element: <ProfilePage />
   },
   {
     path: '*',
