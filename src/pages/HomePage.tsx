@@ -24,7 +24,7 @@ const HomePage = () => {
           {/* Left Pane */}
           <div className="flex flex-col gap-5">
             <ProfileCard />
-            <ProgressCard />
+            <ProgressCard progress = {66} />
           </div>
 
           {/* Center Pane */}

@@ -1,6 +1,12 @@
 import DonutProgress from "@/components/DonutProgress";
 
-const ProgressCard = () => {
+
+interface IProgress {
+    progress: number
+}
+const ProgressCard = ({ progress }: IProgress) => {
+
+    const prog = (progress * 100) / 150
 
     return (
         <div className="card w-full flex-1 p-4 flex flex-col">
@@ -11,9 +17,9 @@ const ProgressCard = () => {
 
                 {/* Progress */}
                 <div className="w-full text-white flex-1 flex items-center mt-6">
-                    <DonutProgress className='drop-shadow-md' thickness={15} progress={66} />
+                    <DonutProgress className='drop-shadow-md' thickness={15} progress={prog} />
                     <div className="text-white flex flex-col flex-1 items-center justify-center gap-2">
-                        <h2 className="text-4xl font-medium drop-shadow-md">99/150</h2>
+                        <h2 className="text-4xl font-medium drop-shadow-md">{progress}/150</h2>
                         <h4 className="font-light drop-shadow-md">Total ECTS</h4>
                     </div>
                 </div>
