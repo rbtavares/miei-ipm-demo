@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { getPath } from "@/lib/utils";
+import { useNavigate } from "react-router-dom"
 import NotificationsCard from "@/cards/NotificationsCard";
 import ProfileInfoCard from "@/cards/ProfileInfoCard";
 import PaymentCard from "@/cards/PaymentCard";
@@ -7,7 +8,7 @@ import DocumentsCard from "@/cards/DocumentsCard";
 
 const breadcrumbRoutes = [
     { name: 'Home', dest: getPath('/home') },
-    { name: 'Profile', dest: getPath('/home/profile') },
+    { name: 'Profile', dest: getPath('/profile') },
 ]
 
 const ProfilePage = () => {

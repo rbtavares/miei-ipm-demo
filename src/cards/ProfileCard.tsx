@@ -1,13 +1,16 @@
 import Avatar from '@/assets/avatar2.png';
 import { BorderBeam } from '@/components/ui/border-beam';
+import { getPath } from "@/lib/utils";
+import { useNavigate } from "react-router-dom"
 
 const ProfileCard = () => {
 
   const date = new Date();
   const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const navigate = useNavigate();
 
   return (
-    <div className='flex w-full h-36 2xl:h-52 p-3 2xl:p-4 gap-4 card text-white'>
+    <div className='cursor-pointer flex w-full h-36 2xl:h-52 p-3 2xl:p-4 gap-4 card text-white' onClick={() => navigate(getPath('/profile'))}>
 
       {/* Image & Identifiers */}
       <div className='h-full flex flex-col items-center justify-between gap-1'>

@@ -51,7 +51,7 @@ const Navbar = ({ routes }: INavbar) => {
                     </Breadcrumb>
                 </div>
 
-                <Avatar className='drop-shadow-md max-xl:size-8 size-10' onClick={() => navigate(getPath('/'))}>
+                <Avatar className='cursor-pointer drop-shadow-md max-xl:size-8 size-10' onClick={() => navigate(getPath('/profile'))}>
                     <AvatarImage src={AvatarImg} alt="@shadcn" />
                     <AvatarFallback>FS</AvatarFallback>
                 </Avatar>
