@@ -11,7 +11,7 @@ const breadcrumbRoutes = [
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center bg-[#010D10] bg-shapes-low bg-center bg-cover bg-fixed">
+    <div className="min-h-screen w-full flex flex-col items-center bg-[#010D10] bg-shapes2 bg-center bg-cover bg-fixed">
       
       <div className="max-w-screen-2xl flex flex-col gap-5 w-full flex-1 p-5 pt-0">
         
