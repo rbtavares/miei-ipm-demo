@@ -7,9 +7,13 @@ import { getPath } from '@/lib/utils'
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import { Loader } from 'lucide-react'
+import { useBackground } from '@/hooks/useBackground'
 
 export default function LoginPage() {
   const navigate = useNavigate();
+
+  const { backgroundClass } = useBackground();
+
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,7 +25,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="h-screen flex items-center justify-center bg-[#010D10] bg-shapes2 bg-center bg-cover">
+    <div className={`h-screen flex items-center justify-center bg-[#010D10] ${backgroundClass} bg-center bg-cover`}>
 
       <ShineBorder
         className="relative card shadow-lg w-[28rem] p-10 text-white m-4"
@@ -38,7 +42,7 @@ export default function LoginPage() {
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='drop-shadow-md w-1/2' variant="default" disabled={isLoading} onClick={() => navitageToHome()}>{isLoading && <Loader  className='animate-spin'/>} {isLoading ? <>Logging in...</> : <>Log In</>}</Button>
+            <Button className='drop-shadow-md w-1/2' variant="default" disabled={isLoading} onClick={() => navitageToHome()}>{isLoading && <Loader className='animate-spin' />} {isLoading ? <>Logging in...</> : <>Log In</>}</Button>
             <Button className='drop-shadow-md w-1/2 text-white' variant='link' >Forgot password?</Button>
           </div>
 

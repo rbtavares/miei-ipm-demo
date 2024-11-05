@@ -1,4 +1,4 @@
-import AvatarImg from '@/assets/avatar2.png';
+import AvatarImg from '@/assets/avatar.png';
 import Logo from '@/assets/logo_white_small.svg';
 import {
     Avatar,

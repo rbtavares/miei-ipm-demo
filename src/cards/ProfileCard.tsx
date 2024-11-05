@@ -1,4 +1,4 @@
-import Avatar from '@/assets/avatar2.png';
+import Avatar from '@/assets/avatar.png';
 import { BorderBeam } from '@/components/ui/border-beam';
 import { getPath } from "@/lib/utils";
 import { useNavigate } from "react-router-dom"
