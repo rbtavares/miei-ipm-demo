@@ -1,10 +1,9 @@
+import DocumentsCard from "@/cards/DocumentsCard";
+import NotificationsCard from "@/cards/NotificationsCard";
+import PaymentCard from "@/cards/PaymentCard";
+import ProfileInfoCard from "@/cards/ProfileInfoCard";
 import Navbar from "@/components/Navbar";
 import { getPath } from "@/lib/utils";
-import { useNavigate } from "react-router-dom"
-import NotificationsCard from "@/cards/NotificationsCard";
-import ProfileInfoCard from "@/cards/ProfileInfoCard";
-import PaymentCard from "@/cards/PaymentCard";
-import DocumentsCard from "@/cards/DocumentsCard";
 
 const breadcrumbRoutes = [
     { name: 'Home', dest: getPath('/home') },
