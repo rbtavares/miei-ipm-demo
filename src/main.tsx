@@ -1,15 +1,16 @@
+import '@/index.css';
+import { getPath } from '@/lib/utils.ts';
+import HomePage from '@/pages/HomePage';
+import LoginPage from '@/pages/LoginPage';
+import NotFoundPage from '@/pages/NotFoundPage';
+import ProfilePage from '@/pages/ProfilePage';
+import SchedulePage from '@/pages/SchedulePage';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import './index.css';
-import { getPath } from './lib/utils.ts';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import NotFoundPage from './pages/NotFoundPage';
-import ProfilePage from './pages/ProfilePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: getPath('/profile'),
     element: <ProfilePage />
+  },
+  {
+    path: getPath('/schedule'),
+    element: <SchedulePage />
   },
   {
     path: '*',

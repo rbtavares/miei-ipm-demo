@@ -6,7 +6,7 @@ interface ICourseCard {
 
 const CourseCard = ({ name, abbrev, description }: ICourseCard) => {
     return (
-        <div className="bg-white/30 py-2 px-3 rounded-lg shadow-sm flex mr-2">
+        <div className="bg-white/20 py-2 px-3 rounded-lg shadow-sm flex mr-2">
             <div className="flex flex-col gap-2 flex-1">
                 <div>
                     <h1 className="text-xl font-medium">{name}</h1>
@@ -24,7 +24,7 @@ const CourseCard = ({ name, abbrev, description }: ICourseCard) => {
 const CoursesCard = () => {
     return (
         <div className="card w-full flex-1 p-4 flex flex-col gap-4 h-1/2 fscroll">
-            <h1 className="text-3xl font-medium text-white drop-shadow-md">Courses</h1>
+            <h1 className="header">Courses</h1>
 
             {/* Content */}
             <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto max-h-[50vh]">
