@@ -13,7 +13,7 @@ export default function LoginPage() {
     <div className="h-screen flex items-center justify-center bg-[#010D10] bg-shapes-low bg-center bg-cover">
 
       <ShineBorder
-        className="relative card shadow-lg w-[28rem] p-10 text-white"
+        className="relative card shadow-lg w-[28rem] p-10 text-white m-4"
         color={["#ffffff", "#e0e0e0"]}
       >
         <div className="flex flex-col items-start gap-10 w-full">
