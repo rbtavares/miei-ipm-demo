@@ -1,12 +1,10 @@
-import CoursesCard from "@/cards/CoursesCard";
-import NotificationsCard from "@/cards/NotificationsCard";
-import ProfileCard from "@/cards/ProfileCard";
-import ProgressCard from "@/cards/ProgressCard";
 import Navbar from "@/components/Navbar";
 import { getPath } from "@/lib/utils";
 import { useBackground } from "@/hooks/useBackground";
-import UpcomingsCard from "@/cards/UpcomingCard";
 import CourseInfoCard from "@/cards/CourseInfoCard";
+import UpcomingEventsCard from "@/cards/UpcomingEventsCard";
+import MaterialsCard from "@/cards/MaterialsCard";
+import ForumCard from "@/cards/ForumCard";
 
 const breadcrumbRoutes = [
   { name: 'Course', dest: getPath('/course') },
@@ -24,13 +22,21 @@ const CoursePage = () => {
         
         {/* Content */}
         <div className="flex-1 w-full max-w-screen-2xl grid grid-cols-4 gap-2 2xl:gap-5">
-            <div className="col-span-3 h-1/3">
-                <CourseInfoCard />
+
+            <div className="flex flex-col gap-2 2xl:gap-5 col-span-3">
+                <div className="h-2/6">
+                  <CourseInfoCard/>
+                </div>
+                <div className="w-full flex-1 flex gap-5">
+                    <div className="flex w-1/3 h-full"><MaterialsCard/></div>
+                    <ForumCard />
+                  </div>
             </div>
 
-            <div className="col-span-1 h-full bg-green-500"></div>
-            <div className="col-span-1 h-2/3 bg-blue-500"></div>
-            <div className="col-span-2 h-2/3 bg-red-300"></div>
+            <div className="flex flex-col gap-2 2xl:gap-5 col-span-1">
+              <UpcomingEventsCard/>
+              <UpcomingEventsCard/>
+            </div>
         </div>
     </div>
 </div>
