@@ -29,7 +29,8 @@ export default {
 			},
 			backgroundImage: {
 				'shapes': 'url("/images/shapes.jpg")',
-				'shapes-low': 'url("/images/shapes-low.jpg")'
+				'shapes-low': 'url("/images/shapes-low.jpg")',
+				'shapes2': 'url("/images/shapes2.jpg")'
     		},
 			keyframes: {
 				'border-beam': {

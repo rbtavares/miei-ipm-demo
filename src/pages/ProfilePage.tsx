@@ -1,10 +1,10 @@
-import Navbar from "@/components/Navbar";
-import { getPath } from "@/lib/utils";
-import { useNavigate } from "react-router-dom"
-import NotificationsCard from "@/cards/NotificationsCard";
-import ProfileInfoCard from "@/cards/ProfileInfoCard";
-import PaymentCard from "@/cards/PaymentCard";
 import DocumentsCard from "@/cards/DocumentsCard";
+import NotificationsCard from "@/cards/NotificationsCard";
+import PaymentCard from "@/cards/PaymentCard";
+import ProfileInfoCard from "@/cards/ProfileInfoCard";
+import Navbar from "@/components/Navbar";
+import { useBackground } from "@/hooks/useBackground";
+import { getPath } from "@/lib/utils";
 
 const breadcrumbRoutes = [
     { name: 'Home', dest: getPath('/home') },
@@ -12,8 +12,11 @@ const breadcrumbRoutes = [
 ]
 
 const ProfilePage = () => {
+
+    const { backgroundClass } = useBackground();
+
     return (
-        <div className="h-screen w-full flex flex-col items-center bg-[#010D10] bg-shapes-low bg-center bg-cover">
+        <div className={`h-screen w-full flex flex-col items-center bg-[#010D10] ${backgroundClass} bg-center bg-cover`}>
 
             <div className="max-w-screen-2xl flex flex-col gap-5 w-full h-full p-5 pt-0">
 
@@ -39,7 +42,7 @@ const ProfilePage = () => {
                         </div>
                         
                     </div>
-                
+
 
                     {/* Right Pane */}
                     <NotificationsCard />

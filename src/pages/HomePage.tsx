@@ -1,36 +1,40 @@
-import Navbar from "@/components/Navbar";
-import { getPath } from "@/lib/utils";
-import { useNavigate } from "react-router-dom"
-import ProfileCard from "@/cards/ProfileCard";
-import ProgressCard from "@/cards/ProgressCard";
 import CoursesCard from "@/cards/CoursesCard";
 import NotificationsCard from "@/cards/NotificationsCard";
+import ProfileCard from "@/cards/ProfileCard";
+import ProgressCard from "@/cards/ProgressCard";
+import Navbar from "@/components/Navbar";
+import { getPath } from "@/lib/utils";
+import { useBackground } from "@/hooks/useBackground";
+import { useNavigate } from "react-router-dom";
 
 const breadcrumbRoutes = [
   { name: 'Home', dest: getPath('/home') },
 ]
 
 const HomePage = () => {
+  const { backgroundClass } = useBackground();
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen w-full flex flex-col items-center bg-[#010D10] bg-shapes-low bg-center bg-cover bg-fixed">
+    <div className={`min-h-screen w-full flex flex-col items-center bg-[#010D10] ${backgroundClass} bg-center bg-cover bg-fixed`}>
       
-      <div className="max-w-screen-2xl flex flex-col gap-5 w-full flex-1 p-5 pt-0">
+      <div className="max-w-screen-2xl flex flex-col gap-2 2xl:gap-5 w-full flex-1 pt-0 p-2 2xl:pt-0 2xl:p-5">
         
         {/* Navbar */}
         <Navbar routes={breadcrumbRoutes} />
         
         {/* Content */}
-        <div className="flex-1 w-full max-w-screen-2xl grid grid-cols-4 gap-5">
+        <div className="flex-1 w-full max-w-screen-2xl grid grid-cols-4 gap-2 2xl:gap-5">
           
           {/* Left Pane */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-2 2xl:gap-5">
             <ProfileCard />
             <ProgressCard progress={66} />
           </div>
           
           {/* Center Pane */}
-          <div className="flex flex-col gap-5 col-span-2">
-            <div className="card w-full flex-1"></div>
+          <div className="flex flex-col gap-2 2xl:gap-5 col-span-2">
+            <div className="card w-full flex-1" onClick={() => navigate(getPath('/schedule'))}></div>
             <CoursesCard />
           </div>
           

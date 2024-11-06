@@ -1,10 +1,9 @@
-import Avatar from '@/assets/avatar2.png';
-import { BorderBeam } from '@/components/ui/border-beam';
+import Avatar from '@/assets/avatar.png';
 
 const ProfileInfoCard = () => {
 
     return (
-        <div className='flex flex-col h-full w-full h-52 p-4 gap-4 card text-white items-center justify-between'>
+        <div className='flex flex-col h-full w-full p-4 gap-4 card text-white items-center justify-between'>
 
             {/* Image & Identifiers */}
             <div className='h-1/4 flex flex-col items-center justify-center'>
