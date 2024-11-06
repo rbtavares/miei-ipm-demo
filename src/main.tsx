@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProfilePage from './pages/ProfilePage.tsx';
+import CoursePage from './pages/CoursePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: getPath('/profile'),
     element: <ProfilePage />
+  },
+  {
+    path: getPath('/course'),
+    element: <CoursePage />
   },
   {
     path: '*',
