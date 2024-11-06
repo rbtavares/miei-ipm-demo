@@ -10,7 +10,7 @@ const ProgressCard = ({ progress }: IProgress) => {
 
     return (
         <div className="card w-full flex-1 p-3 2xl:p-4 flex flex-col">
-            <h1 className="text-3xl font-medium text-white drop-shadow-md">Summary</h1>
+            <h1 className="header">Summary</h1>
 
             {/* Content */}
             <div className="flex-1 flex flex-col gap-3 px-3 py-2">

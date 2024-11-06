@@ -1,16 +1,17 @@
+import '@/index.css';
+import { getPath } from '@/lib/utils.ts';
+import HomePage from '@/pages/HomePage';
+import LoginPage from '@/pages/LoginPage';
+import NotFoundPage from '@/pages/NotFoundPage';
+import ProfilePage from '@/pages/ProfilePage';
+import CoursePage from './pages/CoursePage.tsx';
+import SchedulePage from '@/pages/SchedulePage';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import './index.css';
-import { getPath } from './lib/utils.ts';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import NotFoundPage from './pages/NotFoundPage';
-import ProfilePage from './pages/ProfilePage.tsx';
-import CoursePage from './pages/CoursePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: getPath('/course'),
     element: <CoursePage />
+  },
+  {
+    path: getPath('/schedule'),
+    element: <SchedulePage />
   },
   {
     path: '*',
