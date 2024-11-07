@@ -5,8 +5,10 @@ import CourseInfoCard from "@/cards/CourseInfoCard";
 import UpcomingEventsCard from "@/cards/UpcomingEventsCard";
 import MaterialsCard from "@/cards/MaterialsCard";
 import ForumCard from "@/cards/ForumCard";
+import NotificationsCard from "@/cards/NotificationsCard";
 
 const breadcrumbRoutes = [
+  { name: 'Home', dest: getPath('/home') },
   { name: 'Course', dest: getPath('/course') },
 ]
 
@@ -24,18 +26,19 @@ const CoursePage = () => {
         <div className="flex-1 w-full max-w-screen-2xl grid grid-cols-4 gap-2 2xl:gap-5">
 
             <div className="flex flex-col gap-2 2xl:gap-5 col-span-3">
-                <div className="h-2/6">
+                <div className="h-1/3">
                   <CourseInfoCard/>
                 </div>
                 <div className="w-full flex-1 flex gap-5">
-                    <div className="flex w-1/3 h-full"><MaterialsCard/></div>
+                    <div className="flex w-2/5 h-full"><MaterialsCard/></div>
                     <ForumCard />
                   </div>
             </div>
 
             <div className="flex flex-col gap-2 2xl:gap-5 col-span-1">
               <UpcomingEventsCard/>
-              <UpcomingEventsCard/>
+              <div className="max-h-[414px]"><NotificationsCard/></div>
+              
             </div>
         </div>
     </div>

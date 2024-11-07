@@ -10,10 +10,10 @@ interface ICourseCard {
 
 const CourseCard = ({ name, abbrev, description, onClick }: ICourseCard) => {
     return (
-        <div className="bg-white/20 py-2 px-3 rounded-lg shadow-sm flex mr-2">
+        <div className="cursor-pointer bg-white/20 py-2 px-3 rounded-lg shadow-sm flex mr-2" onClick={onClick}>
             <div className="flex flex-col gap-2 flex-1">
                 <div>
-                    <h1 className="cursor-pointer text-xl font-medium" onClick={onClick}>{name}</h1>
+                    <h1 className=" text-xl font-medium">{name}</h1>
                     <h3 className="text-xs opacity-70 italic">{abbrev}</h3>
                 </div>
                 <p className="text-sm">{description}</p>
