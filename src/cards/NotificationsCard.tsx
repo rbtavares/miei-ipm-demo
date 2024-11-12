@@ -7,7 +7,7 @@ interface INotificationCard {
 const NotificationCard = ({ title, description, time }: INotificationCard) => {
   console.log(time)
   return (
-    <div className="bg-white/20 py-2 px-3 rounded-lg shadow-sm flex mr-2">
+    <div className="bg-white/20 py-2 px-3 rounded-lg shadow-sm flex">
       <div className="flex flex-col gap-2 flex-1">
         <div>
           <h1 className="text-lg font-medium w-full flex items-center justify-between">{title}<span className="text-xs opacity-50">2h ago</span></h1>
