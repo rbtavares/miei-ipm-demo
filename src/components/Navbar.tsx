@@ -15,6 +15,8 @@ import {
 import { getPath } from '@/lib/utils';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import SettingsDialog from './SettingsDialog';
+
 
 interface route {
     name: string,
@@ -24,6 +26,7 @@ interface route {
 interface INavbar {
     routes: route[]
 }
+
 const Navbar = ({ routes }: INavbar) => {
     const navigate = useNavigate();
 
@@ -51,10 +54,13 @@ const Navbar = ({ routes }: INavbar) => {
                     </Breadcrumb>
                 </div>
 
-                <Avatar className='cursor-pointer drop-shadow-md size-6 2xl:size-8' onClick={() => navigate(getPath('/profile'))}>
-                    <AvatarImage src={AvatarImg} alt="@shadcn" />
-                    <AvatarFallback>FS</AvatarFallback>
-                </Avatar>
+                <div className='flex gap-3'>
+                    <SettingsDialog />
+                    <Avatar className='cursor-pointer drop-shadow-md size-6 2xl:size-8' onClick={() => navigate(getPath('/profile'))}>
+                        <AvatarImage src={AvatarImg} alt="@shadcn" />
+                        <AvatarFallback>FS</AvatarFallback>
+                    </Avatar>
+                </div>
             </div>
         </div>
     )

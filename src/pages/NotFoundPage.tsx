@@ -23,8 +23,8 @@ const NotFoundPage = () => {
                     <img src={LogoBlack} className="h-10" />
 
                     <div className="justify-center flex">
-                        <Button variant='link' onClick={() => { navigate(-1) }}>Go back</Button>
-                        <Button variant='outline' onClick={() => { navigate(getPath('/home')) }}>Homepage</Button>
+                        <Button className='text-black' variant='link' onClick={() => { navigate(-1) }}>Go back</Button>
+                        <Button className='bg-black hover:bg-black/70 hover:text-white' variant='outline' onClick={() => { navigate(getPath('/home')) }}>Homepage</Button>
                     </div>
                 </div>
 
