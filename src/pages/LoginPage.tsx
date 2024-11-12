@@ -6,7 +6,7 @@ import ShineBorder from '@/components/ui/shine-border'
 import { getPath } from '@/lib/utils'
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
-import { Loader } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 import { useBackground } from '@/hooks/useBackground'
 
 export default function LoginPage() {
@@ -42,7 +42,7 @@ export default function LoginPage() {
           </div>
 
           <div className='flex gap-5 w-full'>
-            <Button className='drop-shadow-md w-1/2' variant="default" disabled={isLoading} onClick={() => navitageToHome()}>{isLoading && <Loader className='animate-spin' />} {isLoading ? <>Logging in...</> : <>Log In</>}</Button>
+            <Button className='drop-shadow-md w-1/2' variant="default" disabled={isLoading} onClick={() => navitageToHome()}>{isLoading && <Loader2 className='animate-spin' />} {isLoading ? <>Logging in...</> : <>Log In</>}</Button>
             <Button className='drop-shadow-md w-1/2 text-white' variant='link' >Forgot password?</Button>
           </div>
 

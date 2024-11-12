@@ -25,9 +25,9 @@ const ProfileCard = () => {
       <div className='flex flex-col flex-1 h-full gap-2 justify-between'>
         <div className='flex flex-col gap-1'>
           <h3 className='drop-shadow-md text-sm 2xl:text-base'>Good {date.getHours() > 5 ? date.getHours() > 12 ? <>afternoon</> : <>morning</> : <>evening</>},</h3>
-          <h1 className='drop-shadow-md text-2xl lg:text-3xl 2xl:text-5xl font-medium'>Frederico Silva</h1>
+          <h1 className='text-center drop-shadow-md text-2xl lg:text-4xl 2xl:text-5xl font-medium'>Travis Scott</h1>
         </div>
-        <h3 className='drop-shadow-md text-center opacity-50 italic text-xs 2xl:text-sm'>{formattedDate}</h3>
+        <h3 className='drop-shadow-md text-end opacity-50 italic text-xs 2xl:text-sm'>{formattedDate}</h3>
       </div>
 
 
