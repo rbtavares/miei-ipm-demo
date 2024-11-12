@@ -150,7 +150,7 @@ const MaterialGrid = () => {
             </div>
         </div>
     )
-  }
+}
   
 const MaterialsCard = () => {
     return (

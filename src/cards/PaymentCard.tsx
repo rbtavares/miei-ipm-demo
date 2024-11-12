@@ -13,9 +13,8 @@ import {
         DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from '@/components/ui/button'
-      
-
-
+import { Label } from '@radix-ui/react-label'
+import { Input } from '@/components/ui/input'
 
 const PaymentCard = () => {
 
@@ -30,12 +29,28 @@ const PaymentCard = () => {
                     </DialogTrigger>
                     <DialogContent>
                         <DialogHeader>
-                        <DialogTitle>Are you absolutely sure?</DialogTitle>
+                        <DialogTitle>Payment</DialogTitle>
                         <DialogDescription>
-                            This action cannot be undone. This will permanently delete your account
-                            and remove your data from our servers.
+                            Tuition Fee - Value: 69,70€
                         </DialogDescription>
                         </DialogHeader>
+                        <div className="grid gap-4 py-4">
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="name" className="text-right">Name</Label>
+                                <Input
+                                    id="name"
+                                    className="col-span-3"
+                                />
+                            </div>
+                            <div className="grid grid-cols-4 items-center gap-4">
+                                <Label htmlFor="username" className="text-right">Email</Label>
+                                <Input
+                                    type="email"
+                                    id="email"
+                                    className="col-span-3"
+                                />
+                            </div>
+                        </div>
                     </DialogContent>
                 </Dialog>
             </TableCell>
@@ -51,7 +66,7 @@ const PaymentCard = () => {
     )
 
     return (
-        <div className="card w-full flex-1 p-4 flex flex-col gap-10 h-2/3 fscroll">
+        <div className="card flex-1 p-4 flex flex-col gap-2 fscroll">
             <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto max-h-[25vh]">
                 <h1 className="header">Fees to Pay</h1>
                 <Table>
