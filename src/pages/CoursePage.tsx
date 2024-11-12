@@ -37,7 +37,7 @@ const CoursePage = () => {
 
             <div className="flex flex-col gap-2 2xl:gap-5 col-span-1">
               <UpcomingEventsCard/>
-              <div className="max-h-[414px]"><NotificationsCard/></div>
+              <div className="max-h-[300px]"><NotificationsCard/></div>
               
             </div>
         </div>

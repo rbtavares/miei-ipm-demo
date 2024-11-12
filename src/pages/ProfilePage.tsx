@@ -40,26 +40,6 @@ const ProfilePage = () => {
 
                     {/* Right Pane */}
                     <NotificationsCard />
-
-            {/* Profile Information */}
-                <div className="flex flex-col col-span-1">
-                    <ProfileInfoCard />
-                </div>
-
-                {/* Payment and Documents */}
-                <div className="flex flex-col gap-5 col-span-2">
-                    <div className="flex w-full h-1/2"><PaymentCard /></div>
-                    <DocumentsCard />    
-                </div>
-            
-
-
-                {/* Right Pane */}
-                <div className="flex col-span-1">
-                    <NotificationsCard />
-                </div>
-                
-
             </div>
         </div>
         </div>
