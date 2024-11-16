@@ -139,7 +139,7 @@ const MaterialGrid = () => {
             ))}
             </div>
 
-            <Input placeholder="Search by name" type="text" value={searchQuery} onChange={(e) => {setSearchQuery(e.target.value);  console.log(e.target.value);}} className="text-black drop-shadow-md"/>
+            <Input placeholder="Search by name" type="text" value={searchQuery} onChange={(e) => {setSearchQuery(e.target.value)}} className="text-black drop-shadow-md"/>
 
             <div className="gap-4 overflow-y-auto max-h-80 mt-4">
                     {filteredMaterials.map((material) => (

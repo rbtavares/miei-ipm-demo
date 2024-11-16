@@ -45,7 +45,7 @@ const Navbar = ({ routes }: INavbar) => {
                                 return (
                                     <React.Fragment key={index}>
                                         <BreadcrumbItem className='drop-shadow-md'>
-                                            <BreadcrumbLink href={route.dest}>{route.name}</BreadcrumbLink>
+                                            <BreadcrumbLink onClick={() => navigate(route.dest)}>{route.name}</BreadcrumbLink>
                                         </BreadcrumbItem>
                                         {index < routes.length - 1 && <BreadcrumbSeparator className='drop-shadow-md' />}
                                     </React.Fragment>

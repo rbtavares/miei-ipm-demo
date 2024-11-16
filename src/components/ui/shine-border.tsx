@@ -31,7 +31,6 @@ export default function ShineBorder({
   className,
   children,
 }: ShineBorderProps) {
-  console.log(className)
   return (
     <div
     style={
