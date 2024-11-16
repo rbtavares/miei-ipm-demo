@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { useBackground } from '@/hooks/useBackground'
+import data from '@/data.json';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function LoginPage() {
     setIsLoading(true);
     setTimeout(() => {
       navigate(getPath('/home'));
-    }, 1000);
+    }, 500);
   }
 
   return (
@@ -36,9 +37,9 @@ export default function LoginPage() {
 
           <div className='w-full'>
             <Label className='drop-shadow-md'>Identifier</Label>
-            <Input placeholder='t.scott' type='email' className='text-black mb-2 drop-shadow-md' />
+            <Input placeholder={data.user.identifier} type='email' className='text-black mb-2 drop-shadow-md' />
             <Label className='drop-shadow-md'>Password</Label>
-            <Input placeholder='*********' type='password' className='text-black drop-shadow-md' />
+            <Input placeholder='••••••••' type='password' className='text-black drop-shadow-md' />
           </div>
 
           <div className='flex gap-5 w-full'>

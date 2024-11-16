@@ -24,7 +24,7 @@ const ProfilePage = () => {
                 <Navbar routes={breadcrumbRoutes} />
 
                 {/* Content */}
-                <div className="h-full w-full max-w-screen-2xl grid grid-cols-4 gap-5">
+                <div className="h-full w-full max-w-screen-2xl grid grid-cols-5 gap-5">
 
                     {/* Profile Information */}
                     <div className="flex flex-col gap-5">
@@ -32,7 +32,7 @@ const ProfilePage = () => {
                     </div>
 
                     {/* Payment and Documents */}
-                    <div className="flex flex-col gap-5 col-span-2">
+                    <div className="flex flex-col gap-5 col-span-2 relative">
                         <PaymentCard />
                         <DocumentsCard />
                     </div>
@@ -40,8 +40,26 @@ const ProfilePage = () => {
 
                     {/* Right Pane */}
                     <NotificationsCard />
+
+                    <div className="bg-red-500 flex flex-col gap-2 p-2">
+                        <div className="relative flex-1 bg-blue-400">
+                            <div className="absolute w-full h-full bg-black flex-1 text-white overflow-y-auto">
+                                <p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p>
+                            </div>
+                        </div>
+                        <div className="relative flex-1 bg-blue-400">
+                            <div className="absolute w-full h-full bg-black flex-1 text-white overflow-y-auto">
+                                <p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p>
+                            </div>
+                        </div>
+                        <div className="relative h-32 bg-blue-400">
+                            <div className="absolute w-full h-full bg-black text-white overflow-y-auto">
+                                <p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p><p>ahefef</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     )
 }

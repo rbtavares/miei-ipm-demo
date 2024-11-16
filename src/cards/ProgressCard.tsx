@@ -6,7 +6,7 @@ interface IProgress {
 }
 const ProgressCard = ({ progress }: IProgress) => {
 
-    const prog = (progress * 100) / 150
+    const prog = progress < 150 ? (progress * 100) / 150 : 100
 
     return (
         <div className="card w-full flex-1 p-3 2xl:p-4 flex flex-col">

@@ -16,6 +16,7 @@ import { getPath } from '@/lib/utils';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import SettingsDialog from './SettingsDialog';
+import { LogOut } from 'lucide-react';
 
 
 interface route {
@@ -54,7 +55,8 @@ const Navbar = ({ routes }: INavbar) => {
                     </Breadcrumb>
                 </div>
 
-                <div className='flex gap-3'>
+                <div className='flex gap-3 items-center'>
+                    <LogOut className="size-6 text-white/50 hover:text-white/80 duration-300 rotate-180 cursor-pointer" onClick={() => navigate(getPath('/'))} />
                     <SettingsDialog />
                     <Avatar className='cursor-pointer drop-shadow-md size-6 2xl:size-8' onClick={() => navigate(getPath('/profile'))}>
                         <AvatarImage src={AvatarImg} alt="@shadcn" />
