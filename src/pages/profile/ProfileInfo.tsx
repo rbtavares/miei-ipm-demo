@@ -11,7 +11,7 @@ interface IField {
 }
 
 const Field = ({ name, icon, value, fontType = 'font-normal' }: IField) => (
-    <div className='flex-1 relative items-center flex justify-between text-white'>
+    <div className='flex-1 relative items-end flex justify-between text-white border-b border-white/5'>
         <h2 className='flex gap-2 text-lg font-bold'>{icon}{name}</h2>
         <h3 className={`font-normal opacity-75 ${fontType}`}>{value}</h3>
     </div>

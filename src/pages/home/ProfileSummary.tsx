@@ -2,7 +2,16 @@ import Avatar from '@/assets/avatar.png';
 import { BorderBeam } from '@/components/ui/border-beam';
 import { getPath } from "@/lib/utils";
 import { useNavigate } from "react-router-dom"
-import {user} from '@/data/User'
+import { user } from '@/data/User'
+import { motion } from 'framer-motion'
+
+const animate = {
+  opacity: 1
+}
+
+const initial = {
+  opacity: 0
+}
 
 const ProfileCard = () => {
 
@@ -15,18 +24,42 @@ const ProfileCard = () => {
 
       {/* Image & Identifiers */}
       <div className='h-full flex flex-col items-center justify-between gap-1'>
-        <img className='drop-shadow-md aspect-square w-20 2xl:w-28 rounded-md flex items-center justify-center object-cover object-center' src={Avatar} />
+        <motion.img
+          initial={initial}
+          animate={animate}
+          transition={{ duration: 1, delay: 0 }}
+          className='drop-shadow-md aspect-square w-20 2xl:w-28 rounded-md flex items-center justify-center object-cover object-center' src={Avatar} />
         <div className='flex flex-col items-center flex-1  w-full justify-center'>
-          <span className='drop-shadow-md 2xl:text-lg'>{user.identifier}</span>
-          <span className='drop-shadow-md font-mono text-xs 2xl:text-sm'>{user.number}</span>
+          <motion.span
+            initial={initial}
+            animate={animate}
+            transition={{ duration: 1, delay: 0.3 }}
+            className='drop-shadow-md 2xl:text-lg'>{user.identifier}</motion.span>
+          <motion.span
+            initial={initial}
+            animate={animate}
+            transition={{ duration: 1, delay: 0.4 }}
+            className='drop-shadow-md font-mono text-xs 2xl:text-sm'>{user.number}</motion.span>
         </div>
       </div>
 
       {/* Name & Greeting */}
       <div className='flex flex-col flex-1 h-full gap-2 justify-between'>
-        <h3 className='drop-shadow-md text-sm 2xl:text-base'>Good {date.getHours() > 5 ? date.getHours() > 12 ? <>afternoon</> : <>morning</> : <>evening</>},</h3>
-        <h1 className='text-center drop-shadow-md text-2xl lg:text-2xl 2xl:text-4.5xl font-medium'>{user.name}</h1>
-        <h3 className='drop-shadow-md text-end opacity-50 italic text-xs 2xl:text-sm'>{formattedDate}</h3>
+        <motion.h3
+          initial={initial}
+          animate={animate}
+          transition={{ duration: 1, delay: 0.2 }}
+          className='drop-shadow-md text-sm 2xl:text-base'>Good {date.getHours() > 5 ? date.getHours() > 12 ? <>afternoon</> : <>morning</> : <>evening</>},</motion.h3>
+        <motion.h1
+          initial={initial}
+          animate={animate}
+          transition={{ duration: 1, delay: 0.3 }}
+          className='text-center drop-shadow-md text-2xl lg:text-2xl 2xl:text-4.5xl font-medium'>{user.name}</motion.h1>
+        <motion.h3
+          initial={initial}
+          animate={animate}
+          transition={{ duration: 1, delay: 0.4 }}
+          className='drop-shadow-md text-end opacity-50 italic text-xs 2xl:text-sm'>{formattedDate}</motion.h3>
       </div>
 
 
