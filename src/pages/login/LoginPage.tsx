@@ -57,14 +57,14 @@ export default function LoginPage() {
           </div>
 
           <div className='flex w-full items-center gap-2 text-white/50 font-light justify-center'>
-            <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 3, delay: 0.6 }} className='h-[1px] bg-white/30' />
+            <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 2, delay: 0.5 }} className='h-[1px] bg-white/20' />
             <motion.span initial={initial} animate={animate} transition={{ duration: 1, delay: 0.5 }} >or</motion.span>
-            <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 3, delay: 0.6 }} className='h-[1px] bg-white/30' />
+            <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 2, delay: 0.5 }} className='h-[1px] bg-white/20' />
           </div>
 
           <div className='flex gap-5 w-full'>
-            <motion.div initial={{opacity:0, y: -25}} animate={{opacity:1, y: 0}} transition={{ duration: 1, delay: 0.7 }} className='flex-1'><Button className='drop-shadow-md w-full bg-white/20' variant='outline'>Google SSO</Button></motion.div>
-            <motion.div initial={{opacity:0, y: -25}} animate={{opacity:1, y: 0}} transition={{ duration: 1, delay: 0.7 }} className='flex-1'><Button className='drop-shadow-md w-full bg-white/20' variant='outline'>SAML Login</Button></motion.div>
+            <motion.div initial={{opacity:0, y: -25}} animate={{opacity:1, y: 0}} transition={{ duration: 0.5, delay: 0.6 }} className='flex-1'><Button className='drop-shadow-md w-full bg-white/20' variant='outline'>Google SSO</Button></motion.div>
+            <motion.div initial={{opacity:0, y: -25}} animate={{opacity:1, y: 0}} transition={{ duration: 0.5, delay: 0.6 }} className='flex-1'><Button className='drop-shadow-md w-full bg-white/20' variant='outline'>SAML Login</Button></motion.div>
           </div>
         </div>
 
