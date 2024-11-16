@@ -1,10 +1,9 @@
-import UpcomingEventsCard from "@/cards/UpcomingEventsCard";
 import { Button } from "@/components/ui/button";
 import { getPath } from "@/lib/utils";
 import { CalendarRange } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const Calendar = () => {
+const CalendarBox = () => {
     return (
         <div className="grid grid-cols-7 h-full w-full gap-2">
             <div className="flex items-center justify-center text-white text-xl font-medium cursor-default">S</div>
@@ -53,37 +52,30 @@ const Calendar = () => {
     )
 }
 
-const ScheduleSummary = () => {
-
+const Calendar = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex flex-1 gap-5 max-h-96">
-            <div className="relative h-full min-w-64">
-                <div className="absolute w-full h-full">
-                    <UpcomingEventsCard />
+        <div
+            className="card flex flex-1 flex-col gap-4 p-4">
+            <h1 className="header">Calendar</h1>
+            <div className="flex flex-col gap-2 h-full w-full">
+                <div className="flex-1 relative">
+                    <div className="flex-1 h-full w-full">
+                        <CalendarBox />
+                    </div>
                 </div>
-            </div>
-            <div className="card flex flex-1 flex-col gap-4 p-4">
-                <h1 className="header">Calendar</h1>
-                <div className="flex flex-col gap-2 h-full w-full">
-                    <div className="flex-1 relative">
-                        <div className="flex-1 h-full w-full">
-                            <Calendar />
-                        </div>
+                <div className="flex gap-4">
+                    <div className="flex-1 flex items-center">
+                        <div className="bg-white/20 h-[1px] w-full" />
                     </div>
-                    <div className="flex gap-4">
-                        <div className="flex-1 flex items-center">
-                            <div className="bg-white/20 h-[1px] w-full" />
-                        </div>
-                        <Button onClick={() => navigate(getPath('/schedule'))}>
-                            <CalendarRange /> Schedule
-                        </Button>
-                    </div>
+                    <Button onClick={() => navigate(getPath('/schedule'))}>
+                        <CalendarRange /> Schedule
+                    </Button>
                 </div>
             </div>
         </div>
     )
 }
 
-export default ScheduleSummary
+export default Calendar;
