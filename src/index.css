@@ -60,3 +60,13 @@
     radial-gradient(at 41% 2%, hsla(171, 64%, 64%, 1) 0px, transparent 50%),
     radial-gradient(at 56% 68%, hsla(26, 63%, 72%, 1) 0px, transparent 50%);
 }
+
+.ghost-scroll {
+  overflow: auto;
+  -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.ghost-scroll::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and other Webkit browsers */
+}

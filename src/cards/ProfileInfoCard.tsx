@@ -1,7 +1,7 @@
 import Avatar from '@/assets/avatar.png';
 import { AtSign, Cake, Hash, IdCard, Landmark, MapPin, MessageCircle, PersonStanding, Phone, Users } from 'lucide-react';
 import { ReactElement } from 'react';
-import data from '@/data.json';
+import data from '@/data/data.json';
 
 interface IField {
     name: string,

@@ -66,8 +66,8 @@ const PaymentCard = () => {
     )
 
     return (
-        <div className="card flex-1 p-4 flex flex-col gap-2 fscroll">
-            <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto max-h-[25vh]">
+        <div className="card flex-1 p-4 flex h-full w-full flex-col gap-2 fscroll absolute">
+            <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto">
                 <h1 className="header">Fees to Pay</h1>
                 <Table>
                     <TableHeader>

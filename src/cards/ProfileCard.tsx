@@ -2,7 +2,7 @@ import Avatar from '@/assets/avatar.png';
 import { BorderBeam } from '@/components/ui/border-beam';
 import { getPath } from "@/lib/utils";
 import { useNavigate } from "react-router-dom"
-import data from '@/data.json';
+import data from '@/data/data.json';
 
 const ProfileCard = () => {
 

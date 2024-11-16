@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { useBackground } from '@/hooks/useBackground'
-import data from '@/data.json';
+import data from '@/data/data.json';
 
 export default function LoginPage() {
   const navigate = useNavigate();
