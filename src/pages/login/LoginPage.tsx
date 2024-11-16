@@ -3,12 +3,12 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import ShineBorder from '@/components/ui/shine-border'
-import { getPath } from '@/lib/utils'
-import { useNavigate } from "react-router-dom"
-import { useState } from 'react'
-import { Loader2 } from 'lucide-react'
+import data from '@/data/data.json'
 import { useBackground } from '@/hooks/useBackground'
-import data from '@/data/data.json';
+import { getPath } from '@/lib/utils'
+import { Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 
 export default function LoginPage() {
   const navigate = useNavigate();

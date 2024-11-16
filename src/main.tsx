@@ -1,7 +1,7 @@
 import '@/index.css';
 import { getPath } from '@/lib/utils.ts';
-import HomePage from '@/pages/HomePage';
-import LoginPage from '@/pages/LoginPage';
+import HomePage from '@/pages/home/HomePage.tsx';
+import LoginPage from '@/pages/login/LoginPage.tsx';
 import NotFoundPage from '@/pages/NotFoundPage';
 import ProfilePage from '@/pages/ProfilePage';
 import CoursePage from './pages/CoursePage.tsx';

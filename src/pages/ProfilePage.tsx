@@ -33,8 +33,8 @@ const ProfilePage = () => {
 
                     {/* Payment and Documents */}
                     <div className="flex flex-col gap-5 col-span-2 h-full">
-                        <div className="relative h-2/3"><PaymentCard /></div>
-                        <div className="relative h-1/3"><DocumentsCard /></div>
+                        <div className="relative flex-1"><PaymentCard /></div>
+                        <div className="relative flex-1"><DocumentsCard /></div>
                     </div>
 
 
