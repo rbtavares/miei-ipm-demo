@@ -37,7 +37,7 @@ const Navbar = ({ routes }: INavbar) => {
 
 
                 <div className='flex items-center gap-5'>
-                    <a href={getPath('/home')}><img src={Logo} className='h-6 2xl:h-10 drop-shadow-md' /></a>
+                    <img src={Logo} className='h-6 2xl:h-10 drop-shadow-md cursor-pointer' onClick={() => navigate(getPath('/home'))} />
 
                     <Breadcrumb>
                         <BreadcrumbList>
