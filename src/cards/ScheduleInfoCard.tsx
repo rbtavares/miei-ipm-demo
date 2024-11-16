@@ -1,3 +1,7 @@
+
+import VanillaTilt from 'vanilla-tilt';
+import { useRef, useEffect } from 'react';
+
 interface IEvent {
   name?: string,
   location?: string,
@@ -8,10 +12,23 @@ interface IEvent {
 }
 
 const Event = ({ name, location, shift, duration, rowSpan, secondary }: IEvent) => {
+  const tiltRef = useRef(null);
+
+  useEffect(() => {
+    if (tiltRef.current) {
+      VanillaTilt.init(tiltRef.current, {
+        max: 15,
+        speed: 400,
+        glare: true,
+        'max-glare': 0.25,
+      });
+    }
+  }, []);
+
   return (
     <>
-      <div className={`relative ${rowSpan}`}>
-        <div className={`absolute border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white/85'} text-${secondary ? 'white' : 'black'} flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-150 ${secondary && 'hover:text-black'} hover:bg-white hover:z-50 duration-300`}>
+      <div ref={tiltRef} className={`relative ${rowSpan}`}>
+        <div className={`absolute border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white/85'} text-${secondary ? 'white' : 'black'} flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-[200%] ${secondary && 'hover:text-black'} hover:drop-shadow-xl hover:bg-white hover:z-50 duration-300`}>
           <div>
             <h1 className="text-lg font-medium">{name}</h1>
             <h3 className="text-xs font-light">{location}</h3>
@@ -33,6 +50,7 @@ const EventSpacer = ({ hideBorder }: { hideBorder?: boolean }) => {
 }
 
 const Schedule = () => {
+
   return (
     <div className="flex h-full w-full gap-1">
       <div className="w-full h-full grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] gap-2">
