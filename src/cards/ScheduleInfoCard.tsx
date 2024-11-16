@@ -2,13 +2,18 @@ interface IScheduleEvent {
   timeBlocks?: number
 }
 
-const ScheduleEvent = ({ timeBlocks = 1 }: IScheduleEvent) => {
+
+const Event = ({ offset }: { offset: number }) => {
+  // Calculate the dynamic top value using the given formula
+  const topValue = `calc((${offset} * 0.25rem) + (${offset} * 4.55%))`;
+
   return (
-    <div className={`cols-span-${timeBlocks} bg-red-500`}>
-      ABCDEF
-    </div>
-  )
-}
+    <div
+      className="bg-red-500 min-w-16 min-h-16 absolute"
+      style={{ top: topValue }}
+    />
+  );
+};
 
 
 const Schedule = () => {
@@ -39,85 +44,84 @@ const Schedule = () => {
           <p className="text-white/75 flex flex-1 text-xs items-end justify-end leading-none">8 PM</p>
           <p className="text-white/75 flex flex-1 text-xs items-end justify-end leading-none">9 PM</p>
         </div>
-        <div className="grid grid-cols-6 gap-1 gap-x-2 h-full flex-1 bg-white/10">
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
-          <div className="flex h-full w-full border-b border-white"></div>
+        <div className="grid grid-cols-6 gap-1 gap-x-2 h-full flex-1 bg-white/10 bg-green-500 relative">
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500 row-span-2 relative"><div className="absolute bg-orange-400 h-full w-full"/></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
+          <div className="flex h-full w-full border-b border-white bg-purple-500"></div>
         </div>
       </div>
     </div>
