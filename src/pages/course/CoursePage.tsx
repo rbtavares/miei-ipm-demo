@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 import { getPath } from "@/lib/utils";
 import { useBackground } from "@/hooks/useBackground";
-import CourseInfoCard from "@/cards/CourseInfoCard";
+import CourseInfoCard from "@/pages/course/CourseInfoCard";
 import UpcomingEventsCard from "@/cards/UpcomingEventsCard";
-import MaterialsCard from "@/cards/MaterialsCard";
-import ForumCard from "@/cards/ForumCard";
+import MaterialsCard from "@/pages/course/MaterialsCard";
+import ForumCard from "@/pages/course/ForumCard";
 import NotificationsCard from "@/cards/NotificationsCard";
 
 const breadcrumbRoutes = [

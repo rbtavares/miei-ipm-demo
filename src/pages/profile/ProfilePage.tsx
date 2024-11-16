@@ -1,7 +1,7 @@
-import DocumentsCard from "@/cards/DocumentsCard";
+import DocumentsCard from "@/pages/profile/DocumentsCard";
 import NotificationsCard from "@/cards/NotificationsCard";
-import PaymentCard from "@/cards/PaymentCard";
-import ProfileInfoCard from "@/cards/ProfileInfoCard";
+import PaymentCard from "@/pages/profile/PaymentCard";
+import ProfileInfoCard from "@/pages/profile/ProfileInfoCard";
 import Navbar from "@/components/Navbar";
 import { useBackground } from "@/hooks/useBackground";
 import { getPath } from "@/lib/utils";

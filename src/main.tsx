@@ -3,9 +3,9 @@ import { getPath } from '@/lib/utils.ts';
 import HomePage from '@/pages/home/HomePage.tsx';
 import LoginPage from '@/pages/login/LoginPage.tsx';
 import NotFoundPage from '@/pages/NotFoundPage';
-import ProfilePage from '@/pages/ProfilePage';
-import CoursePage from './pages/CoursePage.tsx';
-import SchedulePage from '@/pages/SchedulePage';
+import ProfilePage from '@/pages/profile/ProfilePage.tsx';
+import CoursePage from './pages/course/CoursePage.tsx';
+import SchedulePage from '@/pages/schedule/SchedulePage.tsx';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import {

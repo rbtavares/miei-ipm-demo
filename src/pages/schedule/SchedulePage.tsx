@@ -1,5 +1,5 @@
-import DetailedViewCard from "@/cards/DetailedViewCard";
-import ScheduleInfoCard from "@/cards/ScheduleInfoCard";
+import DetailedViewCard from "@/pages/schedule/DetailedViewCard";
+import ScheduleInfoCard from "@/pages/schedule/ScheduleInfoCard";
 import UpcomingEventsCard from "@/cards/UpcomingEventsCard";
 import Navbar from "@/components/Navbar";
 import { useBackground } from "@/hooks/useBackground";

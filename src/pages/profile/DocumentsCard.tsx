@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { PaperclipIcon } from "lucide-react"
 import { MouseEventHandler, useState } from "react"
-import { userDocuments as documents } from "../data/Documents"
+import { userDocuments as documents } from "../../data/Documents"
 
 const formatBytes = (bytes: number, decimals: number = 1) => {
     if (bytes === 0 || isNaN(bytes)) return '0 B';
