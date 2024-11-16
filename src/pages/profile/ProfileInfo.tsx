@@ -1,7 +1,7 @@
 import Avatar from '@/assets/avatar.png';
 import { AtSign, Cake, Hash, IdCard, Landmark, MapPin, MessageCircle, PersonStanding, Phone, Users } from 'lucide-react';
 import { ReactElement } from 'react';
-import data from '@/data/data.json';
+import { user } from '@/data/User'
 
 interface IField {
     name: string,
@@ -29,17 +29,17 @@ const ProfileInfoCard = () => {
             </div>
 
             <div className="flex flex-col justify-between h-full w-full">
-                <Field name="Name" value={data.user.name} icon={<MessageCircle />} />
-                <Field name="Student Number" value={data.user.number} icon={<Hash />} />
-                <Field name="Birthday" value={data.user.birthday} icon={<Cake />} />
-                <Field name="Location" value={data.user.location} icon={<MapPin />} />
-                <Field name="Nationality" value={data.user.nationality} icon={<PersonStanding />} />
-                <Field name="Mother" value={data.user.mother} icon={<Users />} />
-                <Field name="Father" value={data.user.father} icon={<Users />} />
-                <Field name="Tax Number" value={data.user.taxnumber} icon={<Landmark />} fontType='font-mono' />
-                <Field name="CC" value={data.user.cc} icon={<IdCard />} fontType='font-mono' />
-                <Field name="Email" value={data.user.email} icon={<AtSign />} />
-                <Field name="Phone Number" value={data.user.phone} icon={<Phone />} fontType='font-mono' />
+                <Field name="Name" value={user.name} icon={<MessageCircle />} />
+                <Field name="Student Number" value={user.number} icon={<Hash />} />
+                <Field name="Birthday" value={user.birthday.toLocaleDateString("pt-PT")} icon={<Cake />} />
+                <Field name="Location" value={user.location} icon={<MapPin />} />
+                <Field name="Nationality" value={user.nationality} icon={<PersonStanding />} />
+                <Field name="Mother" value={user.mother} icon={<Users />} />
+                <Field name="Father" value={user.father} icon={<Users />} />
+                <Field name="Tax Number" value={user.taxnumber} icon={<Landmark />} fontType='font-mono' />
+                <Field name="CC" value={user.cc} icon={<IdCard />} fontType='font-mono' />
+                <Field name="Email" value={user.email} icon={<AtSign />} />
+                <Field name="Phone Number" value={user.phone} icon={<Phone />} fontType='font-mono' />
             </div>
 
         </div>

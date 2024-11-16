@@ -1,3 +1,5 @@
+import { formatRelativeTime } from "@/lib/utils";
+
 interface INotificationCard {
   title: string,
   description: string,
@@ -9,7 +11,7 @@ const NotificationCard = ({ title, description, time }: INotificationCard) => {
     <div className="bg-white/20 py-2 px-3 rounded-lg shadow-sm flex">
       <div className="flex flex-col gap-2 flex-1">
         <div>
-          <h1 className="text-lg font-medium w-full flex items-center justify-between">{title}<span className="text-xs opacity-50">2h ago</span></h1>
+          <h1 className="text-lg font-medium w-full flex items-center justify-between">{title}<span className="text-xs opacity-50">{time && formatRelativeTime(time)}</span></h1>
           <h3 className="text-sm opacity-70">{description}</h3>
         </div>
       </div>

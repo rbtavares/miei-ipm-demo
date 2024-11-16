@@ -1,8 +1,9 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import AvatarImg from '@/assets/avatar.png';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge"
+import { formatRelativeTime } from '@/lib/utils';
 
 interface IPostCard {
     title: string,
@@ -11,7 +12,7 @@ interface IPostCard {
     timeAgo: string
 }
   
-const PostCard = ({ title, comments, time, timeAgo }: IPostCard) => {
+const PostCard = ({ title, comments, time }: IPostCard) => {
 return (
     <div className="bg-white/20 py-2 px-3 rounded-lg shadow-sm flex mr-2">
     <div className="flex flex-col gap-2 flex-1">
@@ -30,7 +31,7 @@ return (
         <Badge variant="secondary">Badge</Badge>
         </div>
 
-        <h3 className="text-sm w-full flex items-center justify-between opacity-70">{comments} comments<span className="text-xs opacity-50">{timeAgo} ago</span></h3>
+        <h3 className="text-sm w-full flex items-center justify-between opacity-70">{comments} comments<span className="text-xs opacity-50">{time && formatRelativeTime(time)}</span></h3>
     </div>
     </div>
 );

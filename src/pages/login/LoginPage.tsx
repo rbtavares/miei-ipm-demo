@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import ShineBorder from '@/components/ui/shine-border'
-import data from '@/data/data.json'
+import { user } from '@/data/User'
 import { useBackground } from '@/hooks/useBackground'
 import { getPath } from '@/lib/utils'
 import { Loader2 } from 'lucide-react'
@@ -37,7 +37,7 @@ export default function LoginPage() {
 
           <div className='w-full'>
             <Label className='drop-shadow-md'>Identifier</Label>
-            <Input placeholder={data.user.identifier} type='email' className='text-black mb-2 drop-shadow-md' />
+            <Input placeholder={user.identifier} type='email' className='text-black mb-2 drop-shadow-md' />
             <Label className='drop-shadow-md'>Password</Label>
             <Input placeholder='••••••••' type='password' className='text-black drop-shadow-md' />
           </div>
