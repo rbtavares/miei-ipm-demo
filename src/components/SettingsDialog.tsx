@@ -9,7 +9,6 @@ import {
 import { Label } from "./ui/label"
 import { Settings } from "lucide-react"
 import { useBackground } from "@/hooks/useBackground"
-import { BackgroundProvider } from "@/hooks/useBackground"
 
 
 const SettingsDialog = () => {
