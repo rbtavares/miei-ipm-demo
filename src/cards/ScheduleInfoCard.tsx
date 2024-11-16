@@ -11,7 +11,7 @@ const Event = ({ name, location, shift, duration, rowSpan, secondary }: IEvent) 
   return (
     <>
       <div className={`relative ${rowSpan}`}>
-        <div className={`absolute border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white/85'} text-${secondary ? 'white' : 'black'} flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-150 ${secondary ? 'hover:bg-black' : 'hover:bg-white'} hover:z-50 duration-300`}>
+        <div className={`absolute border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white/85'} text-${secondary ? 'white' : 'black'} flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-150 ${secondary && 'hover:text-black'} hover:bg-white hover:z-50 duration-300`}>
           <div>
             <h1 className="text-lg font-medium">{name}</h1>
             <h3 className="text-xs font-light">{location}</h3>
@@ -66,8 +66,9 @@ const Schedule = () => {
         {/* Table */}
         <div className="grid grid-cols-6 gap-x-2 h-full flex-1 bg-white/10">
           <div className="grid grid-cols-1 gap-1">
+            {/* Podemos agrupar os eventos e tirar a gap dos spacers, se for mesmo preciso */}
             <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" />
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" secondary />
+            <Event rowSpan="row-span-2" name="CVS" location="1C - Ed.7" shift="T1" duration="2h" secondary />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
@@ -83,8 +84,9 @@ const Schedule = () => {
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
+            <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-3" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" />
+            <Event rowSpan="row-span-2" name="AMI" location="4.3 - Ed.8" shift="P9" duration="2h" />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
@@ -108,23 +110,24 @@ const Schedule = () => {
           <div className="grid grid-cols-1 gap-1">
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" />
+            <Event rowSpan="row-span-2" name="CVS" location="1C - Ed.7" shift="T1" duration="2h" secondary />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" />
+            <Event rowSpan="row-span-2" name="AMI" location="1D - Ed.7" shift="T1" duration="2h" secondary />
             <EventSpacer />
           </div>
           <div className="grid grid-cols-1 gap-1">
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" />
+            <Event rowSpan="row-span-2" name="IPM" location="Sala 128 - Ed.2" shift="T2" duration="2h" secondary />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-3" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" />
+            <Event rowSpan="row-span-2" name="AMI" location="4.3 - Ed.9" shift="P9" duration="2h" />
+            <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
