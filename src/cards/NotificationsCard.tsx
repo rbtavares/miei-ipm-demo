@@ -20,19 +20,46 @@ const NotificationCard = ({ title, description, time }: INotificationCard) => {
 
 const NotificationsCard = () => {
   return (
-    <div className="card w-full flex-1 p-4 flex flex-col gap-4 h-full fscroll">
-      <h1 className="header">Notifications</h1>
+    <div className="flex flex-1 relative">
+      <div className="absolute card w-full flex-1 p-4 flex flex-col gap-4 h-full fscroll">
+        <h1 className="header">Notifications</h1>
 
-      {/* Content */}
-      <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto max-h-[82vh]">
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
-      <NotificationCard title="Test" description="abcdef" time={new Date()} />
+        {/* Content */}
+        <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto">
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+          <NotificationCard title="Test" description="abcdef" time={new Date()} />
+        </div>
+
       </div>
-
     </div>
   )
 }

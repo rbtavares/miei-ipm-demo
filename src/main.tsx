@@ -2,7 +2,7 @@ import '@/index.css';
 import { getPath } from '@/lib/utils.ts';
 import HomePage from '@/pages/home/HomePage.tsx';
 import LoginPage from '@/pages/login/LoginPage.tsx';
-import NotFoundPage from '@/pages/NotFoundPage';
+import NotFoundPage from '@/pages/notfound/NotFoundPage.tsx';
 import ProfilePage from '@/pages/profile/ProfilePage.tsx';
 import CoursePage from './pages/course/CoursePage.tsx';
 import SchedulePage from '@/pages/schedule/SchedulePage.tsx';

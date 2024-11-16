@@ -2,9 +2,9 @@ import NotificationsCard from "@/cards/NotificationsCard";
 import Navbar from "@/components/Navbar";
 import { useBackground } from "@/hooks/useBackground";
 import { getPath } from "@/lib/utils";
-import CoursesCard from "@/pages/home/CoursesCard";
-import ProfileCard from "@/pages/home/ProfileCard";
-import ProgressCard from "@/pages/home/ProgressCard";
+import CoursesCard from "@/pages/home/Courses";
+import ProfileCard from "@/pages/home/ProfileSummary";
+import ProgressCard from "@/pages/home/Progress";
 import { useNavigate } from "react-router-dom";
 
 const breadcrumbRoutes = [
