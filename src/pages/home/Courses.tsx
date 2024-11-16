@@ -30,24 +30,25 @@ const CoursesCard = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="card w-full flex-1 p-4 flex flex-col gap-4 h-1/2 fscroll">
-            <h1 className="header">Courses</h1>
+        <div className="relative flex-1">
+            <div className="absolute card h-full w-full flex-1 p-4 flex flex-col gap-4 fscroll">
+                <h1 className="header">Courses</h1>
 
-            {/* Content */}
-            <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto max-h-[50vh]">
+                {/* Content */}
+                <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto max-h-[50vh]">
 
-                <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="Gestão de Empresas" abbrev="GdE" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="An" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
-                <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))}/>
+                    <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="Gestão de Empresas" abbrev="GdE" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="An" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                    <CourseCard name="Interação Pessoa-Máquina" abbrev="IPM" description="npc land" onClick={() => navigate(getPath('/course'))} />
+                </div>
             </div>
-
         </div>
     )
 }

@@ -2,10 +2,10 @@ import NotificationsCard from "@/cards/NotificationsCard";
 import Navbar from "@/components/Navbar";
 import { useBackground } from "@/hooks/useBackground";
 import { getPath } from "@/lib/utils";
-import CoursesCard from "@/pages/home/Courses";
-import ProfileCard from "@/pages/home/ProfileSummary";
-import ProgressCard from "@/pages/home/Progress";
-import { useNavigate } from "react-router-dom";
+import Courses from "@/pages/home/Courses";
+import ProfileSummary from "@/pages/home/ProfileSummary";
+import Progress from "@/pages/home/Progress";
+import ScheduleSummary from "./ScheduleSummary";
 
 const breadcrumbRoutes = [
   { name: 'Home', dest: getPath('/home') },
@@ -13,7 +13,6 @@ const breadcrumbRoutes = [
 
 const HomePage = () => {
   const { backgroundClass } = useBackground();
-  const navigate = useNavigate();
 
   return (
     <div className={`min-h-screen w-full flex flex-col items-center bg-[#010D10] ${backgroundClass} bg-center bg-cover bg-fixed`}>
@@ -28,14 +27,14 @@ const HomePage = () => {
 
           {/* Left Pane */}
           <div className="flex flex-col gap-2 2xl:gap-5">
-            <ProfileCard />
-            <ProgressCard progress={120} />
+            <ProfileSummary />
+            <Progress progress={120} />
           </div>
 
           {/* Center Pane */}
-          <div className="flex flex-col gap-2 2xl:gap-5 col-span-2">
-            <div className="card w-full flex-1" onClick={() => navigate(getPath('/schedule'))}></div>
-            <CoursesCard />
+          <div className="flex flex-col h-full gap-2 2xl:gap-5 col-span-2">
+              <ScheduleSummary />
+              <Courses />
           </div>
 
           {/* Right Pane */}

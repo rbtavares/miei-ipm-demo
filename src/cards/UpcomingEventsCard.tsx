@@ -49,7 +49,7 @@ const EventCard = ({ title, location, startTime, endTime }: IEventCard) => {
 
 const UpcomingEventsCard = () => {
   return (
-    <div className="card w-full flex-1 p-4 flex flex-col gap-4 h-full fscroll">
+    <div className="card h-full w-full flex-1 p-4 flex flex-col gap-4  fscroll">
       <h1 className="header">Upcoming</h1>
 
       <div className="flex-1 flex flex-col gap-3 text-white overflow-y-auto max-h-[82vh]">
