@@ -9,18 +9,20 @@ interface IEvent {
 
 const Event = ({ name, location, shift, duration, rowSpan, secondary }: IEvent) => {
   return (
-    <div className={`relative ${rowSpan}`}>
-      <div className={`absolute border bg-${secondary ? 'black' : 'white'} text-${secondary ? 'white' : 'black'} flex flex-col flex-1 justify-between w-full h-full rounded-md px-1`}>
-        <div>
-          <h1 className="text-lg font-medium">{name}</h1>
-          <h3 className="text-xs font-light">{location}</h3>
-        </div>
-        <div className="flex justify-between text-sm">
-          <h4>{shift}</h4>
-          <h4>{duration}</h4>
+    <>
+      <div className={`relative ${rowSpan}`}>
+        <div className={`absolute border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white/85'} text-${secondary ? 'white' : 'black'} flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-150 ${secondary ? 'hover:bg-black' : 'hover:bg-white'} hover:z-50 duration-300`}>
+          <div>
+            <h1 className="text-lg font-medium">{name}</h1>
+            <h3 className="text-xs font-light">{location}</h3>
+          </div>
+          <div className="flex justify-between text-sm">
+            <h4>{shift}</h4>
+            <h4>{duration}</h4>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
