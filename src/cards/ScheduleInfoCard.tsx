@@ -9,14 +9,16 @@ interface IEvent {
 
 const Event = ({ name, location, shift, duration, size, secondary }: IEvent) => {
   return (
-    <div className={`row-span-${size} bg-${secondary ? 'black' : 'white'} text-${secondary ? 'white' : 'black'} border-transparent rounded flex flex-col justify-between px-1`}>
-      <div>
-        <h1 className="text-lg font-medium">{name}</h1>
-        <h3 className="text-xs font-light">{location}</h3>
-      </div>
-      <div className="flex justify-between text-sm">
-        <h4>{shift}</h4>
-        <h4>{duration}</h4>
+    <div className={`relative row-span-${size}`}>
+      <div className={`absolute border bg-${secondary ? 'black' : 'white'} text-${secondary ? 'white' : 'black'} flex flex-col flex-1 justify-between w-full h-full rounded-md px-1`}>
+        <div>
+          <h1 className="text-lg font-medium">{name}</h1>
+          <h3 className="text-xs font-light">{location}</h3>
+        </div>
+        <div className="flex justify-between text-sm">
+          <h4>{shift}</h4>
+          <h4>{duration}</h4>
+        </div>
       </div>
     </div>
   )
@@ -127,20 +129,19 @@ const Schedule = () => {
             <EventSpacer />
           </div>
           <div className="grid grid-cols-1 gap-1">
-            <div className="relative flex flex-1 bg-orange-500/40 border-b border-white row-span-2">
-              <div className="absolute bg-white flex flex-1 w-full h-full">a<br />a<br />a<br />a</div>
-            </div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
-            <div className="flex flex-1 border-b border-white"></div>
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
           </div>
         </div>
       </div>
