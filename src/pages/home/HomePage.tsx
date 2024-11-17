@@ -35,7 +35,7 @@ const HomePage = () => {
           {/* Center Pane */}
           <div className="flex flex-col h-full gap-2 2xl:gap-5 col-span-2">
             <div className="flex flex-1 gap-5 max-h-96">
-              <div className="relative h-full min-w-64">
+              <div className="relative h-full w-2/5">
                 <div className="absolute w-full h-full">
                   <UpcomingEventsCard />
                 </div>

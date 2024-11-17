@@ -89,8 +89,12 @@ const Calendar = () => {
                             transition={{ duration: 0.5, delay: 0.5 }}
                             className="bg-white/20 h-[1px]" />
                     </div>
-                    <motion.div initial={initial} animate={animate} transition={{ duration: 0.5, delay: 0.9 }} >
-                        <Button onClick={() => navigate(getPath('/schedule'))}>
+                    <motion.div initial={initial} animate={animate} transition={{ duration: 0.5, delay: 0.9 }}>
+                        <Button onClick={() => navigate(getPath('/schedule'))} className="relative">
+                        <span className="absolute top-[-4px] right-[-4px] flex h-3 w-3">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                        </span>
                             <CalendarRange /> Schedule
                         </Button>
                     </motion.div>

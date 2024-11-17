@@ -44,3 +44,31 @@ export function formatRelativeTime(date: Date): string {
   // Return the formatted string with appropriate prefix
   return isInPast ? `${timeString} ago` : `in ${timeString}`;
 }
+
+export function formatRelativeTimeAgo(date: Date): string {
+  const now = new Date();
+  const diffMs = Math.abs(date.getTime() - now.getTime());
+
+  // Less than a minute
+  if (diffMs < 60 * 1000) {
+    return 'now';
+  }
+
+  // Convert to days, hours, minutes
+  const days = Math.floor(diffMs / (24 * 60 * 60 * 1000));
+  const hours = Math.floor((diffMs % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+  const minutes = Math.floor((diffMs % (60 * 60 * 1000)) / (60 * 1000));
+
+  // Less than an hour: show only minutes
+  if (diffMs < 60 * 60 * 1000) {
+    return `${minutes}m`;
+  }
+
+  // Less than a day: show hours and minutes
+  if (diffMs < 24 * 60 * 60 * 1000) {
+    return `${hours}h ${minutes}m`;
+  }
+
+  // More than a day: show days and hours
+  return `${days}d ${hours}h`;
+}

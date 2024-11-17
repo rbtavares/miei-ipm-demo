@@ -19,7 +19,7 @@
 
 /* width */
 .fscroll ::-webkit-scrollbar {
-  width: 9px;
+  width: 5px;
 }
 
 /* Handle */

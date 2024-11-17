@@ -107,7 +107,7 @@ const DocumentGrid = () => {
                 />
             </div>
 
-            <div className="grid grid-cols-4 gap-2 overflow-y-auto">
+            <div className="grid grid-cols-4 gap-2 overflow-y-auto pr-1">
                 {filteredDocuments.map((document) => (
                     <div key={`${document.id}-${document.name}`} className="flex-1 flex flex-col gap-3 text-white">
                         <DocumentCard 
