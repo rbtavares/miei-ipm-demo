@@ -60,23 +60,25 @@ const EventCard = ({ title, location, startTime, endTime }: IEventCard) => {
   )
 }
 
-const UpcomingEventsCard = () => {
+const UpcomingEventsCard = ({ className }: { className?: string }) => {
   return (
-    <div className="card h-full w-full flex-1 p-4 flex flex-col gap-4  fscroll">
-      <motion.h1
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="header">Upcoming</motion.h1>
+    <div className={`relative flex-1 ${className}`}>
+      <div className="absolute w-full h-full card flex-1 p-4 flex flex-col gap-4 fscroll">
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="header">Upcoming</motion.h1>
 
 
-      <div className="flex-1 flex flex-col gap-3 text-white overflow-y-auto pr-1">
-        {events.map((item, index) => <motion.div
-          initial={initial}
-          animate={animate}
-          transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
-          key={index}
-        ><EventCard title={item.title} startTime={item.startTime} endTime={item.endTime} location={item.location} /></motion.div>)}
+        <div className="flex-1 flex flex-col gap-3 text-white overflow-y-auto pr-1">
+          {events.map((item, index) => <motion.div
+            initial={initial}
+            animate={animate}
+            transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
+            key={index}
+          ><EventCard title={item.title} startTime={item.startTime} endTime={item.endTime} location={item.location} /></motion.div>)}
+        </div>
       </div>
     </div>
   )
