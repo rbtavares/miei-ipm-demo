@@ -50,7 +50,7 @@ const CalendarBox = () => {
             <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.75 }} className="flex items-center justify-center text-white/70 font-light cursor-default">19</motion.div>
 
             <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.5 }} className="flex items-center justify-center text-white/70 font-light cursor-default">20</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.55 }} className="flex items-center justify-center text-white/70 font-light cursor-default"><h1 className="border border-white aspect-square h-full rounded-full flex items-center justify-center">21</h1></motion.div>
+            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.55 }} className="flex items-center justify-center text-white/70 font-light cursor-default"><h1 className="border-2 border-white/75 aspect-square h-full rounded-full flex items-center justify-center">21</h1></motion.div>
             <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.6 }} className="flex items-center justify-center text-white/70 font-light cursor-default">22</motion.div>
             <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.65 }} className="flex items-center justify-center text-white/70 font-light cursor-default">23</motion.div>
             <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.7 }} className="flex items-center justify-center text-white/70 font-light cursor-default">24</motion.div>
