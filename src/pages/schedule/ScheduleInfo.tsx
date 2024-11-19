@@ -1,6 +1,9 @@
 
+import { Button } from '@/components/ui/button';
+import { shifts } from '@/data/Shifts';
+import { Edit } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import VanillaTilt from 'vanilla-tilt';
-import { useRef, useEffect } from 'react';
 
 interface IEvent {
   name?: string,
@@ -8,10 +11,11 @@ interface IEvent {
   shift?: string,
   duration?: string,
   rowSpan: string,
-  secondary?: boolean
+  secondary?: boolean,
+  onClickCallback?: Function
 }
 
-const Event = ({ name, location, shift, duration, rowSpan, secondary }: IEvent) => {
+const Event = ({ name, location, shift, duration, rowSpan, secondary, onClickCallback }: IEvent) => {
   const tiltRef = useRef(null);
 
   useEffect(() => {
@@ -27,8 +31,8 @@ const Event = ({ name, location, shift, duration, rowSpan, secondary }: IEvent) 
 
   return (
     <>
-      <div ref={tiltRef} className={`relative ${rowSpan}`}>
-        <div className={`absolute border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white'} text-${secondary ? 'white' : 'black'} hover:drop-shadow-xl flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-125 ${secondary && 'hover:text-black'} hover:drop-shadow-xl hover:bg-white hover:z-50 duration-300`}>
+      <div ref={tiltRef} className={`relative ${rowSpan}`} onClick={onClickCallback ? () => onClickCallback() : () => { }}>
+        <div className={`absolute select-none cursor-pointer border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white'} text-${secondary ? 'white' : 'black'} hover:drop-shadow-xl flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-125 ${secondary && 'hover:text-black'} hover:drop-shadow-xl hover:bg-white hover:z-50 duration-300`}>
           <div>
             <h1 className="text-lg font-medium">{name}</h1>
             <h3 className="text-xs font-light">{location}</h3>
@@ -49,7 +53,7 @@ const EventSpacer = ({ hideBorder }: { hideBorder?: boolean }) => {
   )
 }
 
-const Schedule = () => {
+const Schedule = ({ selectShift }: { selectShift: Function }) => {
 
   return (
     <div className="flex h-full w-full gap-1">
@@ -85,8 +89,8 @@ const Schedule = () => {
         <div className="grid grid-cols-6 gap-x-2 h-full flex-1 bg-white/10">
           <div className="grid grid-cols-1 gap-1">
             {/* Podemos agrupar os eventos e tirar a gap dos spacers, se for mesmo preciso */}
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" />
-            <Event rowSpan="row-span-2" name="CVS" location="1C - Ed.7" shift="T1" duration="2h" secondary />
+            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[0])} />
+            <Event rowSpan="row-span-2" name="CVS" location="1C - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[1])} />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
@@ -98,7 +102,7 @@ const Schedule = () => {
             <EventSpacer />
           </div>
           <div className="grid grid-cols-1 gap-1">
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" />
+            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[2])} />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
@@ -172,13 +176,15 @@ const Schedule = () => {
   )
 }
 
-const ScheduleInfoCard = () => {
+const ScheduleInfoCard = ({ selectShift }: { selectShift: Function }) => {
   return (
 
     <div className="card w-full flex-1 p-4 flex flex-col gap-4">
-      <h1 className="header">Schedule</h1>
-
-      <Schedule />
+      <div className='flex justify-between'>
+        <h1 className="header">Schedule</h1>
+        <Button><Edit /> Modify</Button>
+      </div>
+      <Schedule selectShift={selectShift} />
     </div>
   )
 }

@@ -8,12 +8,9 @@ import {
 } from "@/components/ui/dialog"
 import { Label } from "./ui/label"
 import { Settings } from "lucide-react"
-import { useBackground } from "@/hooks/useBackground"
 
 
 const SettingsDialog = () => {
-
-    const { updateBackground } = useBackground();
 
     return (
         <Dialog>
@@ -24,8 +21,8 @@ const SettingsDialog = () => {
                     <DialogDescription>
                         <Label>Background</Label>
                         <div className="grid grid-cols-2 gap-2">
-                            <div className="aspect-video bg-shapes w-full bg-cover rounded  cursor-pointer" onClick={() => updateBackground('bg-shapes')} />
-                            <div className="aspect-video bg-shapes2 w-full bg-cover rounded  cursor-pointer" onClick={() => updateBackground('bg-shapes2')} />
+                            <div className="aspect-video bg-shapes w-full bg-cover rounded  cursor-pointer" onClick={() => {}} />
+                            <div className="aspect-video bg-shapes w-full bg-cover rounded  cursor-pointer" onClick={() => {}} />
                         </div>
                     </DialogDescription>
                 </DialogHeader>

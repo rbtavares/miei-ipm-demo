@@ -139,7 +139,7 @@ const LoginForm = () => {
 }
 
 const LoginPage = () => (
-  <div className="h-screen flex items-center justify-center bg-shapes2 bg-center bg-cover">
+  <div className="h-screen flex flex-col items-center justify-center bg-shapes-low bg-center bg-cover">
     <LoginForm />
   </div >
 );
