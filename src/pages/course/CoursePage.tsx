@@ -25,20 +25,17 @@ const CoursePage = () => {
         {/* Content */}
         <div className="flex-1 w-full max-w-screen-2xl grid grid-cols-4 gap-2 2xl:gap-5">
 
-            <div className="flex flex-col gap-2 2xl:gap-5 col-span-3">
-                <div className="h-1/3">
-                  <CourseInfoCard/>
-                </div>
-                <div className="w-full flex-1 flex gap-5">
-                    <div className="flex w-2/5 h-full"><MaterialsCard/></div>
-                    <ForumCard />
-                  </div>
+            <div className="flex flex-col gap-5 col-span-3 h-full">
+              <div className="relative flex h-1/3"><CourseInfoCard/></div>
+              <div className="w-full h-2/3 flex gap-5">
+                <div className="relative flex flex-1"><MaterialsCard/></div>
+                <div className="relative flex flex-1"><ForumCard/></div>
+              </div>
             </div>
 
-            <div className="flex flex-col gap-2 2xl:gap-5 col-span-1">
-              <UpcomingEventsCard/>
-              <div className="max-h-[300px]"><NotificationsCard/></div>
-              
+            <div className="flex flex-col gap-5 col-span-1 h-full">
+              <div className="relative flex flex-1"><UpcomingEventsCard /></div>
+              <div className="relative flex flex-1"><NotificationsCard /></div>
             </div>
         </div>
     </div>

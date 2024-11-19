@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { formatRelativeTime } from '@/lib/utils';
+import { motion } from 'framer-motion'
 
 interface IPostCard {
     title: string,
@@ -39,16 +40,21 @@ return (
 
 const ForumCard = () => {
     return (
-        <div className="card w-full flex-1 p-4 flex flex-col gap-4 fscroll">
-            <h1 className="header">Forum</h1>
-            
-            <div className="flex flex-col gap-6 fscroll">
-                <div className="flex flex-row gap-2 items-center 2xl:gap-5">
+
+        <div className="card w-full h-full flex-1 p-4 flex flex-col gap-4 absolute">
+            <motion.h1
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="header">Forum</motion.h1>
+
+            <div className="flex flex-col gap-2 overflow-y-auto fscroll w-full">
+                <div className="flex gap-2">
                     <Input placeholder="Add text..." type="text" className="text-black drop-shadow-md" />
                     <Button className="drop-shadow-md bg-white/20" variant="outline">Create</Button>
                 </div>
 
-                <div className="flex-1 flex flex-col gap-3 p-0 text-white overflow-y-auto max-h-96 mt-2">
+                <div className="gap-2 pr-1 flex-1 flex flex-col p-0 text-white overflow-y-auto">
                     <PostCard title="Test" comments={5} time={new Date()} timeAgo="7h"/>
                     <PostCard title="Test" comments={3} time={new Date()} timeAgo="3 days"/>
                     <PostCard title="Test" comments={0} time={new Date()} timeAgo="8 days"/>
