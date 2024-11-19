@@ -4,7 +4,6 @@ import { getPath } from "@/lib/utils";
 import DetailedViewCard from "@/pages/schedule/DetailedView";
 import ScheduleInfoCard from "@/pages/schedule/ScheduleInfo";
 import { useState } from "react";
-import { shifts } from "@/data/Shifts";
 
 const breadcrumbRoutes = [
     { name: 'Home', dest: getPath('/home') },
