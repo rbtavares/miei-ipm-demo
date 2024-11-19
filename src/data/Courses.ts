@@ -36,4 +36,22 @@ export const courses : Course[] = [
     {name: "Fundamentos de Programação", abbrev: "FP", description: "Fundamental programming concepts, focusing on structured and procedural approaches.", info: "Covers variables, loops, and conditionals to form the basis of programming.", professor: "Vera Rocha", coordinater: "João Costa", id: 2331, ects: 6},
     {name: "Redes Neurais", abbrev: "RN", description: "Study of neural networks, deep learning, and machine learning algorithms.", info: "Introduces techniques for developing AI systems that can learn from data.", professor: "João Martins", coordinater: "Ricardo Pinto", id: 1256, ects: 9}
   ]
+
+  export const coursesRegister = [
+    {
+      label: "Qualidade de Software",
+    },
+    {
+      label: "Preparação da Dissertação",
+    },
+    {
+      label: "Empreendedorismo",
+    },
+    {
+      label: "Aprendizagem Automática",
+    },
+    {
+      label: "Segurança de Software",
+    },
+  ]
   

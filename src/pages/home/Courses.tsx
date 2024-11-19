@@ -1,8 +1,14 @@
-import { courses } from "@/data/Courses";
-import { getPath } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { courses, coursesRegister } from "@/data/Courses";
+import { cn, getPath } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { ArrowRight, Bell } from "lucide-react";
+import { ArrowRight, Bell, Check, ChevronsUpDown, CirclePlus } from "lucide-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 interface CourseCard {
   name: string
@@ -10,6 +16,80 @@ interface CourseCard {
   info: string
   ects: number
   hasNotifications?: boolean
+}
+
+const RegisterCourse = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState("")
+
+  const handleRegisterClick = (course: string) => { 
+    if (!course) {
+      toast("Please select a course before registering.")
+      return
+    }
+    toast(`Registered for ${course}.`) 
+    setDialogOpen(false)
+  }
+
+  return (
+    <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogTrigger asChild>
+          <Button><CirclePlus /> Register</Button>
+        </DialogTrigger>
+  
+        <DialogContent className='max-w-sm'>
+          <DialogHeader>
+            <DialogTitle className='text-3xl mb-1'>Register</DialogTitle>
+            <DialogDescription className='text-lg'>Select a course to enroll.</DialogDescription>
+          </DialogHeader>
+            <Popover open={open} onOpenChange={setOpen}>
+              <PopoverTrigger asChild>
+                <Button
+                variant="outline"
+                role="combobox"
+                aria-expanded={open}
+                className="w-full justify-between"
+                >
+                {value? coursesRegister.find((course) => course.label === value)?.label: "Select course..."}
+                  <ChevronsUpDown className="ml-2 h-4 shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-full p-0">
+                <Command>
+                  <CommandInput placeholder="Search course..." />
+                  <CommandList>
+                    <CommandEmpty>No course found.</CommandEmpty>
+                    <CommandGroup>
+                      {coursesRegister.map((course) => (
+                        <CommandItem
+                          key={course.label}
+                          value={course.label}
+                          onSelect={(currentValue) => {
+                            setValue(currentValue === value ? "" : currentValue)
+                            setOpen(false)
+                          }}
+                        >
+                          <Check
+                            className={cn(
+                              "mr-2 h-4 w-4",
+                              value === course.label ? "opacity-100" : "opacity-0"
+                            )}
+                          />
+                          {course.label}
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
+            <Button className="drop-shadow-md bg-white mt-1" variant="default" onClick={() => handleRegisterClick(value)} aria-label="Register for course">
+              Register
+            </Button>
+          </DialogContent>
+        </Dialog>
+  )
 }
 
 const CourseCard = ({ name, abbrev, info, ects, hasNotifications = false }: CourseCard) => {
@@ -51,6 +131,7 @@ const Courses = () => (
   <div className="relative flex-1">
     <div className="absolute h-full w-full card fscroll flex flex-col gap-4 p-4">
 
+    <div className='flex justify-between'>
       {/* Card Header */}
       <motion.h1
         initial={{ opacity: 0 }}
@@ -60,6 +141,8 @@ const Courses = () => (
       >
         Courses
       </motion.h1>
+      <RegisterCourse/>
+      </div>
 
       {/* Card Content */}
       <div className="flex flex-1 flex-col gap-3 text-white overflow-y-auto pr-1">
