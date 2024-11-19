@@ -54,7 +54,7 @@ const ProfileCard = () => {
           initial={initial}
           animate={animate}
           transition={{ duration: 1, delay: 0.3 }}
-          className='text-center drop-shadow-md text-2xl lg:text-2xl 2xl:text-4.5xl font-medium'>{user.name}</motion.h1>
+          className='text-center drop-shadow-md text-2xl lg:text-3xl 2xl:text-4.5xl font-medium'>{user.name}</motion.h1>
         <motion.h3
           initial={initial}
           animate={{opacity: 0.5}}
