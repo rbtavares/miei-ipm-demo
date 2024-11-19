@@ -33,6 +33,7 @@ interface IMaterialCard {
   
 
 const MaterialCard = ({ name, uploadTime, size, onClickCallback, animationDelay, author, type }: IMaterialCard) => {
+    console.log(author, type)
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0 }}

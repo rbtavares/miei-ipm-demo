@@ -31,7 +31,7 @@ const Event = ({ name, location, shift, duration, rowSpan, secondary, onClickCal
 
   return (
     <>
-      <div ref={tiltRef} className={`relative ${rowSpan}`} onClick={onClickCallback ? () => onClickCallback() : () => { }}>
+      <div ref={tiltRef} className={`relative pb-[0.4rem] ${rowSpan}`} onClick={onClickCallback ? () => onClickCallback() : () => { }}>
         <div className={`absolute select-none cursor-pointer border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white'} text-${secondary ? 'white' : 'black'} hover:drop-shadow-xl flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-125 ${secondary && 'hover:text-black'} hover:drop-shadow-xl hover:bg-white hover:z-50 duration-300`}>
           <div>
             <h1 className="text-lg font-medium">{name}</h1>
@@ -89,10 +89,10 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
         <div className="grid grid-cols-6 gap-x-2 h-full flex-1 bg-white/10">
           <div className="grid grid-cols-1 gap-1">
             {/* Podemos agrupar os eventos e tirar a gap dos spacers, se for mesmo preciso */}
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[0])} />
+            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[2])} />
+            <EventSpacer />
+            <EventSpacer hideBorder />
             <Event rowSpan="row-span-2" name="CVS" location="1C - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[1])} />
-            <EventSpacer />
-            <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />

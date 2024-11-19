@@ -93,7 +93,7 @@ const DocumentGrid = () => {
     return (
         <div className="flex flex-col gap-2 overflow-y-auto fscroll w-full">
             <div className="flex gap-2">
-                <div className="flex gap-2 w-1/2 overflow-x-auto ghost-scroll">
+                <div className="flex gap-2 w-1/2 overflow-x-auto pb-1">
                     {getAcademicYears().map((year, index) => (
                         <motion.div
                             initial={{ opacity: 0, x: 100 }}
