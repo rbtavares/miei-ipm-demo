@@ -3,100 +3,7 @@ import { PaperclipIcon } from "lucide-react"
 import { MouseEventHandler, useState } from "react"
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
-
-type Material = {
-    id: number
-    name: string
-    type: "theoretical" | "practical" | "test" | "project" | "other"
-    uploadTime: Date
-    author: string
-    pdfUrl: string
-    size: number
-}
-  
-export const materials: Material[] = [
-    {
-        id: 1,
-        name: "IPM1_Intro",
-        type: "theoretical",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 2345678
-    },
-    {
-        id: 2,
-        name: "IPM2_Intro",
-        type: "theoretical",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 1567890
-    },
-    {
-        id: 3,
-        name: "IPM1_Intro",
-        type: "practical",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 1567890
-    },
-    {
-        id: 4,
-        name: "IPM2_Intro",
-        type: "other",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 1567890
-    },
-    {
-        id: 5,
-        name: "IPM1_Intro",
-        type: "project",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 1567890
-    },
-    {
-        id: 6,
-        name: "IPM1_Intro",
-        type: "project",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 1567890
-    },
-    {
-        id: 7,
-        name: "IPM1_Intro",
-        type: "project",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 1567890
-    },
-    {
-        id: 8,
-        name: "IPM1_Intro",
-        type: "project",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 1567890
-    },
-    {
-        id: 9,
-        name: "IPM1_Intro",
-        type: "project",
-        uploadTime: new Date(),
-        author: "Teresa Romão",
-        pdfUrl: "teste",
-        size: 1567890
-    }
-]
+import { Material, materials } from "@/data/Materials"
 
 const formatBytes = (bytes: number, decimals: number = 1) => {
     if (bytes === 0 || isNaN(bytes)) return '0 B';
@@ -131,7 +38,7 @@ const MaterialCard = ({ name, uploadTime, size, onClickCallback, animationDelay,
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: animationDelay }}
-            className="break-all bg-white/25  rounded-md flex flex-col flex-1 justify-between items-center min-h-40 p-2"
+            className="break-all bg-white/25  rounded-md flex flex-col flex-1 justify-between cursor-pointer select-none items-center min-h-40 p-2"
             onClick={onClickCallback}
         >
 
@@ -143,19 +50,22 @@ const MaterialCard = ({ name, uploadTime, size, onClickCallback, animationDelay,
                 <h1 className="text-center z-10">{name}</h1>
             </div>
 
-            <div className="flex w-full items-center border-t border-t-white/30 justify-between pt-1">
-                <h2 className="text-sm">{uploadTime.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</h2>
+            <div className="flex flex-col w-full items-center border-t border-t-white/30 justify-between pt-1">
+                <h5 className="text-xs">{type}</h5>
+                <h5 className="text-xs font-light">{author}</h5>
+                <h5 className="text-xs font-light">{uploadTime.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</h5>
                 <h5 className="text-xs font-light">{formatBytes(size)}</h5>
             </div>
         </motion.div>
     )
 }
 
-const MaterialGrid = () => {
+const MaterialGrid = ({ name }: { name: string }) => {
     const [filter, setFilter] = useState<string>("all");
     const [searchQuery, setSearchQuery] = useState("");
     
     const filteredMaterials = materials
+        .filter((m) => m.courseName === name)
         .filter((m) => (filter === "all" || m.type === filter))
         .filter((m) => m.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
@@ -164,9 +74,9 @@ const MaterialGrid = () => {
 
         <div className="flex flex-col gap-2 overflow-y-auto fscroll w-full">
             <div className="flex gap-2">
-                <div className="flex gap-2 w-1/2 overflow-x-auto ghost-scroll w-2/3">
+                <div className="flex gap-2 overflow-x-auto ghost-scroll">
 
-                {["all", "theoretical", "practical", "project"].map((type, index) => (
+                {["all", "Theoretical", "Practical", "Project", "Other"].map((type, index) => (
                 <motion.div
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -207,8 +117,8 @@ const MaterialGrid = () => {
                             size={material.size}
                             onClickCallback={() => window.open(material.pdfUrl, "_blank")}
                             animationDelay={0.4 + 0.1 * index} 
-                            author={""} 
-                            type={""}/>
+                            author={material.author} 
+                            type={material.type}/>
                     </div>
                 ))}
             </div>
@@ -216,7 +126,7 @@ const MaterialGrid = () => {
     )
 }
   
-const MaterialsCard = () => {
+const MaterialsCard = ({ name }: { name: string }) => {
     return (
         <div className="card w-full h-full flex-1 p-4 flex flex-col gap-4 absolute">
             <motion.h1
@@ -224,7 +134,7 @@ const MaterialsCard = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
                 className="header">Materials</motion.h1>
-            <MaterialGrid />
+            <MaterialGrid name={name} />
         </div>
     )
 }

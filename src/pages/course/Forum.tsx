@@ -3,8 +3,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { courses } from '@/data/Courses';
+import { posts } from '@/data/Posts';
 import { formatRelativeTime } from '@/lib/utils';
 import { motion } from 'framer-motion'
+import { useState } from 'react';
 
 interface IPostCard {
     title: string,
@@ -38,7 +41,10 @@ return (
 );
 };
 
-const ForumCard = () => {
+const ForumCard = ({ name }: { name: string }) => {   
+    const filteredPosts = posts.filter((p) => p.courseName === name)
+    console.log(posts)
+
     return (
 
         <div className="card w-full h-full flex-1 p-4 flex flex-col gap-4 absolute">
@@ -55,12 +61,16 @@ const ForumCard = () => {
                 </div>
 
                 <div className="gap-2 pr-1 flex-1 flex flex-col p-0 text-white overflow-y-auto">
-                    <PostCard title="Test" comments={5} time={new Date()} timeAgo="7h"/>
-                    <PostCard title="Test" comments={3} time={new Date()} timeAgo="3 days"/>
-                    <PostCard title="Test" comments={0} time={new Date()} timeAgo="8 days"/>
-                    <PostCard title="Test" comments={1} time={new Date()} timeAgo="14 days"/>
-                    <PostCard title="Test" comments={10} time={new Date()} timeAgo="20 days"/>
-                    <PostCard title="Test" comments={7} time={new Date()} timeAgo="1 month"/>
+                {filteredPosts.map((post) => (
+                    <PostCard
+                        key={post.id}
+                        title={post.title}
+                        comments={post.comments}
+                        time={post.time}
+                        timeAgo={post.timeAgo}
+                    />
+                    ))
+                }
                 </div>
             </div>
         </div>

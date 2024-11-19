@@ -16,7 +16,8 @@ const CourseCard = ({ name, abbrev, info, ects, hasNotifications = false }: Cour
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white/20 flex h-full px-3 py-2 rounded-lg cursor-pointer" onClick={() => navigate(getPath('/course'))}>
+    <div className="bg-white/20 flex h-full px-3 py-2 rounded-lg cursor-pointer" 
+    onClick={() => navigate(getPath(`/course/${encodeURIComponent(name)}`))}>
 
       {/* Course Info */}
       <div className="flex flex-col gap-2 flex-1">

@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <ProfilePage />
   },
   {
-    path: getPath('/course'),
+    path: getPath('/course/:name'),
     element: <CoursePage />
   },
   {
