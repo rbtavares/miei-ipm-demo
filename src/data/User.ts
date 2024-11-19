@@ -1,4 +1,4 @@
-type User = {
+export type User = {
     name: string
     number: number
     identifier: string
@@ -13,17 +13,19 @@ type User = {
     phone: string
 }
 
-export const user: User = {
-    name: "Martim Gonçalves",
-    number: 71340,
-    identifier: "mmr.gonc",
-    birthday: new Date('2006-06-01T00:00:00'),
-    location: "Oeiras, PT",
-    nationality: "Portuguese",
-    mother: "Ana Margarida Gonçalves",
-    father: "??? foi comprar pão",
-    taxnumber: "272558486",
-    cc: "000000000",
-    email: "mmr.goncalves@fct.unl.pt",
-    phone: "939544053"
-}
+export const users: User[] = [
+    {
+        name: "Martim Gonçalves",
+        number: 71340,
+        identifier: "mmr.gonc",
+        birthday: new Date('2006-06-01T00:00:00'),
+        location: "Oeiras, PT",
+        nationality: "Portuguese",
+        mother: "Ana Margarida Gonçalves",
+        father: "??? foi comprar pão",
+        taxnumber: "272558486",
+        cc: "000000000",
+        email: "mmr.goncalves@fct.unl.pt",
+        phone: "939544053"
+    }
+]

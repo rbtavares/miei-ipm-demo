@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import ShineBorder from '@/components/ui/shine-border'
-import { user } from '@/data/User'
+import { users } from '@/data/User'
 import { getPath } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { Loader2 } from 'lucide-react'
@@ -47,7 +47,7 @@ const LoginForm = () => {
             transition={{ duration: 1, delay: 0.3 }}
           >
             <Label className='drop-shadow-md'>Identifier</Label>
-            <Input placeholder={user.identifier} type='email' className='text-black mb-2 drop-shadow-md' />
+            <Input placeholder={users[0].identifier} type='email' className='text-black mb-2 drop-shadow-md' />
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}

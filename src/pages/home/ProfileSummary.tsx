@@ -2,7 +2,7 @@ import Avatar from '@/assets/avatar.png';
 import { BorderBeam } from '@/components/ui/border-beam';
 import { getPath } from "@/lib/utils";
 import { useNavigate } from "react-router-dom"
-import { user } from '@/data/User'
+import { users } from '@/data/User'
 import { motion } from 'framer-motion'
 
 const animate = {
@@ -34,12 +34,12 @@ const ProfileCard = () => {
             initial={initial}
             animate={animate}
             transition={{ duration: 1, delay: 0.3 }}
-            className='drop-shadow-md 2xl:text-lg'>{user.identifier}</motion.span>
+            className='drop-shadow-md 2xl:text-lg'>{users[0].identifier}</motion.span>
           <motion.span
             initial={initial}
             animate={animate}
             transition={{ duration: 1, delay: 0.4 }}
-            className='drop-shadow-md font-mono text-xs 2xl:text-sm'>{user.number}</motion.span>
+            className='drop-shadow-md font-mono text-xs 2xl:text-sm'>{users[0].number}</motion.span>
         </div>
       </div>
 
@@ -54,7 +54,7 @@ const ProfileCard = () => {
           initial={initial}
           animate={animate}
           transition={{ duration: 1, delay: 0.3 }}
-          className='text-center drop-shadow-md text-2xl lg:text-3xl 2xl:text-4.5xl font-medium'>{user.name}</motion.h1>
+          className='text-center drop-shadow-md text-2xl lg:text-3xl 2xl:text-4.5xl font-medium'>{users[0].name}</motion.h1>
         <motion.h3
           initial={initial}
           animate={{opacity: 0.5}}
