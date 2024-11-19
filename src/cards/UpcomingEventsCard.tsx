@@ -1,7 +1,6 @@
 import AssignmentSubmission from "@/components/SubmitAssignment";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { events } from "@/data/Events";
 import { motion } from 'framer-motion'
 import { useState } from "react";
@@ -60,7 +59,7 @@ const EventCard = ({ title, location, startTime, endTime, type }: IEventCard) =>
   const handleEnrollClick = () => { 
     toast("Registered for test.")
     setIsEnrolled(true) }
-    
+
   const handleAssignmentSubmit = (file: File, comments: string) => {
     setIsSubmitted(true);
     toast("Assignment submitted.")

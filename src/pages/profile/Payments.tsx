@@ -7,9 +7,9 @@ import { Label } from '@radix-ui/react-label'
 import { PaperclipIcon } from 'lucide-react'
 import { useState } from 'react'
 
-interface IPayEntryDialog {
+{/*interface IPayEntryDialog {
 
-}
+}*/}
 
 const PayEntryDialog = () => (
   <Dialog>
@@ -78,9 +78,9 @@ const PaidPaymentEntry = ({ invoice, method, date }: IPaidPaymentEntry) => (
 )
 
 
-interface IPayments {
+{/*interface IPayments {
 
-}
+}*/}
 
 const Payments = () => {
 
