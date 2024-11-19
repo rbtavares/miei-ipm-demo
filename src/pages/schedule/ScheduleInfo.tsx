@@ -86,7 +86,7 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
         </div>
 
         {/* Table */}
-        <div className="grid grid-cols-6 gap-x-2 h-full flex-1 bg-white/10">
+        <div className="grid grid-cols-6 gap-x-2 h-full flex-1 bg-white/10 rounded-lg">
           <div className="grid grid-cols-1 gap-1">
             {/* Podemos agrupar os eventos e tirar a gap dos spacers, se for mesmo preciso */}
             <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[2])} />
@@ -99,7 +99,7 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
-            <EventSpacer />
+            <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[2])} />
@@ -112,7 +112,7 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
-            <EventSpacer />
+            <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <EventSpacer />
@@ -127,7 +127,7 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
-            <EventSpacer />
+            <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <EventSpacer />
@@ -140,7 +140,7 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
             <EventSpacer />
             <EventSpacer hideBorder />
             <Event rowSpan="row-span-2" name="AMI" location="1D - Ed.7" shift="T1" duration="2h" secondary />
-            <EventSpacer />
+            <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <Event rowSpan="row-span-2" name="IPM" location="Sala 128 - Ed.2" shift="T2" duration="2h" secondary />
@@ -153,7 +153,7 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
-            <EventSpacer />
+            <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <EventSpacer />
@@ -168,7 +168,7 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
-            <EventSpacer />
+            <EventSpacer hideBorder />
           </div>
         </div>
       </div>

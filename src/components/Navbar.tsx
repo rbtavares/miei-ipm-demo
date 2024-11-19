@@ -93,6 +93,7 @@ const Navbar = ({ routes }: INavbar) => {
           </motion.div>
         </div>
       </div>
+
     </div>
   )
 }
