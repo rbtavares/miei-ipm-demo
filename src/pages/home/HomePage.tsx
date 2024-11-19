@@ -12,7 +12,7 @@ const breadcrumbRoutes = [
 ]
 
 const HomePage = () => (
-  <div className="h-screen w-full flex justify-center bg-shapes2 bg-center bg-cover bg-fixed">
+  <div className="h-screen w-full flex justify-center bg-shapes-low bg-center bg-cover bg-fixed">
     <div className="max-w-screen-2xl flex flex-1 flex-col gap-2 2xl:gap-5 px-2 2xl:px-5 overflow-hidden">
 
       {/* Navbar */}

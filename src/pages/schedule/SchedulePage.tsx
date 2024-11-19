@@ -2,7 +2,6 @@ import DetailedViewCard from "@/pages/schedule/DetailedView";
 import ScheduleInfoCard from "@/pages/schedule/ScheduleInfo";
 import UpcomingEventsCard from "@/cards/UpcomingEventsCard";
 import Navbar from "@/components/Navbar";
-import { useBackground } from "@/hooks/useBackground";
 import { getPath } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -12,10 +11,9 @@ const breadcrumbRoutes = [
 ]
 
 const SchedulePage = () => {
-    const { backgroundClass } = useBackground();
 
     return (
-        <div className={`min-h-screen w-full flex flex-col items-center bg-[#010D10] ${backgroundClass} bg-center bg-cover bg-fixed`}>
+        <div className={`min-h-screen w-full flex flex-col items-center bg-[#010D10] bg-shapes-low bg-center bg-cover bg-fixed`}>
 
             <div className="max-w-screen-2xl flex flex-col gap-2 2xl:gap-5 w-full flex-1 pt-0 p-2 2xl:pt-0 2xl:p-5">
 
