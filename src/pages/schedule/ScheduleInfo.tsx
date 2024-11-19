@@ -1,6 +1,8 @@
 
+import { Button } from '@/components/ui/button';
+import { Edit } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import VanillaTilt from 'vanilla-tilt';
-import { useRef, useEffect } from 'react';
 
 interface IEvent {
   name?: string,
@@ -28,7 +30,7 @@ const Event = ({ name, location, shift, duration, rowSpan, secondary }: IEvent) 
   return (
     <>
       <div ref={tiltRef} className={`relative ${rowSpan}`}>
-        <div className={`absolute cursor-pointer border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white'} text-${secondary ? 'white' : 'black'} hover:drop-shadow-xl flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-125 ${secondary && 'hover:text-black'} hover:drop-shadow-xl hover:bg-white hover:z-50 duration-300`}>
+        <div className={`absolute select-none cursor-pointer border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white'} text-${secondary ? 'white' : 'black'} hover:drop-shadow-xl flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-125 ${secondary && 'hover:text-black'} hover:drop-shadow-xl hover:bg-white hover:z-50 duration-300`}>
           <div>
             <h1 className="text-lg font-medium">{name}</h1>
             <h3 className="text-xs font-light">{location}</h3>
@@ -176,8 +178,10 @@ const ScheduleInfoCard = () => {
   return (
 
     <div className="card w-full flex-1 p-4 flex flex-col gap-4">
-      <h1 className="header">Schedule</h1>
-
+      <div className='flex justify-between'>
+        <h1 className="header">Schedule</h1>
+        <Button><Edit /> Modify</Button>
+      </div>
       <Schedule />
     </div>
   )

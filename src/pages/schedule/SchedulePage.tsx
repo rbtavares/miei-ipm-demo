@@ -31,10 +31,6 @@ const SchedulePage = () => {
                     {/* Center Pane */}
                     <div className="flex flex-col gap-2 2xl:gap-5 col-span-2">
                         <ScheduleInfoCard />
-                        <div className="w-full flex gap-5 items-center justify-end">
-                            <Button>Manage Shifts</Button>
-                            <Button variant="secondary">Choose Shifts</Button>
-                        </div>
                     </div>
 
                     {/* Right Pane */}
