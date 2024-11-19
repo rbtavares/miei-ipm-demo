@@ -3,11 +3,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { courses } from '@/data/Courses';
 import { posts } from '@/data/Posts';
 import { formatRelativeTime } from '@/lib/utils';
 import { motion } from 'framer-motion'
-import { useState } from 'react';
 
 interface IPostCard {
     title: string,
