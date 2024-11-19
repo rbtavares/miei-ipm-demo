@@ -140,16 +140,7 @@ const LoginForm = () => {
 
 const LoginPage = () => (
   <div className="h-screen flex flex-col items-center justify-center bg-shapes-low bg-center bg-cover">
-    <div className="flex flex-1 p-2" />
     <LoginForm />
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.5 }}
-      transition={{ duration: 3, delay: 0.5 }}
-      className="flex flex-1 p-2 flex-col justify-end gap-2">
-      <p className='text-center text-white text-xs max-w-screen-sm'>NOVA Nexus Project &mdash; Stage 4 / ver. 1<br /><i>Interação Pessoa Máquina</i> &middot; di.fct.unl.pt</p>
-      <p className='text-center text-white text-xs max-w-screen-sm'>All data utilized within this project is entirely fictitious and does not depict or reflect any real individuals, entities, or events. Any resemblance or similarity to actual persons, living or deceased, or to any existing organizations, is purely coincidental and unintentional.</p>
-    </motion.div>
   </div >
 );
 

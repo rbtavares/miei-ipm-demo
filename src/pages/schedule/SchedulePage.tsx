@@ -1,16 +1,20 @@
-import DetailedViewCard from "@/pages/schedule/DetailedView";
-import ScheduleInfoCard from "@/pages/schedule/ScheduleInfo";
 import UpcomingEventsCard from "@/cards/UpcomingEventsCard";
 import Navbar from "@/components/Navbar";
 import { getPath } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import DetailedViewCard from "@/pages/schedule/DetailedView";
+import ScheduleInfoCard from "@/pages/schedule/ScheduleInfo";
+import { useState } from "react";
+import { shifts } from "@/data/Shifts";
 
 const breadcrumbRoutes = [
     { name: 'Home', dest: getPath('/home') },
     { name: 'Schedule', dest: getPath('/schedule') },
 ]
 
+
 const SchedulePage = () => {
+
+    const [selectedShift, setSelectedShift] = useState(null);
 
     return (
         <div className={`min-h-screen w-full flex flex-col items-center bg-[#010D10] bg-shapes-low bg-center bg-cover bg-fixed`}>
@@ -30,11 +34,11 @@ const SchedulePage = () => {
 
                     {/* Center Pane */}
                     <div className="flex flex-col gap-2 2xl:gap-5 col-span-2">
-                        <ScheduleInfoCard />
+                        <ScheduleInfoCard selectShift={setSelectedShift} />
                     </div>
 
                     {/* Right Pane */}
-                    <DetailedViewCard />
+                    <DetailedViewCard shiftInfo={selectedShift} />
 
                 </div>
 
