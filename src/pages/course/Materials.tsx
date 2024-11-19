@@ -61,12 +61,12 @@ const MaterialCard = ({ name, uploadTime, size, onClickCallback, animationDelay,
     )
 }
 
-const MaterialGrid = ({ name }: { name: string }) => {
+const MaterialGrid = ({ abrev }: { abrev: string }) => {
     const [filter, setFilter] = useState<string>("all");
     const [searchQuery, setSearchQuery] = useState("");
     
     const filteredMaterials = materials
-        .filter((m) => m.courseName === name)
+        .filter((m) => m.course === abrev)
         .filter((m) => (filter === "all" || m.type === filter))
         .filter((m) => m.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
@@ -75,7 +75,7 @@ const MaterialGrid = ({ name }: { name: string }) => {
 
         <div className="flex flex-col gap-2 overflow-y-auto fscroll w-full">
             <div className="flex gap-2">
-                <div className="flex gap-2 overflow-x-auto ghost-scroll">
+                <div className="flex gap-2 overflow-x-auto pb-1">
 
                 {["all", "Theoretical", "Practical", "Project", "Other"].map((type, index) => (
                 <motion.div
@@ -135,7 +135,7 @@ const MaterialsCard = ({ name }: { name: string }) => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
                 className="header">Materials</motion.h1>
-            <MaterialGrid name={name} />
+            <MaterialGrid abrev={name} />
         </div>
     )
 }

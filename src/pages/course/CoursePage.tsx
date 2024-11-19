@@ -13,6 +13,7 @@ const CoursePage = () => {
   const { name } = useParams<{ name: string }>();
   if (!name) throw new Error("Course name missing");
   const course = courses.find(course => course.name === decodeURIComponent(name));
+  if (!course) throw new Error("Course missing");
 
   const breadcrumbRoutes = [
     { name: 'Home', dest: getPath('/home') },
@@ -32,13 +33,13 @@ const CoursePage = () => {
             <div className="flex flex-col gap-5 col-span-3 h-full">
               <div className="relative flex h-1/3"><CourseInfoCard name={name}/></div>
               <div className="w-full h-2/3 flex gap-5">
-                <div className="relative flex flex-1"><MaterialsCard name={name}/></div>
+                <div className="relative flex flex-1"><MaterialsCard name={course.abbrev}/></div>
                 <div className="relative flex flex-1"><ForumCard name={name}/></div>
               </div>
             </div>
 
             <div className="flex flex-col gap-5 col-span-1 h-full">
-              <div className="relative flex flex-1"><UpcomingEventsCard /></div>
+              <div className="relative flex flex-1"><UpcomingEventsCard course={course.abbrev}/></div>
               <div className="relative flex flex-1"><NotificationsCard/></div>
             </div>
         </div>
