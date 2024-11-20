@@ -1,48 +1,76 @@
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
 import { Input } from '@/components/ui/input'
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Switch } from '@/components/ui/switch'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Label } from '@radix-ui/react-label'
 import { PaperclipIcon } from 'lucide-react'
 import { useState } from 'react'
 
-{/*interface IPayEntryDialog {
+const PayEntryDialog = () => {
 
-}*/}
+  const [option, setOption] = useState("mbway");
 
-const PayEntryDialog = () => (
-  <Dialog>
+  return <Dialog>
     <DialogTrigger asChild>
       <Button className='h-6'>Pay</Button>
     </DialogTrigger>
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>Payment</DialogTitle>
-        <DialogDescription>
-          Tuition Fee - Value: 69,70€
-        </DialogDescription>
+        <DialogTitle className='text-2xl'>Payment</DialogTitle>
       </DialogHeader>
-      <div className="grid gap-4 py-4">
-        <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="name" className="text-right">Name</Label>
-          <Input
-            id="name"
-            className="col-span-3"
-          />
+      <DialogDescription>
+        Description: Tuition Fee<br />Value: 69,70€
+      </DialogDescription>
+
+      <RadioGroup defaultValue={option} onValueChange={(v) => setOption(v)} className='gap-5 bg-white/10 rounded-lg p-3'>
+        <div className='flex flex-col gap-3 flex-1'>
+          <div className='flex gap-2'>
+            <RadioGroupItem value="mbway" className='mt-1.5' />
+            <h1 className='text-lg text-white font-medium'>MB Way</h1>
+          </div>
+          <div className='flex flex-col gap-1'>
+            <Label>Phone Number</Label>
+            <div className='flex gap-3'>
+              <Input disabled={option !== 'mbway'} id="name" className="font-mono" placeholder='910000000' />
+              <Button disabled={option !== 'mbway'} variant="secondary">Confirm</Button>
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="username" className="text-right">Email</Label>
-          <Input
-            type="email"
-            id="email"
-            className="col-span-3"
-          />
+
+        <div className='h-[1px] bg-white/50' />
+
+        <div className='flex flex-col gap-3 flex-1'>
+          <div className='flex gap-2'>
+            <RadioGroupItem value="credit-card" className='mt-1.5' />
+            <h1 className='text-lg text-white font-medium'>Credit Card</h1>
+          </div>
+
+          <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-1'>
+              <Label>Card Number</Label>
+              <Input disabled={option !== 'credit-card'} className="font-mono" placeholder='0000 0000 0000 0000' />
+            </div>
+            <div className='flex flex-row gap-3 items-end'>
+              <div className='flex flex-col gap-1 flex-1'>
+                <Label>Holder Name</Label>
+                <Input disabled={option !== 'credit-card'} className="" placeholder='John Doe' />
+              </div>
+              <div className='flex flex-col gap-1 flex-1'>
+                <Label>CVC / CVV</Label>
+                <Input disabled={option !== 'credit-card'} className="font-mono" placeholder='000' />
+              </div>
+              <Button disabled={option !== 'credit-card'} variant="secondary">Confirm</Button>
+            </div>
+          </div>
+
         </div>
-      </div>
+      </RadioGroup>
+
     </DialogContent>
   </Dialog>
-)
+}
 
 interface IDuePaymentEntry {
   deadline: Date
