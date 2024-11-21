@@ -111,7 +111,7 @@ const PaidPaymentEntry = ({ invoice, method, date }: IPaidPaymentEntry) => (
 }*/}
 
 const Payments = () => {
-
+  const [option, setOption] = useState("mbway");
   const [isPaidTable, setIsPaidTable] = useState(false);
 
   return (
@@ -156,24 +156,68 @@ const Payments = () => {
                     </DialogTrigger>
                     <DialogContent>
                       <DialogHeader>
-                        <DialogTitle>Are you absolutely sure?</DialogTitle>
-                        <DialogDescription>
-                          This action cannot be undone. This will permanently delete your account
-                          and remove your data from our servers.
-                        </DialogDescription>
+                        <DialogTitle className='text-2xl'>Payment</DialogTitle>
                       </DialogHeader>
+                      <DialogDescription>
+                        Description: All Tuition Fees<br />Value: 348,50€
+                      </DialogDescription>
+
+                      <RadioGroup defaultValue={option} onValueChange={(v) => setOption(v)} className='gap-5 bg-white/10 rounded-lg p-3'>
+                        <div className='flex flex-col gap-3 flex-1'>
+                          <div className='flex gap-2'>
+                            <RadioGroupItem value="mbway" className='mt-1.5' />
+                            <h1 className='text-lg text-white font-medium'>MB Way</h1>
+                          </div>
+                          <div className='flex flex-col gap-1'>
+                            <Label>Phone Number</Label>
+                            <div className='flex gap-3'>
+                              <Input disabled={option !== 'mbway'} id="name" className="font-mono" placeholder='910000000' />
+                              <Button disabled={option !== 'mbway'} variant="secondary">Confirm</Button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className='h-[1px] bg-white/50' />
+
+                        <div className='flex flex-col gap-3 flex-1'>
+                          <div className='flex gap-2'>
+                            <RadioGroupItem value="credit-card" className='mt-1.5' />
+                            <h1 className='text-lg text-white font-medium'>Credit Card</h1>
+                          </div>
+
+                          <div className='flex flex-col gap-3'>
+                            <div className='flex flex-col gap-1'>
+                              <Label>Card Number</Label>
+                              <Input disabled={option !== 'credit-card'} className="font-mono" placeholder='0000 0000 0000 0000' />
+                            </div>
+                            <div className='flex flex-row gap-3 items-end'>
+                              <div className='flex flex-col gap-1 flex-1'>
+                                <Label>Holder Name</Label>
+                                <Input disabled={option !== 'credit-card'} className="" placeholder='John Doe' />
+                              </div>
+                              <div className='flex flex-col gap-1 flex-1'>
+                                <Label>CVC / CVV</Label>
+                                <Input disabled={option !== 'credit-card'} className="font-mono" placeholder='000' />
+                              </div>
+                              <Button disabled={option !== 'credit-card'} variant="secondary">Confirm</Button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </RadioGroup>
+
                     </DialogContent>
                   </Dialog>
                 </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              <DuePaymentEntry deadline={new Date()} amount={69.7} />
-              <DuePaymentEntry deadline={new Date()} amount={69.7} />
-              <DuePaymentEntry deadline={new Date()} amount={69.7} />
-              <DuePaymentEntry deadline={new Date()} amount={69.7} />
-              <DuePaymentEntry deadline={new Date()} amount={69.7} />
-              <DuePaymentEntry deadline={new Date()} amount={69.7} />
+            <DuePaymentEntry deadline={new Date(2024, 10, 28)} amount={69.7} />
+            <DuePaymentEntry deadline={new Date(2024, 11, 28)} amount={69.7} />
+            <DuePaymentEntry deadline={new Date(2024, 0, 28)} amount={69.7} />
+            <DuePaymentEntry deadline={new Date(2024, 1, 28)} amount={69.7} />
+            <DuePaymentEntry deadline={new Date(2024, 2, 28)} amount={69.7} />
+            <DuePaymentEntry deadline={new Date(2024, 3, 28)} amount={69.7} />
             </TableBody>
           </Table>
         }
