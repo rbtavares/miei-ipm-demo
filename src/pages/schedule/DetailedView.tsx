@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const EnrolledStudent = ({ name, number }: { name: string, number: number }) => (
   <div className="flex justify-between items-center text-white/75 hover:text-white hover:bg-white/10 duration-200 px-1 py-0.5 rounded-sm cursor-default">
     <p>{name}</p>
@@ -6,6 +8,8 @@ const EnrolledStudent = ({ name, number }: { name: string, number: number }) => 
 )
 
 const DetailedViewCard = ({ shiftInfo }: { shiftInfo?: any }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="card w-full flex-1 p-4 flex flex-col gap-4">
       <h1 className="header">Detailed View</h1>
@@ -14,7 +18,7 @@ const DetailedViewCard = ({ shiftInfo }: { shiftInfo?: any }) => {
           <div className="flex flex-col gap-3 justify-between">
             <div>
               <h3 className="text-xs font-medium text-white/75">Course</h3>
-              <h1 className="text-2xl italic text-white">{shiftInfo.course}</h1>
+              <h1 onClick={() => navigate(`/miei-ipm-demo/course/${encodeURIComponent(shiftInfo.course)}`)} className="text-2xl italic text-white cursor-pointer">{shiftInfo.course}</h1>
             </div>
 
             <div>
