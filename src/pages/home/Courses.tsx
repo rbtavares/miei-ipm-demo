@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { courses, coursesRegister } from "@/data/Courses";
+import { Course, courses } from "@/data/Courses";
 import { cn, getPath } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowRight, Bell, Check, ChevronsUpDown, CirclePlus } from "lucide-react";
@@ -18,37 +18,32 @@ interface CourseCard {
   hasNotifications?: boolean
 }
 
-interface RegisteredCourse {
-  name: string
-  abbrev: string
-  info: string
-  ects: number
-  hasNotifications?: boolean
-  enrolled: boolean
-}
-
-const RegisterCourse = ( {coursesRegistered, setCoursesRegistered} : {coursesRegistered: RegisteredCourse[], setCoursesRegistered: React.Dispatch<React.SetStateAction<RegisteredCourse[]>>} ) => {
+const RegisterCourse = ( {coursesRegistered, setCoursesRegistered} : {coursesRegistered: Course[], setCoursesRegistered: React.Dispatch<React.SetStateAction<Course[]>>} ) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState("")
 
-  const handleRegisterClick = (course: string) => {
-    if (!course) {
+  const handleRegisterClick = (name: string) => {
+    if (!name) {
       toast("Please select a course before registering.")
       return
     }
-    toast(`Registered for ${course}.`) 
+    toast(`Registered for ${name}.`) 
     setDialogOpen(false);
     setCoursesRegistered(coursesRegistered.map((c) =>
-      c.name === course ? {
+      c.name === name ? {
         name: c.name,
         abbrev: c.abbrev,
+        description: c.description,
         info: c.info,
+        professor: c.professor,
+        coordinater: c.coordinater,
+        id: c.id,
         ects: c.ects,
-        hasNotifications: c.hasNotifications,
-        enrolled: true
+        enrolled: true,
       } : c   
     ));
+    setValue("")
   }
 
   return (
@@ -70,7 +65,7 @@ const RegisterCourse = ( {coursesRegistered, setCoursesRegistered} : {coursesReg
                 aria-expanded={open}
                 className="w-full justify-between"
                 >
-                {value? coursesRegister.find((course) => course.name === value)?.name: "Select course..."}
+                {value? coursesRegistered.find((course) => course.name === value)?.name: "Select course..."}
                   <ChevronsUpDown className="ml-2 h-4 shrink-0 opacity-50" />
                 </Button>
               </PopoverTrigger>
@@ -80,8 +75,8 @@ const RegisterCourse = ( {coursesRegistered, setCoursesRegistered} : {coursesReg
                   <CommandList>
                     <CommandEmpty>No course found.</CommandEmpty>
                     <CommandGroup>
-                      {coursesRegister.map((course) => (
-                        <CommandItem
+                      {coursesRegistered.map((course) => (
+                        course.enrolled ? <div></div> : <CommandItem
                           key={course.name}
                           value={course.name}
                           onSelect={(currentValue) => {
@@ -148,9 +143,7 @@ const CourseCard = ({ name, abbrev, info, ects, hasNotifications = false }: Cour
 
 const Courses = () => {
   
-  const [coursesRegistered, setCoursesRegistered] = useState(coursesRegister.map((course) => (
-    { name: course.name, abbrev: course.abbrev, info: course.info, ects: course.ects, enrolled: false}
-  )));
+  const [coursesRegistered, setCoursesRegistered] = useState(courses);
 
   return (
   <div className="relative flex-1">
@@ -173,25 +166,9 @@ const Courses = () => {
 
       {/* Card Content */}
       <div className="flex flex-1 flex-col gap-3 text-white overflow-y-auto pr-1">
-        {coursesRegistered.map((course, index) => (
-          course.enrolled ? <motion.div
-          initial={{ opacity: 0, y: 150 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.1 + (index * 0.1) }}
-          key={index}
-        >
-          <CourseCard
-            name={course.name}
-            abbrev={course.abbrev}
-            info={course.info}
-            ects={course.ects}
-            hasNotifications={index % 2 == 0}
-          />
-        </motion.div> : <></>
-        ))}
-        {courses.map((item, index) => (
-          index === courses.length - 1 ? (
-            <div></div>
+        {coursesRegistered.map((item, index) => (
+          !item.enrolled ? (
+            <></>
           ) : (
             <motion.div
               initial={{ opacity: 0, y: 150 }}
