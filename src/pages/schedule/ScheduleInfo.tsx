@@ -1,10 +1,9 @@
 
 import { Button } from '@/components/ui/button';
 import { shifts } from '@/data/Shifts';
-import { Check, CheckCircle, Edit, X } from 'lucide-react';
+import { Check, Edit } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import VanillaTilt from 'vanilla-tilt';
-import { Checkbox } from '@/components/ui/checkbox';
 
 interface IEvent {
   name?: string,
@@ -284,7 +283,6 @@ const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModif
 const ScheduleInfoCard = ({ selectShift }: { selectShift: Function }) => {
 
   const [modifying, setModifying] = useState(false)
-  const [chosenShifts, setChosenShifts] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
   return (
 
