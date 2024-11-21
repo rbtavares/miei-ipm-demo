@@ -1,9 +1,10 @@
 
 import { Button } from '@/components/ui/button';
 import { shifts } from '@/data/Shifts';
-import { Edit } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { Check, CheckCircle, Edit, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import VanillaTilt from 'vanilla-tilt';
+import { Checkbox } from '@/components/ui/checkbox';
 
 interface IEvent {
   name?: string,
@@ -13,9 +14,10 @@ interface IEvent {
   rowSpan: string,
   secondary?: boolean,
   onClickCallback?: Function
+  isModifying: boolean
 }
 
-const Event = ({ name, location, shift, duration, rowSpan, secondary, onClickCallback }: IEvent) => {
+const Event = ({ name, location, shift, duration, rowSpan, secondary, onClickCallback, isModifying }: IEvent) => {
   const tiltRef = useRef(null);
 
   useEffect(() => {
@@ -33,6 +35,7 @@ const Event = ({ name, location, shift, duration, rowSpan, secondary, onClickCal
     <>
       <div ref={tiltRef} className={`relative pb-[0.4rem] ${rowSpan}`} onClick={onClickCallback ? () => onClickCallback() : () => { }}>
         <div className={`absolute select-none cursor-pointer border ${secondary ? 'border-white' : 'border-transparent'} ${secondary ? 'bg-white/30' : 'bg-white'} text-${secondary ? 'white' : 'black'} hover:drop-shadow-xl flex flex-col flex-1 justify-between w-full h-full rounded-md px-1 hover:scale-125 ${secondary && 'hover:text-black'} hover:drop-shadow-xl hover:bg-white hover:z-50 duration-300`}>
+          {isModifying && <Checkbox id="terms" className='absolute top-1 right-1'/>}
           <div>
             <h1 className="text-lg font-medium">{name}</h1>
             <h3 className="text-xs font-light">{location}</h3>
@@ -53,7 +56,7 @@ const EventSpacer = ({ hideBorder }: { hideBorder?: boolean }) => {
   )
 }
 
-const Schedule = ({ selectShift }: { selectShift: Function }) => {
+const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModifying: boolean }) => {
 
   return (
     <div className="flex h-full w-full gap-1">
@@ -88,39 +91,10 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
         {/* Table */}
         <div className="grid grid-cols-6 gap-x-2 h-full flex-1 bg-white/10 rounded-lg">
           <div className="grid grid-cols-1 gap-1">
-            {/* Podemos agrupar os eventos e tirar a gap dos spacers, se for mesmo preciso */}
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[0])} />
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[0])} />
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="IA" location="1C - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[1])} />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer hideBorder />
-          </div>
-          <div className="grid grid-cols-1 gap-1">
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[2])} />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="MPC" location="4.3 - Ed.8" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[3])} />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer hideBorder />
-          </div>
-          <div className="grid grid-cols-1 gap-1">
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="IA" location="1C - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[4])} />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
@@ -130,25 +104,51 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
             <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[1])} />
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="MPC" location="1C - Ed.7" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[4])}/>
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="OPT" location="4.3 - Ed.8" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[6])} />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="MPC" location="1D - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[5])}/>
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="MPC" location="4.3 - Ed.8" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[6])} />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
             <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
-            <Event rowSpan="row-span-2" name="IPM" location="Sala 128 - Ed.2" shift="T2" duration="2h" secondary onClickCallback={() => selectShift(shifts[6])}/>
+            <EventSpacer />
+            <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="IA" location="4.3 - Ed.9" shift="P3" duration="2h" onClickCallback={() => selectShift(shifts[7])}/>
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="OPT" location="4.3 - Ed.8" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[6])} />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer hideBorder />
+          </div>
+          <div className="grid grid-cols-1 gap-1">
+            <EventSpacer />
+            <EventSpacer hideBorder />
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="MPC" location="1C - Ed.7" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[3])} />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer hideBorder />
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="MPC" location="1D - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[7])} />
+            <EventSpacer hideBorder />
+          </div>
+          <div className="grid grid-cols-1 gap-1">
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="IPM" location="Sala 128 - Ed.2" shift="T2" duration="2h" secondary onClickCallback={() => selectShift(shifts[2])} />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer hideBorder />
+            <Event isModifying={isModifying} rowSpan="row-span-2" name="IA" location="4.3 - Ed.9" shift="P3" duration="2h" onClickCallback={() => selectShift(shifts[5])} />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
@@ -177,14 +177,25 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
 }
 
 const ScheduleInfoCard = ({ selectShift }: { selectShift: Function }) => {
+
+  const [modifying, setModifying] = useState(false)
+  const [chosenShifts, setChosenShifts] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
   return (
 
     <div className="card w-full flex-1 p-4 flex flex-col gap-4">
       <div className='flex justify-between'>
         <h1 className="header">Schedule</h1>
-        <Button><Edit /> Modify</Button>
+        {modifying ?
+          <div className='flex gap-2'>
+            <Button onClick={() => setModifying(false)}>Apply Changes</Button>
+            <Button onClick={() => setModifying(false)} variant="destructive">Cancel</Button>
+          </div>
+          :
+          <Button onClick={() => setModifying(true)}><Edit /> Modify</Button>
+        }
       </div>
-      <Schedule selectShift={selectShift} />
+      <Schedule selectShift={selectShift} isModifying={modifying} />
     </div>
   )
 }
