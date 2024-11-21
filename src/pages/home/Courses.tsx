@@ -6,7 +6,7 @@ import { courses, coursesRegister } from "@/data/Courses";
 import { cn, getPath } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowRight, Bell, Check, ChevronsUpDown, CirclePlus } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -18,18 +18,37 @@ interface CourseCard {
   hasNotifications?: boolean
 }
 
-const RegisterCourse = () => {
+interface RegisteredCourse {
+  name: string
+  abbrev: string
+  info: string
+  ects: number
+  hasNotifications?: boolean
+  enrolled: boolean
+}
+
+const RegisterCourse = ( {coursesRegistered, setCoursesRegistered} : {coursesRegistered: RegisteredCourse[], setCoursesRegistered: React.Dispatch<React.SetStateAction<RegisteredCourse[]>>} ) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState("")
 
-  const handleRegisterClick = (course: string) => { 
+  const handleRegisterClick = (course: string) => {
     if (!course) {
       toast("Please select a course before registering.")
       return
     }
     toast(`Registered for ${course}.`) 
-    setDialogOpen(false)
+    setDialogOpen(false);
+    setCoursesRegistered(coursesRegistered.map((c) =>
+      c.name === course ? {
+        name: c.name,
+        abbrev: c.abbrev,
+        info: c.info,
+        ects: c.ects,
+        hasNotifications: c.hasNotifications,
+        enrolled: true
+      } : c   
+    ));
   }
 
   return (
@@ -51,7 +70,7 @@ const RegisterCourse = () => {
                 aria-expanded={open}
                 className="w-full justify-between"
                 >
-                {value? coursesRegister.find((course) => course.label === value)?.label: "Select course..."}
+                {value? coursesRegister.find((course) => course.name === value)?.name: "Select course..."}
                   <ChevronsUpDown className="ml-2 h-4 shrink-0 opacity-50" />
                 </Button>
               </PopoverTrigger>
@@ -63,8 +82,8 @@ const RegisterCourse = () => {
                     <CommandGroup>
                       {coursesRegister.map((course) => (
                         <CommandItem
-                          key={course.label}
-                          value={course.label}
+                          key={course.name}
+                          value={course.name}
                           onSelect={(currentValue) => {
                             setValue(currentValue === value ? "" : currentValue)
                             setOpen(false)
@@ -73,10 +92,10 @@ const RegisterCourse = () => {
                           <Check
                             className={cn(
                               "mr-2 h-4 w-4",
-                              value === course.label ? "opacity-100" : "opacity-0"
+                              value === course.name ? "opacity-100" : "opacity-0"
                             )}
                           />
-                          {course.label}
+                          {course.name}
                         </CommandItem>
                       ))}
                     </CommandGroup>
@@ -127,7 +146,13 @@ const CourseCard = ({ name, abbrev, info, ects, hasNotifications = false }: Cour
   )
 }
 
-const Courses = () => (
+const Courses = () => {
+  
+  const [coursesRegistered, setCoursesRegistered] = useState(coursesRegister.map((course) => (
+    { name: course.name, abbrev: course.abbrev, info: course.info, ects: course.ects, enrolled: false}
+  )));
+
+  return (
   <div className="relative flex-1">
     <div className="absolute h-full w-full card fscroll flex flex-col gap-4 p-4">
 
@@ -141,11 +166,27 @@ const Courses = () => (
       >
         Courses
       </motion.h1>
-      <RegisterCourse/>
+      <RegisterCourse coursesRegistered={coursesRegistered} setCoursesRegistered={setCoursesRegistered}/>
       </div>
 
       {/* Card Content */}
       <div className="flex flex-1 flex-col gap-3 text-white overflow-y-auto pr-1">
+        {coursesRegistered.map((course, index) => (
+          course.enrolled ? <motion.div
+          initial={{ opacity: 0, y: 150 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, delay: 0.1 + (index * 0.1) }}
+          key={index}
+        >
+          <CourseCard
+            name={course.name}
+            abbrev={course.abbrev}
+            info={course.info}
+            ects={course.ects}
+            hasNotifications={index % 2 == 0}
+          />
+        </motion.div> : <></>
+        ))}
         {courses.map((item, index) => (
           <motion.div
             initial={{ opacity: 0, y: 150 }}
@@ -166,6 +207,6 @@ const Courses = () => (
 
     </div>
   </div>
-);
+)};
 
 export default Courses;

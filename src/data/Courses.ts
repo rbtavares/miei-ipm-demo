@@ -38,20 +38,10 @@ export const courses : Course[] = [
   ]
 
   export const coursesRegister = [
-    {
-      label: "Qualidade de Software",
-    },
-    {
-      label: "Preparação da Dissertação",
-    },
-    {
-      label: "Empreendedorismo",
-    },
-    {
-      label: "Aprendizagem Automática",
-    },
-    {
-      label: "Segurança de Software",
-    },
+    {name: "Qualidade de Software", abbrev: "QS", description: "No description", info: "No info.", professor: "Professor Name", coordinater: "Coordinater Name", id: 10000, ects: 6},
+    {name: "Preparação da Dissertação", abbrev: "PS", description: "No description", info: "No info.", professor: "Professor Name", coordinater: "Coordinater Name", id: 10000, ects: 6},
+    {name: "Empreendedorismo", abbrev: "EMP", description: "No description", info: "No info.", professor: "Professor Name", coordinater: "Coordinater Name", id: 10000, ects: 6},
+    {name: "Aprendizagem Automática", abbrev: "AA", description: "No description", info: "No info.", professor: "Professor Name", coordinater: "Coordinater Name", id: 10000, ects: 6},
+    {name: "Segurança de Software", abbrev: "SS", description: "No description", info: "No info.", professor: "Professor Name", coordinater: "Coordinater Name", id: 10000, ects: 6}
   ]
   
