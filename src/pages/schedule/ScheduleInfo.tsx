@@ -89,26 +89,26 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
         <div className="grid grid-cols-6 gap-x-2 h-full flex-1 bg-white/10 rounded-lg">
           <div className="grid grid-cols-1 gap-1">
             {/* Podemos agrupar os eventos e tirar a gap dos spacers, se for mesmo preciso */}
+            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[0])} />
+            <EventSpacer />
+            <EventSpacer hideBorder />
+            <Event rowSpan="row-span-2" name="IA" location="1C - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[1])} />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer />
+            <EventSpacer hideBorder />
+          </div>
+          <div className="grid grid-cols-1 gap-1">
             <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[2])} />
             <EventSpacer />
-            <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="CVS" location="1C - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[1])} />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer hideBorder />
-          </div>
-          <div className="grid grid-cols-1 gap-1">
-            <Event rowSpan="row-span-2" name="IPM" location="Lab 121 - Ed.2" shift="P6" duration="2h" onClickCallback={() => selectShift(shifts[2])} />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="AMI" location="4.3 - Ed.8" shift="P9" duration="2h" />
+            <Event rowSpan="row-span-2" name="MPC" location="4.3 - Ed.8" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[3])} />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
@@ -132,23 +132,23 @@ const Schedule = ({ selectShift }: { selectShift: Function }) => {
           <div className="grid grid-cols-1 gap-1">
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="CVS" location="1C - Ed.7" shift="T1" duration="2h" secondary />
+            <Event rowSpan="row-span-2" name="MPC" location="1C - Ed.7" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[4])}/>
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="AMI" location="1D - Ed.7" shift="T1" duration="2h" secondary />
+            <Event rowSpan="row-span-2" name="MPC" location="1D - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[5])}/>
             <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
-            <Event rowSpan="row-span-2" name="IPM" location="Sala 128 - Ed.2" shift="T2" duration="2h" secondary />
+            <Event rowSpan="row-span-2" name="IPM" location="Sala 128 - Ed.2" shift="T2" duration="2h" secondary onClickCallback={() => selectShift(shifts[6])}/>
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
             <EventSpacer hideBorder />
-            <Event rowSpan="row-span-2" name="AMI" location="4.3 - Ed.9" shift="P9" duration="2h" />
+            <Event rowSpan="row-span-2" name="IA" location="4.3 - Ed.9" shift="P3" duration="2h" onClickCallback={() => selectShift(shifts[7])}/>
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
