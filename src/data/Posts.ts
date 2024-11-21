@@ -23,20 +23,20 @@ const getTimeAgo = (daysAgo: number): string => `${daysAgo} days ago`;
 export const templateComments: Comment[] = [
     {
         id: 0,
-        author: "Diana Mendes",
+        author: "Martim Gonçalves",
         content: "I'm having trouble understanding the project requirements. Can someone break down the key components we need to implement?",
         timeAgo: getTimeAgo(Math.floor(Math.random() * 30))
     },
     {
         id: 0,
-        author: "Tomás Henriques",
-        content: "@Diana Mendes I found that creating a detailed project plan and breaking it down into smaller tasks really helps manage the complexity. Don't hesitate to ask for specific guidance!",
+        author: "Diana Mendes Henriques",
+        content: "@Martim Gonçalves I found that creating a detailed project plan and breaking it down into smaller tasks really helps manage the complexity. Don't hesitate to ask for specific guidance!",
         timeAgo: getTimeAgo(Math.floor(Math.random() * 30))
     },
     {
         id: 0,
         author: "Rodrigo Costa",
-        content: "@Diana Mendes Pro tip: Start by creating a basic prototype and then iteratively improve it. This approach helps in understanding the requirements step by step.",
+        content: "@Martim Gonçalves Pro tip: Start by creating a basic prototype and then iteratively improve it. This approach helps in understanding the requirements step by step.",
         timeAgo: getTimeAgo(Math.floor(Math.random() * 30))
     },
 
@@ -139,7 +139,7 @@ export const posts: Post[] = [
                 comments: projectChallengeComments,
                 time: new Date(new Date().getTime() - Math.random() * 10000000000),
                 timeAgo: getTimeAgo(Math.floor(Math.random() * 30)),
-                author: `Luis Silva`,
+                author: `Teresa Romão`,
                 courseName: courseName,
                 keywords: ["Project", "Challenges", "Support"]
             },

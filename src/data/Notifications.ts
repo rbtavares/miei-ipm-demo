@@ -8,6 +8,7 @@ interface Notification {
 export const notifications: Notification[] = [
     {title: "Profile Update", description: "New document added to your profile. Check it out!", time: new Date(Date.now()), course: "General"},
     {title: "New IPM Learning Material", description: "Lecture notes and reference materials for the latest IPM module have been uploaded.", time: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000), course: "IPM"},
+    {title: "Tuition Fee Payment Reminder", description: "Your tuition fee payment is due. Please make sure to complete the payment on time.", time: new Date(Date.now() + 1 * 24 * 60 * 60 * 1100), course: "General"},
     {title: "System Maintenance", description: "Our platform will undergo routine maintenance. Expect brief interruptions.", time: new Date(Date.now() + 1 * 24 * 60 * 60 * 1200), course: "General"},
     {title: "IPM Project 2 Reminder", description: "Your Project 2 submission is due soon. Don't forget to submit before the deadline!", time: new Date(Date.now() + 1 * 24 * 60 * 60 * 1500), course: "IPM"},
     {title: "Career Fair Invitation", description: "Exciting career opportunities await! Join our upcoming Career Fair and connect with top employers.", time: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), course: "General"},
