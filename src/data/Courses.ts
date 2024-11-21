@@ -18,7 +18,8 @@ export const courses : Course[] = [
     {name: "Computação Gráfica", abbrev: "CG", description: "Study of graphical algorithms, rendering techniques, and 3D modeling.", info: "Introduces techniques for visual computing and computer-generated imagery.", professor: "Patrícia Costa", coordinater: "Fábio Almeida", id: 6819, ects: 9},
     {name: "Segurança Informática", abbrev: "SI", description: "Study of computer security, encryption, and secure communications.", info: "Focuses on methods for securing digital systems and networks.", professor: "Raquel Silva", coordinater: "Carlos Fernandes", id: 4672, ects: 6},
     {name: "Fundamentos de Programação", abbrev: "FP", description: "Fundamental programming concepts, focusing on structured and procedural approaches.", info: "Covers variables, loops, and conditionals to form the basis of programming.", professor: "Vera Rocha", coordinater: "João Costa", id: 2331, ects: 6},
-    {name: "Redes Neurais", abbrev: "RN", description: "Study of neural networks, deep learning, and machine learning algorithms.", info: "Introduces techniques for developing AI systems that can learn from data.", professor: "João Martins", coordinater: "Ricardo Pinto", id: 1256, ects: 9}
+    {name: "Redes Neurais", abbrev: "RN", description: "Study of neural networks, deep learning, and machine learning algorithms.", info: "Introduces techniques for developing AI systems that can learn from data.", professor: "João Martins", coordinater: "Ricardo Pinto", id: 1256, ects: 9},
+    {name: "Qualidade de Software", abbrev: "QS", description: "Software quality.", info: "Software quality.", professor: "João Martins", coordinater: "Ricardo Pinto", id: 1256, ects: 9}
   ]
 
   export const coursesRegister = [

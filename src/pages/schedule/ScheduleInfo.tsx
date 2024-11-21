@@ -71,7 +71,7 @@ const EventSpacer = ({ hideBorder }: { hideBorder?: boolean }) => {
 
 const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModifying: boolean }) => {
 
-  const [chosenShifts, setChosenShifts] = useState([0, 1, 2, 4, 6, 7, 8, 9]);
+  const [chosenShifts, setChosenShifts] = useState([0, 1, 2, 4, 7, 8, 9, 10]);
 
   return (
     <div className="flex h-full w-full gap-1">
@@ -149,7 +149,7 @@ const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModif
             {chosenShifts.includes(3) || isModifying ?
               <>
                 <EventSpacer hideBorder />
-                <Event evId={3} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="OPT" location="4.3 - Ed.8" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[3])} />
+                <Event evId={3} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="QS" location="4.3 - Ed.8" shift="P2" duration="2h" onClickCallback={() => selectShift(shifts[3])} />
               </>
               :
               <>
@@ -184,7 +184,7 @@ const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModif
             {chosenShifts.includes(5) || isModifying ?
               <>
                 <EventSpacer hideBorder />
-                <Event evId={5} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="OPT" location="4.3 - Ed.8" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[5])} />
+                <Event evId={5} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="QS" location="4.3 - Ed.8" shift="P1" duration="2h" onClickCallback={() => selectShift(shifts[5])} />
               </>
               :
               <>
@@ -193,17 +193,26 @@ const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModif
                 <EventSpacer />
               </>
             }<EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
-            <EventSpacer />
+            {chosenShifts.includes(6) || isModifying ?
+              <>
+                <EventSpacer hideBorder />
+                <Event evId={6} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="QS" location="4.3 - Ed.8" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[10])} />
+              </>
+              :
+              <>
+                <EventSpacer />
+                <EventSpacer />
+                <EventSpacer />
+              </>
+            }
             <EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <EventSpacer />
-            {chosenShifts.includes(6) || isModifying ?
+            {chosenShifts.includes(7) || isModifying ?
               <>
                 <EventSpacer hideBorder />
-                <Event evId={6} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="MPC" location="1C - Ed.7" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[6])} />
+                <Event evId={7} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="MPC" location="1C - Ed.7" shift="P9" duration="2h" onClickCallback={() => selectShift(shifts[6])} />
               </>
               :
               <>
@@ -216,10 +225,10 @@ const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModif
             <EventSpacer />
             <EventSpacer />
             <EventSpacer />
-            {chosenShifts.includes(7) || isModifying ?
+            {chosenShifts.includes(8) || isModifying ?
               <>
                 <EventSpacer hideBorder />
-                <Event evId={7} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="MPC" location="1D - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[7])} />
+                <Event evId={8} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="MPC" location="1D - Ed.7" shift="T1" duration="2h" secondary onClickCallback={() => selectShift(shifts[7])} />
               </>
               :
               <>
@@ -230,9 +239,9 @@ const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModif
             }<EventSpacer hideBorder />
           </div>
           <div className="grid grid-cols-1 gap-1">
-            {chosenShifts.includes(8) || isModifying ?
+            {chosenShifts.includes(9) || isModifying ?
               <>
-                <Event evId={8} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="IPM" location="Sala 128 - Ed.2" shift="T2" duration="2h" secondary onClickCallback={() => selectShift(shifts[8])} />
+                <Event evId={9} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="IPM" location="Sala 128 - Ed.2" shift="T2" duration="2h" secondary onClickCallback={() => selectShift(shifts[8])} />
               </>
               :
               <>
@@ -242,10 +251,10 @@ const Schedule = ({ selectShift, isModifying }: { selectShift: Function, isModif
             }<EventSpacer />
             <EventSpacer />
             <EventSpacer />
-            {chosenShifts.includes(9) || isModifying ?
+            {chosenShifts.includes(10) || isModifying ?
               <>
                 <EventSpacer hideBorder />
-                <Event evId={9} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="IA" location="4.3 - Ed.9" shift="P3" duration="2h" onClickCallback={() => selectShift(shifts[9])} />
+                <Event evId={10} chosenShifts={chosenShifts} setShifts={setChosenShifts} isModifying={isModifying} rowSpan="row-span-2" name="IA" location="4.3 - Ed.9" shift="P3" duration="2h" onClickCallback={() => selectShift(shifts[9])} />
               </>
               :
               <>

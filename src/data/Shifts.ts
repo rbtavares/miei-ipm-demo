@@ -87,12 +87,12 @@ export const shifts: Shift[] = [
         ]
     },
     {
-        course: "Optional Course",
+        course: "Qualidade de Software",
         courseId: 6310,
-        shiftName: "Practical 9",
+        shiftName: "Practical 2",
         location: "4.3 - Ed.8",
         datetime: "Tuesday 11:00-13:00",
-        professor: "Cláudia Santos",
+        professor: "Miguel Monteiro",
         enrolledStudents: [
             { name: "Ana Silva", number: 55123 },
             { name: "João Santos", number: 55124 },
@@ -135,12 +135,12 @@ export const shifts: Shift[] = [
         ]
     },
     {
-        course: "Optional Course",
+        course: "Qualidade de Software",
         courseId: 6310,
-        shiftName: "Practical 9",
+        shiftName: "Practical 1",
         location: "4.3 - Ed.8",
         datetime: "Wednesday 13:00-15:00",
-        professor: "Cláudia Santos",
+        professor: "Miguel Monteiro",
         enrolledStudents: [
             { name: "Ana Silva", number: 55123 },
             { name: "João Santos", number: 55124 },
@@ -237,6 +237,30 @@ export const shifts: Shift[] = [
         location: "4.3 - Ed.9",
         datetime: "Friday 13:00-15:00",
         professor: "Cláudia Santos",
+        enrolledStudents: [
+            { name: "Ana Silva", number: 55123 },
+            { name: "João Santos", number: 55124 },
+            { name: "Maria Pereira", number: 55125 },
+            { name: "Carlos Almeida", number: 55126 },
+            { name: "Beatriz Costa", number: 55127 },
+            { name: "Miguel Ferreira", number: 55128 },
+            { name: "Patrícia Lopes", number: 55129 },
+            { name: "Rui Marques", number: 55130 },
+            { name: "Helena Dias", number: 55131 },
+            { name: "André Rocha", number: 55132 },
+            { name: "Luís Fonseca", number: 55133 },
+            { name: "Sara Nunes", number: 55134 },
+            { name: "Tiago Carvalho", number: 55135 },
+            { name: "Catarina Oliveira", number: 55136 }
+        ]
+    },
+    {
+        course: "Qualidade de Software",
+        courseId: 63102,
+        shiftName: "Theoretical 1",
+        location: "4.3 - Ed.8",
+        datetime: "Wednesday 17:00-19:00",
+        professor: "Miguel Monteiro",
         enrolledStudents: [
             { name: "Ana Silva", number: 55123 },
             { name: "João Santos", number: 55124 },

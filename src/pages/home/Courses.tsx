@@ -190,20 +190,24 @@ const Courses = () => {
         </motion.div> : <></>
         ))}
         {courses.map((item, index) => (
-          <motion.div
-            initial={{ opacity: 0, y: 150 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
-            key={index}
-          >
-            <CourseCard
-              name={item.name}
-              abbrev={item.abbrev}
-              info={item.info}
-              ects={item.ects}
-              hasNotifications={index % 2 == 0}
-            />
-          </motion.div>
+          index === courses.length - 1 ? (
+            <div></div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 150 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
+              key={index}
+            >
+              <CourseCard
+                name={item.name}
+                abbrev={item.abbrev}
+                info={item.info}
+                ects={item.ects}
+                hasNotifications={index % 2 == 0}
+              />
+            </motion.div>
+          )
         ))}
       </div>
 

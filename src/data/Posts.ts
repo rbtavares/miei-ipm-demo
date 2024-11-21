@@ -109,7 +109,8 @@ export const posts: Post[] = [
         "Computação Gráfica",
         "Segurança Informática",
         "Fundamentos de Programação",
-        "Redes Neurais"
+        "Redes Neurais",
+        "Qualidade de Software"
     ]).flatMap((courseName, courseIndex) => {
         const projectChallengeComments = templateComments.slice(0, 3).map((comment, idx) => ({
             ...comment,

@@ -49,7 +49,8 @@ export const materials: Material[] = [
         "CG",
         "SI",
         "FP",
-        "RN"
+        "RN",
+        "QS"
     ]).flatMap((course, courseIndex) => 
         materialTypes.map((type, typeIndex) => ({
             id: 1000 + courseIndex * 5 + typeIndex + 1,
