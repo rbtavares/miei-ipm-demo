@@ -1,4 +1,3 @@
-import AvatarImg from '@/assets/avatar.png';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -73,8 +72,8 @@ const PostCard = ({ title, comments, time, keywords, content, author, postsPoste
                 </h1>
   
                 <Avatar className='drop-shadow-md size-6 2xl:size-8'>
-                    <AvatarImage src={AvatarImg} alt="@shadcn" />
-                    <AvatarFallback>FS</AvatarFallback>
+                    <AvatarImage alt="@shadcn" />
+                    <AvatarFallback className="text-black">{generateFallback(author)}</AvatarFallback>
             </Avatar>
               </div>
   
