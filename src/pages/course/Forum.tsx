@@ -59,7 +59,7 @@ const PostCard = ({ title, comments, time, keywords, content, author }: IPostCar
         <DialogContent className='max-w-3xl'>
           <DialogHeader>
             <DialogTitle className='text-3xl mb-1'>{title}</DialogTitle>
-            <DialogDescription className='text-lg'>{content}</DialogDescription>
+            <DialogDescription className='text-lg italic'>{content}</DialogDescription>
           </DialogHeader>
             <div>
                 <div className='flex flex-wrap gap-2 mb-3'>
@@ -76,7 +76,7 @@ const PostCard = ({ title, comments, time, keywords, content, author }: IPostCar
                         <div className='bg-white/80 py-2 px-3 rounded-lg shadow-sm flex justify-between items-center'>
                             <div>
                                 <h3 className='text-lg mb-3'>{c.content}</h3>
-                                <h3 className='text-sm text-pretty italic'>{c.author} - {c.timeAgo}</h3>
+                                <h3 className='text-sm tex text-pretty italic'>{c.author} - {c.timeAgo}</h3>
                             </div>
                             <Avatar className='drop-shadow-md size-10 mr-3'>
                                 <AvatarImage src={AvatarImg} alt="@shadcn" />
@@ -116,7 +116,12 @@ const ForumCard = ({ name }: { name: string }) => {
                 </div>
 
                 <div className="gap-2 pr-1 flex-1 flex flex-col p-0 text-white overflow-y-auto">
-                {filteredPosts.map((post) => (
+                {filteredPosts.map((post, index) => (
+                  <motion.div
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.3 + 0.1 * index }}
+              >
                     <PostCard
                         key={post.id}
                         title={post.title}
@@ -127,6 +132,7 @@ const ForumCard = ({ name }: { name: string }) => {
                         content={post.content}
                         author={post.author}
                     />
+                    </motion.div>
                     ))
                 }
                 </div>

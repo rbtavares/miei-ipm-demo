@@ -166,7 +166,9 @@ const Courses = () => {
       >
         Courses
       </motion.h1>
+      <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{ duration: 0.5, delay: 0.9 }}>
       <RegisterCourse coursesRegistered={coursesRegistered} setCoursesRegistered={setCoursesRegistered}/>
+      </motion.div>
       </div>
 
       {/* Card Content */}

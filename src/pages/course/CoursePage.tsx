@@ -40,7 +40,7 @@ const CoursePage = () => {
 
             <div className="flex flex-col gap-5 col-span-1 h-full">
               <div className="relative flex flex-1"><UpcomingEventsCard course={course.abbrev}/></div>
-              <div className="relative flex flex-1"><NotificationsCard/></div>
+              <div className="relative flex flex-1"><NotificationsCard course={course.abbrev}/></div>
             </div>
         </div>
     </div>
