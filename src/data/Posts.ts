@@ -136,7 +136,7 @@ export const posts: Post[] = [
             {
                 id: courseIndex * 4 + 1,
                 title: `Project 2 Challenges - ${courseName}`,
-                content: `Seeking help with the first project in ${courseName}. What are the main challenges you're encountering? Let's share strategies and insights to overcome initial obstacles.`,
+                content: `Seeking help with the first project in ${courseName}? What are the main challenges you're encountering? Let's share strategies and insights to overcome initial obstacles.`,
                 comments: projectChallengeComments,
                 time: new Date(new Date().getTime() - Math.random() * 10000000000),
                 timeAgo: getTimeAgo(Math.floor(Math.random() * 30)),
