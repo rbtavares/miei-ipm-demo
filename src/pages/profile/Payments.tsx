@@ -7,12 +7,19 @@ import { Switch } from '@/components/ui/switch'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { PaperclipIcon } from 'lucide-react'
 import { useState } from 'react'
+import { Paid, paid, ToPay, toPay } from '@/data/Payments'
 
-const PayEntryDialog = () => {
+interface IPayEntry {
+  index: number
+  handleConfirmClick: Function
+}
+
+const PayEntryDialog = ( {index, handleConfirmClick}: IPayEntry ) => {
 
   const [option, setOption] = useState("mbway");
+  const [dialogOpen, setDialogOpen] = useState(false);
 
-  return <Dialog>
+  return <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
     <DialogTrigger asChild>
       <Button className='h-6'>Pay</Button>
     </DialogTrigger>
@@ -21,7 +28,7 @@ const PayEntryDialog = () => {
         <DialogTitle className='text-2xl'>Payment</DialogTitle>
       </DialogHeader>
       <DialogDescription>
-        Description: Tuition Fee<br />Value: 69,70€
+        Description: Tuition Fee<br />Value: 69.70€
       </DialogDescription>
 
       <RadioGroup defaultValue={option} onValueChange={(v) => setOption(v)} className='gap-5 bg-white/10 rounded-lg p-3'>
@@ -34,7 +41,7 @@ const PayEntryDialog = () => {
             <Label>Phone Number</Label>
             <div className='flex gap-3'>
               <Input disabled={option !== 'mbway'} id="name" className="font-mono" placeholder='910000000' />
-              <Button disabled={option !== 'mbway'} variant="secondary">Confirm</Button>
+              <Button disabled={option !== 'mbway'} variant="secondary" onClick={() => handleConfirmClick(index, 'MBWay', setDialogOpen)}>Confirm</Button>
             </div>
           </div>
         </div>
@@ -61,7 +68,7 @@ const PayEntryDialog = () => {
                 <Label>CVC / CVV</Label>
                 <Input disabled={option !== 'credit-card'} className="font-mono" placeholder='000' />
               </div>
-              <Button disabled={option !== 'credit-card'} variant="secondary">Confirm</Button>
+              <Button disabled={option !== 'credit-card'} variant="secondary" onClick={() => handleConfirmClick(index, 'Credit Card', setDialogOpen)} >Confirm</Button>
             </div>
           </div>
 
@@ -73,16 +80,18 @@ const PayEntryDialog = () => {
 }
 
 interface IDuePaymentEntry {
+  index: number
   deadline: Date
   amount: number
+  handleConfirmClick: Function
 }
 
-const DuePaymentEntry = ({ deadline, amount }: IDuePaymentEntry) => (
+const DuePaymentEntry = ({ index, deadline, amount, handleConfirmClick }: IDuePaymentEntry) => (
   <TableRow>
     <TableCell>{String(deadline.toLocaleDateString("pt-PT"))}</TableCell>
     <TableCell >{amount.toFixed(2)}€</TableCell>
     <TableCell className="text-right">
-      <PayEntryDialog />
+      <PayEntryDialog index={index} handleConfirmClick={handleConfirmClick} />
     </TableCell>
   </TableRow>
 )
@@ -113,6 +122,48 @@ const PaidPaymentEntry = ({ invoice, method, date }: IPaidPaymentEntry) => (
 const Payments = () => {
   const [option, setOption] = useState("mbway");
   const [isPaidTable, setIsPaidTable] = useState(false);
+  const [toPayFees, setToPayFees] = useState(toPay);
+  const [paidFees, setPaidFees] = useState(paid);
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [buttonDisabled, setButtonDisabled] = useState(false)
+  const [totalPrice, setTotalPrice] = useState(418.2)
+
+  const handleConfirmClickAll = (method: string) => {
+    setToPayFees([]); // Clear all unpaid fees
+    setPaidFees(prevPaidFees => [
+      ...prevPaidFees,
+      ...toPayFees.map((_, index) => ({
+        invoice: `INV00${prevPaidFees.length + index + 1}`,
+        method: method,
+        date: new Date()
+      }))
+    ]);
+    setDialogOpen(false);
+    setButtonDisabled(true);
+  }
+
+  const handleConfirmClick = (index: number, method: string, setDialogOpen: React.Dispatch<React.SetStateAction<boolean>>) => {
+    setToPayFees(prevToPayFees => {
+      const newToPayFees = [...prevToPayFees];
+      newToPayFees.splice(index, 1);
+      if (newToPayFees.length == 0) setButtonDisabled(true);
+      let newPrice = 0;
+      newToPayFees.forEach((f) => newPrice += f.amount)
+      setTotalPrice(newPrice);
+      return newToPayFees;
+    });
+
+    setPaidFees(prevPaidFees => [
+      ...prevPaidFees,
+      {
+        invoice: `INV00${prevPaidFees.length + 1}`,
+        method: method,
+        date: new Date()
+      }
+    ]);
+    
+    setDialogOpen(false);
+  }
 
   return (
     <div className="card flex-1 p-4 flex h-full w-full flex-col gap-2 fscroll absolute">
@@ -136,11 +187,9 @@ const Payments = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <PaidPaymentEntry invoice={'INV001'} method={'Credit Card'} date={new Date()} />
-              <PaidPaymentEntry invoice={'INV002'} method={'Credit Card'} date={new Date()} />
-              <PaidPaymentEntry invoice={'INV003'} method={'Credit Card'} date={new Date()} />
-              <PaidPaymentEntry invoice={'INV004'} method={'MBWay'} date={new Date()} />
-              <PaidPaymentEntry invoice={'INV005'} method={'MBWay'} date={new Date()} />
+              {paidFees.map((p) => (
+                <PaidPaymentEntry invoice={p.invoice} method={p.method} date={p.date} />
+              ))}
             </TableBody>
           </Table>
           :
@@ -150,16 +199,16 @@ const Payments = () => {
                 <TableHead>Deadline</TableHead>
                 <TableHead>Amount</TableHead>
                 <TableHead className="text-right">
-                  <Dialog>
+                  <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
                     <DialogTrigger asChild>
-                      <Button className='h-6 bg-white/40' variant="secondary">Pay All</Button>
+                      <Button disabled={buttonDisabled} className='h-6 bg-white/40' variant="secondary">Pay All</Button>
                     </DialogTrigger>
                     <DialogContent>
                       <DialogHeader>
                         <DialogTitle className='text-2xl'>Payment</DialogTitle>
                       </DialogHeader>
                       <DialogDescription>
-                        Description: All Tuition Fees<br />Value: 348,50€
+                        Description: All Tuition Fees<br />Value: {totalPrice.toFixed(2)}€
                       </DialogDescription>
 
                       <RadioGroup defaultValue={option} onValueChange={(v) => setOption(v)} className='gap-5 bg-white/10 rounded-lg p-3'>
@@ -172,7 +221,7 @@ const Payments = () => {
                             <Label>Phone Number</Label>
                             <div className='flex gap-3'>
                               <Input disabled={option !== 'mbway'} id="name" className="font-mono" placeholder='910000000' />
-                              <Button disabled={option !== 'mbway'} variant="secondary">Confirm</Button>
+                              <Button disabled={option !== 'mbway'} variant="secondary" onClick={() => handleConfirmClickAll('MBWay')}>Confirm</Button>
                             </div>
                           </div>
                         </div>
@@ -199,7 +248,7 @@ const Payments = () => {
                                 <Label>CVC / CVV</Label>
                                 <Input disabled={option !== 'credit-card'} className="font-mono" placeholder='000' />
                               </div>
-                              <Button disabled={option !== 'credit-card'} variant="secondary">Confirm</Button>
+                              <Button disabled={option !== 'credit-card'} variant="secondary" onClick={() => handleConfirmClickAll('Credit Card')}>Confirm</Button>
                             </div>
                           </div>
 
@@ -212,12 +261,9 @@ const Payments = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-            <DuePaymentEntry deadline={new Date(2024, 10, 28)} amount={69.7} />
-            <DuePaymentEntry deadline={new Date(2024, 11, 28)} amount={69.7} />
-            <DuePaymentEntry deadline={new Date(2024, 0, 28)} amount={69.7} />
-            <DuePaymentEntry deadline={new Date(2024, 1, 28)} amount={69.7} />
-            <DuePaymentEntry deadline={new Date(2024, 2, 28)} amount={69.7} />
-            <DuePaymentEntry deadline={new Date(2024, 3, 28)} amount={69.7} />
+              {toPayFees.map((p, i) => (
+                <DuePaymentEntry index={i} deadline={p.deadline} amount={p.amount} handleConfirmClick={handleConfirmClick} />
+              ))}
             </TableBody>
           </Table>
         }
