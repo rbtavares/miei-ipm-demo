@@ -7,7 +7,7 @@ import { Switch } from '@/components/ui/switch'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { PaperclipIcon } from 'lucide-react'
 import { useState } from 'react'
-import { Paid, paid, ToPay, toPay } from '@/data/Payments'
+import { paid, toPay } from '@/data/Payments'
 
 interface IPayEntry {
   index: number
