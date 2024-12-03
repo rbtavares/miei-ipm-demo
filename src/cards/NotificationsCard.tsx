@@ -1,4 +1,3 @@
-import { formatRelativeTimeAgo } from "@/lib/utils";
 import { notifications as initialNotifications} from "@/data/Notifications";
 import { motion } from 'framer-motion'
 import { useState } from "react";
