@@ -97,7 +97,7 @@ const PostCard = ({ title, comments, time, keywords, content, author, postsPoste
             <DialogTitle className='text-3xl mb-1'>{title}</DialogTitle>
             <DialogDescription className='text-lg italic'>{content}</DialogDescription>
           </DialogHeader>
-            <div>
+            <div className="fscroll">
                 <div className='flex flex-wrap gap-2 mb-3'>
                     {keywords.map((k) => (
                         <Badge variant="secondary">{k}</Badge>
@@ -107,7 +107,7 @@ const PostCard = ({ title, comments, time, keywords, content, author, postsPoste
 
                 <h2 className='text-base font-medium w-full flex text-white mb-5'>Author: {author}</h2>
 
-                <div className='flex flex-col gap-2 mb-5 '>
+                <div className='flex flex-col max-h-96 overflow-y-auto pr-1 gap-2 mb-5'>
                     {comments.map((c) => (
                         <div className='bg-white/80 py-2 px-3 rounded-lg shadow-sm flex justify-between items-center'>
                             <div>

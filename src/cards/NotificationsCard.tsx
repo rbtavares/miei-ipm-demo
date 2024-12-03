@@ -2,6 +2,7 @@ import { formatRelativeTimeAgo } from "@/lib/utils";
 import { notifications as initialNotifications} from "@/data/Notifications";
 import { motion } from 'framer-motion'
 import { useState } from "react";
+import { X } from "lucide-react";
 
 const animate = {
   opacity: 1,
@@ -14,17 +15,18 @@ const initial = {
 }
 
 interface INotificationCard {
+  index: number,
   title: string,
   description: string,
-  time?: Date
+  removeNotification: Function
 }
 
-const NotificationCard = ({ title, description, time }: INotificationCard) => {
+const NotificationCard = ({ index, title, description, removeNotification }: INotificationCard) => {
   return (
-    <div className="bg-white/20 py-2 px-3 rounded-lg shadow-sm flex">
+    <div className="bg-white/20 p-2 rounded-lg shadow-sm flex">
       <div className="flex flex-col gap-2 flex-1">
         <div>
-          <h1 className="text-lg font-medium w-full flex items-center justify-between leading-tight">{title}<span className="text-xs opacity-50">{time && formatRelativeTimeAgo(time)}</span></h1>
+          <h1 className="text-lg font-medium w-full flex items-center justify-between leading-tight">{title}<X className="cursor-pointer" size={18} onClick={() => removeNotification(index)}/></h1>
           <h3 className="text-sm opacity-70">{description}</h3>
         </div>
       </div>
@@ -40,8 +42,14 @@ const NotificationsCard = ({course}: {course?: string}) => {
     setNotifications([]);
   }
 
+  const clearNotification = (index: number) => {
+    setNotifications(prevNotifications => 
+      prevNotifications.filter((_, i) => i !== index)
+    );
+  }  
+
   const filteredNotifications = course 
-  ? notifications.filter(notification => (notification.course === course) || notification.course === "General")
+  ? notifications.filter(notification => (notification.course === course))
   : notifications;
 
   return (
@@ -79,9 +87,10 @@ const NotificationsCard = ({course}: {course?: string}) => {
                 key={index}
               >
                 <NotificationCard 
+                  index={index}
                   title={item.title} 
                   description={item.description} 
-                  time={item.time} 
+                  removeNotification={clearNotification}
                 />
               </motion.div>
             ))

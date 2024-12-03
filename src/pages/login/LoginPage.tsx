@@ -9,12 +9,16 @@ import { motion } from 'framer-motion'
 import { Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
+import { toast } from "sonner";
 
 const LoginForm = () => {
 
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const notImplemented = () =>
+    toast("Not implemented yet.")
 
   const navitageToHome = () => {
     setIsLoading(true);
@@ -77,6 +81,7 @@ const LoginForm = () => {
           <Button
             className='w-full drop-shadow-md text-white'
             variant='link'
+            onClick={() => notImplemented()}
           >
             Forgot password?
           </Button>
@@ -116,6 +121,7 @@ const LoginForm = () => {
             <Button
               className='drop-shadow-md w-full bg-white/20'
               variant='outline'
+              onClick={() => notImplemented()}
             >Google SSO
             </Button>
           </motion.div>
@@ -128,6 +134,7 @@ const LoginForm = () => {
             <Button
               className='drop-shadow-md w-full bg-white/20'
               variant='outline'
+              onClick={() => notImplemented()}
             >SAML Login
             </Button>
           </motion.div>

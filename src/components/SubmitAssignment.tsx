@@ -79,13 +79,14 @@ const AssignmentSubmission: React.FC<AssignmentSubmissionProps> = ({
               />
             </label>
           </div>
-
-          <Textarea
-            placeholder="Additional comments or instructions for the assignment"
-            value={comments}
-            onChange={(e) => setComments(e.target.value)}
-            className="min-h-[120px]"
-          />
+          <div className="gap-2">
+            <Textarea
+              placeholder="Additional comments or instructions for the assignment (*)"
+              value={comments}
+              onChange={(e) => setComments(e.target.value)}
+              className="min-h-[120px] border-red-500"
+            />
+          </div>
 
           <Button 
             onClick={handleSubmit} 
