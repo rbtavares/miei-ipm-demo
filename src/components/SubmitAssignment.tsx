@@ -65,7 +65,7 @@ const AssignmentSubmission: React.FC<AssignmentSubmissionProps> = ({
                   ></path>
                 </svg>
                 <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                  <span className="font-semibold">Click to upload</span> or drag and drop
+                  <span className="font-semibold">Click to upload</span> or drag and drop (*)
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
                   {file ? `Selected: ${file.name}` : 'Any file types allowed'}
@@ -81,17 +81,17 @@ const AssignmentSubmission: React.FC<AssignmentSubmissionProps> = ({
           </div>
           <div className="gap-2">
             <Textarea
-              placeholder="Additional comments or instructions for the assignment (*)"
+              placeholder="Additional comments or instructions for the assignment"
               value={comments}
               onChange={(e) => setComments(e.target.value)}
-              className="min-h-[120px] border-red-500"
+              className="min-h-[120px]"
             />
           </div>
 
           <Button 
             onClick={handleSubmit} 
             disabled={!file}
-            className="bg-black text-white"
+            className="bg-black text-white hover:bg-black"
           >
             Confirm Submission
           </Button>
