@@ -235,6 +235,9 @@ const Payments = () => {
   const [dialogOpen, setDialogOpen] = useState(false)
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const [totalPrice, setTotalPrice] = useState(418.2)
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [cvc, setCvc] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
 
   const handleConfirmClickAll = (method: string) => {
     setToPayFees([]); // Clear all unpaid fees
@@ -328,7 +331,42 @@ const Payments = () => {
                           <div className='flex flex-col gap-1'>
                             <Label>Phone Number</Label>
                             <div className='flex gap-3'>
-                              <Input disabled={option !== 'mbway'} id="name" className="font-mono" placeholder='910000000' />
+                              <Input 
+                                type="text"
+                                disabled={option !== 'mbway'} 
+                                id="name" 
+                                className="font-mono" 
+                                placeholder='910000000' 
+                                value={phoneNumber}
+                                onChange={(e) => {
+                                  const numericValue = e.target.value.replace(/\D/g, '');
+                                  
+                                  const limitedValue = numericValue.slice(0, 9);
+                                
+                                  setPhoneNumber(limitedValue);
+                                }}
+                                onKeyDown={(e) => {
+
+                                  const allowedKeys = [
+                                    'Backspace', 
+                                    'Delete', 
+                                    'ArrowLeft', 
+                                    'ArrowRight', 
+                                    'Tab', 
+                                    'Home', 
+                                    'End'
+                                  ];
+                                  if (allowedKeys.includes(e.key)) {
+                                    return;
+                                  }
+
+                                  const char = e.key;
+                                  if (!/^\d$/.test(char)) {
+                                    e.preventDefault();
+                                  }
+                                }}
+                                maxLength={9}
+                              />
                               <Button disabled={option !== 'mbway'} variant="secondary" onClick={() => handleConfirmClickAll('MBWay')}>Confirm</Button>
                             </div>
                           </div>
@@ -345,7 +383,42 @@ const Payments = () => {
                           <div className='flex flex-col gap-3'>
                             <div className='flex flex-col gap-1'>
                               <Label>Card Number</Label>
-                              <Input disabled={option !== 'credit-card'} className="font-mono" placeholder='0000 0000 0000 0000' />
+                              <Input 
+                                type="text"
+                                disabled={option !== 'credit-card'} 
+                                id="cardNumber" 
+                                className="font-mono" 
+                                placeholder='0000 0000 0000 0000' 
+                                value={cardNumber}
+                                onChange={(e) => {
+                                  const numericValue = e.target.value.replace(/\D/g, '');
+                                  
+                                  const limitedValue = numericValue.slice(0, 16);
+                                
+                                  setCardNumber(limitedValue);
+                                }}
+                                onKeyDown={(e) => {
+
+                                  const allowedKeys = [
+                                    'Backspace', 
+                                    'Delete', 
+                                    'ArrowLeft', 
+                                    'ArrowRight', 
+                                    'Tab', 
+                                    'Home', 
+                                    'End'
+                                  ];
+                                  if (allowedKeys.includes(e.key)) {
+                                    return;
+                                  }
+
+                                  const char = e.key;
+                                  if (!/^\d$/.test(char)) {
+                                    e.preventDefault();
+                                  }
+                                }}
+                                maxLength={16}
+                              />
                             </div>
                             <div className='flex flex-row gap-3 items-end'>
                               <div className='flex flex-col gap-1 flex-1'>
@@ -354,7 +427,42 @@ const Payments = () => {
                               </div>
                               <div className='flex flex-col gap-1 flex-1'>
                                 <Label>CVC / CVV</Label>
-                                <Input disabled={option !== 'credit-card'} className="font-mono" placeholder='000' />
+                                <Input 
+                                  type="text"
+                                  disabled={option !== 'credit-card'} 
+                                  id="cvc" 
+                                  className="font-mono" 
+                                  placeholder='000' 
+                                  value={cvc}
+                                  onChange={(e) => {
+                                    const numericValue = e.target.value.replace(/\D/g, '');
+                                    
+                                    const limitedValue = numericValue.slice(0, 3);
+                                  
+                                    setCvc(limitedValue);
+                                  }}
+                                  onKeyDown={(e) => {
+
+                                    const allowedKeys = [
+                                      'Backspace', 
+                                      'Delete', 
+                                      'ArrowLeft', 
+                                      'ArrowRight', 
+                                      'Tab', 
+                                      'Home', 
+                                      'End'
+                                    ];
+                                    if (allowedKeys.includes(e.key)) {
+                                      return;
+                                    }
+
+                                    const char = e.key;
+                                    if (!/^\d$/.test(char)) {
+                                      e.preventDefault();
+                                    }
+                                  }}
+                                  maxLength={3}
+                                />
                               </div>
                               <Button disabled={option !== 'credit-card'} variant="secondary" onClick={() => handleConfirmClickAll('Credit Card')}>Confirm</Button>
                             </div>
