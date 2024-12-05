@@ -61,7 +61,7 @@ const NotificationsCard = ({course}: {course?: string}) => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="header"
           >
-            Notifications
+            {course} Notifications
           </motion.h1>
           
           {filteredNotifications.length > 0 && (
