@@ -39,8 +39,17 @@ const Event = ({ name, location, shift, duration, rowSpan, secondary, onClickCal
         if (isModifying) {
           if(chosenShifts.includes(evId))
             setShifts(chosenShifts.filter((num: number) => num !== evId))
-          else
-            setShifts([...chosenShifts, evId])
+          else {
+            if (evId === 3) {
+              setShifts(chosenShifts.filter((num: number) => num !== 5).concat(3))
+            } else {
+              if (evId === 5) {
+                setShifts(chosenShifts.filter((num: number) => num !== 3).concat(5));
+              } else            
+                  setShifts([...chosenShifts, evId])
+            }
+
+          }
 
         } else {
           if(onClickCallback)

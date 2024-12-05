@@ -18,7 +18,10 @@ interface CourseCard {
   hasNotifications?: boolean
 }
 
-const RegisterCourse = ( {coursesRegistered, setCoursesRegistered} : {coursesRegistered: Course[], setCoursesRegistered: React.Dispatch<React.SetStateAction<Course[]>>} ) => {
+const RegisterCourse = ( {coursesRegistered, setCoursesRegistered, setRegisteredInCourses} : 
+  {coursesRegistered: Course[], 
+    setCoursesRegistered: React.Dispatch<React.SetStateAction<Course[]>>,
+    setRegisteredInCourses: React.Dispatch<React.SetStateAction<boolean>>} ) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState("")
@@ -30,6 +33,7 @@ const RegisterCourse = ( {coursesRegistered, setCoursesRegistered} : {coursesReg
     }
     toast(`Registered for ${name}.`) 
     setDialogOpen(false);
+    setRegisteredInCourses(true);
     setCoursesRegistered(coursesRegistered.map((c) =>
       c.name === name ? {
         name: c.name,
@@ -141,7 +145,7 @@ const CourseCard = ({ name, abbrev, info, ects, hasNotifications = false }: Cour
   )
 }
 
-const Courses = () => {
+const Courses = ({ setRegisteredInCourses }: { setRegisteredInCourses: React.Dispatch<React.SetStateAction<boolean>> }) => {
   
   const [coursesRegistered, setCoursesRegistered] = useState(courses);
 
@@ -160,7 +164,7 @@ const Courses = () => {
         Courses
       </motion.h1>
       <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{ duration: 0.5, delay: 0.9 }}>
-      <RegisterCourse coursesRegistered={coursesRegistered} setCoursesRegistered={setCoursesRegistered}/>
+      <RegisterCourse coursesRegistered={coursesRegistered} setCoursesRegistered={setCoursesRegistered} setRegisteredInCourses={setRegisteredInCourses}/>
       </motion.div>
       </div>
 

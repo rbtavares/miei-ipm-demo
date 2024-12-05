@@ -15,66 +15,58 @@ const initial = {
 
 
 const CalendarBox = () => {
+    const today = new Date();
+    const currentDay = today.getDate(); 
+    const currentMonth = today.getMonth(); 
+    const currentYear = today.getFullYear(); 
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const dates = Array.from({ length: firstDayOfMonth })
+      .fill(null)
+      .concat(Array.from({ length: daysInMonth }, (_, i) => i + 1));
+  
     return (
-        <div className="grid grid-cols-7 h-full w-full gap-2">
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.3 }} className="flex items-center justify-center text-white text-xl font-medium cursor-default">S</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.35 }} className="flex items-center justify-center text-white text-xl font-medium cursor-default">M</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.4 }} className="flex items-center justify-center text-white text-xl font-medium cursor-default">T</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.45 }} className="flex items-center justify-center text-white text-xl font-medium cursor-default">W</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.5 }} className="flex items-center justify-center text-white text-xl font-medium cursor-default">T</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.55 }} className="flex items-center justify-center text-white text-xl font-medium cursor-default">F</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.6 }} className="flex items-center justify-center text-white text-xl font-medium cursor-default">S</motion.div>
+      <div className="grid grid-cols-7 h-full w-full gap-2">
+ 
 
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.35 }} className="flex items-center justify-center text-white/70 font-light cursor-default"></motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.4 }} className="flex items-center justify-center text-white/70 font-light cursor-default"></motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.45 }} className="flex items-center justify-center text-white/70 font-light cursor-default">1</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.5 }} className="flex items-center justify-center text-white/70 font-light cursor-default">2</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.55 }} className="flex items-center justify-center text-white/70 font-light cursor-default">3</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.6 }} className="flex items-center justify-center text-white/70 font-light cursor-default"><h1 className="bg-white/20 aspect-square h-full rounded-full flex items-center justify-center">4</h1></motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.65 }} className="flex items-center justify-center text-white/70 font-light cursor-default">5</motion.div>
+        {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
+          <motion.div
+            key={index}
+            className="flex items-center justify-center text-white text-xl font-medium cursor-default"
+          >
+            {day}
+          </motion.div>
+        ))}
+  
+        {dates.map((date, index) => (
+          <motion.div
+            key={index}
+            className={`flex items-center justify-center text-white/70 font-light cursor-default ${
+              date === currentDay ? "bg-white/20 rounded-full" : ""
+            }`}
+            style={{
+              height: "2rem", 
+              width: "3rem", 
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 * index }}
+          >
+            {date != null ? date.toString() : ""}
+          </motion.div>
+        ))}
+      </div>
+    );
+  };
 
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.4 }} className="flex items-center justify-center text-white/70 font-light cursor-default">6</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.45 }} className="flex items-center justify-center text-white/70 font-light cursor-default">7</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.5 }} className="flex items-center justify-center text-white/70 font-light cursor-default">8</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.55 }} className="flex items-center justify-center text-white/70 font-light cursor-default">9</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.6 }} className="flex items-center justify-center text-white/70 font-light cursor-default">10</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.65 }} className="flex items-center justify-center text-white/70 font-light cursor-default">11</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.7 }} className="flex items-center justify-center text-white/70 font-light cursor-default"><h1 className="bg-white/20 aspect-square h-full rounded-full flex items-center justify-center">12</h1></motion.div>
-
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.45 }} className="flex items-center justify-center text-white/70 font-light cursor-default">13</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.5 }} className="flex items-center justify-center text-white/70 font-light cursor-default">14</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.55 }} className="flex items-center justify-center text-white/70 font-light cursor-default">15</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.6 }} className="flex items-center justify-center text-white/70 font-light cursor-default">16</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.65 }} className="flex items-center justify-center text-white/70 font-light cursor-default">17</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.7 }} className="flex items-center justify-center text-white/70 font-light cursor-default">18</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.75 }} className="flex items-center justify-center text-white/70 font-light cursor-default">19</motion.div>
-
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.5 }} className="flex items-center justify-center text-white/70 font-light cursor-default">20</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.55 }} className="flex items-center justify-center text-white/70 font-light cursor-default"><h1 className="border-2 border-white/75 aspect-square h-full rounded-full flex items-center justify-center">21</h1></motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.6 }} className="flex items-center justify-center text-white/70 font-light cursor-default">22</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.65 }} className="flex items-center justify-center text-white/70 font-light cursor-default">23</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.7 }} className="flex items-center justify-center text-white/70 font-light cursor-default">24</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.75 }} className="flex items-center justify-center text-white/70 font-light cursor-default">25</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.8 }} className="flex items-center justify-center text-white/70 font-light cursor-default">26</motion.div>
-
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.55 }} className="flex items-center justify-center text-white/70 font-light cursor-default">27</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.6 }} className="flex items-center justify-center text-white/70 font-light cursor-default">28</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.65 }} className="flex items-center justify-center text-white/70 font-light cursor-default">29</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.7 }} className="flex items-center justify-center text-white/70 font-light cursor-default">30</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.75 }} className="flex items-center justify-center text-white/70 font-light cursor-default">31</motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.8 }} className="flex items-center justify-center text-white/70 font-light cursor-default"></motion.div>
-            <motion.div initial={initial} animate={animate} transition={{ duration: 1, delay: 0.85 }} className="flex items-center justify-center text-white/70 font-light cursor-default"></motion.div>
-        </div >
-    )
-}
-
-const Calendar = () => {
+const Calendar = ({ hasRegisteredInCourses }: { hasRegisteredInCourses: boolean }) => {
     const navigate = useNavigate();
+    const monthName = new Date().toLocaleString('en-US', { month: 'long' });
 
     return (
         <div
             className="card flex flex-1 flex-col gap-4 p-4">
-            <motion.h1 initial={initial} animate={animate} transition={{ duration: 1, delay: 0.2 }} className="header">Calendar</motion.h1>
+            <motion.h1 initial={initial} animate={animate} transition={{ duration: 1, delay: 0.2 }} className="header">Calendar<span className="text-sm ml-2 text-white/40">({monthName})</span></motion.h1>
             <div className="flex flex-col gap-2 h-full w-full">
                 <div className="flex-1 relative">
                     <div className="flex-1 h-full w-full">
@@ -91,10 +83,12 @@ const Calendar = () => {
                     </div>
                     <motion.div initial={initial} animate={animate} transition={{ duration: 0.5, delay: 0.9 }}>
                         <Button onClick={() => navigate(getPath('/schedule'))} className="relative">
-                        <span className="absolute top-[-4px] right-[-4px] flex h-3 w-3">
+                        {hasRegisteredInCourses && (
+                            <span className="absolute top-[-4px] right-[-4px] flex h-3 w-3">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-                        </span>
+                            </span>
+                        )}
                             <CalendarRange /> Schedule
                         </Button>
                     </motion.div>
